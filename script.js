@@ -1,4 +1,3 @@
-// Variable para controle do tamanho de fonte
 let currentFontSize = 100;
 
 function changeFontSize(delta) {
@@ -8,12 +7,10 @@ function changeFontSize(delta) {
   document.body.style.fontSize = currentFontSize + "%";
 }
 
-// Alternar Alto Contraste
 function toggleContrast() {
   document.body.classList.toggle("high-contrast");
 }
 
-// Leitor de Áudio para Acessibilidade Visual (Web Speech API)
 let synth = window.speechSynthesis;
 
 function readPageText() {
@@ -60,22 +57,21 @@ function drawDisk(angle) {
 function spinNewtonDisk() {
   if (isSpinning) return;
   isSpinning = true;
-  spinSpeed = 0.8; // Velocidade inicial alta para desfocar as cores
+  spinSpeed = 0.9;
 
   function animate() {
     currentAngle += spinSpeed;
     drawDisk(currentAngle);
-    spinSpeed *= 0.98; // Desaceleração suave
+    spinSpeed *= 0.985;
 
     if (spinSpeed > 0.02) {
       requestAnimationFrame(animate);
     } else {
       isSpinning = false;
-      drawDisk(0); // Volta à posição original
+      drawDisk(0);
     }
   }
   animate();
 }
 
-// Renderização inicial do disco
 drawDisk(0);
