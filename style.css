@@ -1,4 +1,3 @@
-/* Resets e Estilos Básicos */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,25 +7,26 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: #121212;
+  color: #e0e0e0;
   transition: background-color 0.3s, color 0.3s;
 }
 
 /* Barra de Acessibilidade */
 .accessibility-bar {
-  background: #222;
+  background: #000;
   color: #fff;
-  padding: 8px;
+  padding: 10px;
   text-align: right;
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid #333;
 }
 
 .accessibility-bar button {
-  background: #005f73;
-  color: white;
+  background: #ffcc00;
+  color: #000;
   border: none;
   padding: 6px 12px;
   margin-left: 5px;
@@ -36,15 +36,16 @@ body {
 }
 
 .accessibility-bar button:hover, .accessibility-bar button:focus {
-  background: #0a9396;
+  background: #ffee55;
   outline: 2px solid #fff;
 }
 
-/* Cabeçalho inspirado na imagem ecoDesign */
+/* Cabeçalho */
 .header {
-  background-color: #006655;
+  background-color: #0d1b2a;
   color: white;
   padding: 15px 5%;
+  border-bottom: 2px solid #ffcc00;
 }
 
 .nav-container {
@@ -61,66 +62,123 @@ body {
 }
 
 .nav-links a {
-  color: white;
+  color: #ffcc00;
   text-decoration: none;
   font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
+  color: #fff;
 }
 
 .logo span {
-  font-weight: normal;
+  color: #ffcc00;
 }
 
-/* Banner Central */
+/* Banner de Destaque com Novo Fundo Dinâmico de Luz */
 .hero-banner {
-  background: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-  height: 200px;
+  background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 40%, #415a77 100%);
+  height: 220px;
   position: relative;
-}
-
-.hero-overlay {
-  background: rgba(0, 70, 50, 0.6);
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  text-align: center;
+  border-bottom: 3px solid #ffcc00;
 }
 
-/* Container de Conteúdo */
+.hero-overlay h2 {
+  color: #ffcc00;
+  font-size: 2rem;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+/* Seções de Conteúdo */
 .content-section {
   max-width: 1100px;
-  margin: 30px auto;
+  margin: 35px auto;
   padding: 0 20px;
 }
 
 .content-section h2 {
-  color: #006655;
+  color: #ffcc00;
   margin-bottom: 15px;
-  border-bottom: 2px solid #006655;
+  border-bottom: 2px solid #ffcc00;
   padding-bottom: 5px;
 }
 
-/* Grid dos Flashcards */
+/* Flashcards Interativos 3D (Efeito Flip) */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 220px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner,
+.flip-card:focus .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  border: 1px solid #333;
+}
+
+.flip-card-front {
+  background-color: #1e1e1e;
+  color: #ffcc00;
+  border-top: 4px solid #ffcc00;
+}
+
+.hint-text {
+  font-size: 0.8rem;
+  color: #aaa;
   margin-top: 15px;
 }
 
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 6px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  border-left: 5px solid #006655;
+.flip-card-back {
+  background-color: #252525;
+  color: #ffffff;
+  transform: rotateY(180deg);
+  border-top: 4px solid #00b4d8;
+  text-align: left;
+}
+
+.flip-card-back h3 {
+  color: #00b4d8;
+  margin-bottom: 8px;
 }
 
 /* Grid de Vídeos */
@@ -132,80 +190,79 @@ body {
 }
 
 .video-card {
-  background: white;
+  background: #1e1e1e;
   padding: 15px;
   border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border: 1px solid #333;
+}
+
+.video-card h3 {
+  color: #ffcc00;
+  margin-bottom: 10px;
 }
 
 .video-desc {
   font-size: 0.9rem;
   margin-top: 8px;
-  color: #555;
+  color: #ccc;
 }
 
 /* Disco de Newton */
 .newton-container {
   text-align: center;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 #btnSpin {
-  background: #006655;
-  color: white;
+  background: #ffcc00;
+  color: black;
   border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  margin-top: 10px;
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 15px;
   cursor: pointer;
   border-radius: 4px;
 }
 
-/* Seção Fake News */
+/* Fake News */
 .fake-card {
-  background: #fff0f0;
-  border-left: 5px solid #d90429;
+  background: #2b1d1d;
+  border-left: 5px solid #ff4d4d;
   padding: 15px;
   margin-bottom: 15px;
   border-radius: 4px;
 }
 
-/* Estilos para Modo Alto Contraste */
+.fake-card h3 {
+  color: #ff6b6b;
+  margin-bottom: 8px;
+}
+
+/* Alto Contraste Extremo */
 body.high-contrast {
   background-color: #000 !important;
   color: #fff !important;
 }
 
-body.high-contrast .header, 
-body.high-contrast .accessibility-bar {
-  background-color: #111 !important;
-  border-bottom: 2px solid #fff;
-}
-
-body.high-contrast .card, 
-body.high-contrast .video-card,
-body.high-contrast .fake-card {
-  background-color: #111 !important;
+body.high-contrast .flip-card-front,
+body.high-contrast .flip-card-back,
+body.high-contrast .video-card {
+  background-color: #000 !important;
+  border: 2px solid #ffff00 !important;
   color: #fff !important;
-  border: 1px solid #fff !important;
 }
 
-body.high-contrast a, 
-body.high-contrast h2 {
+body.high-contrast h2, body.high-contrast h3, body.high-contrast a {
   color: #ffff00 !important;
-}
-
-body.high-contrast button {
-  background-color: #ffff00 !important;
-  color: #000 !important;
-  font-weight: bold;
 }
 
 /* Rodapé */
 .footer {
-  background: #222;
+  background: #000;
   color: white;
   text-align: center;
   padding: 20px;
   margin-top: 40px;
+  border-top: 1px solid #333;
 }
