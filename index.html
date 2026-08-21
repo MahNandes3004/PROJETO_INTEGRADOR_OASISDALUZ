@@ -3,140 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Óptica e Luz: LED RGB e Disco de Newton</title>
+  <title>A Física e a Tecnologia dos LEDs - ecoDesign</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Barra de Acessibilidade -->
+  <!-- Barra Superior de Acessibilidade -->
   <header class="top-bar">
-    <div class="logo">Oásis da Luz</div>
     <div class="accessibility-tools">
       <button id="btn-increase" aria-label="Aumentar fonte">A+</button>
       <button id="btn-decrease" aria-label="Diminuir fonte">A-</button>
-      <button id="btn-contrast" aria-label="Alternar alto contraste">🌓 Contraste</button>
-      <button id="btn-speak" aria-label="Ouvir texto do site">🔊 Ouvir Site</button>
+      <button id="btn-contrast" aria-label="Alternar alto contraste">🌓 Alto Contraste</button>
+      <button id="btn-speak" aria-label="Ouvir texto do site">🔊 Ouvir Texto</button>
+      <button id="btn-stop-speak" aria-label="Parar leitura">Parar Voz</button>
     </div>
-    <button class="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">☰</button>
+    <div class="logo">eco<span>Design</span></div>
   </header>
 
-  <!-- Menu Hambúrguer -->
-  <nav class="nav-menu" id="nav-menu">
+  <!-- Navegação Principal -->
+  <nav class="main-nav">
     <ul>
-      <li><a href="#intro">Introdução</a></li>
-      <li><a href="#leds">LED RGB & Fade</a></li>
-      <li><a href="#simulacoes">Simulações em Vídeo</a></li>
-      <li><a href="#newton">Disco de Newton</a></li>
-      <li><a href="#cards">Flashcards</a></li>
+      <li><a href="#intro">Home</a></li>
+      <li><a href="#cards">Sobre</a></li>
       <li><a href="#fakenews">Fake News</a></li>
+      <li><a href="#contato">Contato</a></li>
     </ul>
   </nav>
 
-  <main>
-    <!-- Seção de Introdução -->
-    <section id="intro" class="hero-section">
-      <div class="hero-text">
-        <h1>Explore a Física das Cores</h1>
-        <p>A luz branca que enxergamos no dia a dia é, na verdade, a soma de diversas cores do espectro visível. Através da tecnologia do LED RGB e dos experimentos clássicos de Isaac Newton, podemos entender como a mistura e a intensidade de luzes primárias criam o universo de cores ao nosso redor.</p>
+  <!-- Banner Hero -->
+  <section class="hero-banner">
+    <h1>A Física e a Tecnologia dos LEDs</h1>
+  </section>
+
+  <main class="container">
+    
+    <!-- Seção Introdução -->
+    <section id="intro" class="content-box">
+      <h2>Introdução</h2>
+      <p>Bem-vindo ao nosso portal acessível! Aqui exploraremos os princípios da iluminação moderna e da óptica. Abordaremos o funcionamento do **LED RGB** (mistura de cores primárias), os efeitos de transição **Fade In e Fade Out** (controle de intensidade de luz branca) e o clássico **Disco de Newton** (decomposição e síntese da luz branca).</p>
+    </section>
+
+    <!-- Seção Flashcards Educativos -->
+    <section id="cards" class="content-box">
+      <h2>Flashcards Educativos</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>LED RGB</h3>
+          <p>Combina três diodos (Red, Green, Blue) num único componente. Ajustando a intensidade de cada canal, é possível formar milhões de cores.</p>
+        </div>
+        <div class="card">
+          <h3>Fade In & Fade Out</h3>
+          <p>Transições suaves de luz. O Fade-In aumenta o brilho gradualmente ao ligar; o Fade-Out reduz a luminosidade suavemente até apagar.</p>
+        </div>
+        <div class="card">
+          <h3>Disco de Newton</h3>
+          <p>Dispositivo dividido em cores do espectro visível. Ao girar rapidamente, a persistência retiniana sobrepõe as cores, gerando a percepção do branco.</p>
+        </div>
       </div>
     </section>
 
-    <!-- Seção LEDs (Piscante Interativo) -->
-    <section id="leds" class="content-section">
-      <h2>LED RGB e Efeito Fade In / Fade Out</h2>
-      <p>Um LED RGB combina três diodos de luz nas cores vermelha (Red), verde (Green) e azul (Blue) num único componente. Ajustando a intensidade de cada cor, geramos milhões de tonalidades.</p>
-      <div class="led-demo-box">
-        <div class="led-light"></div>
-      </div>
-    </section>
-
-    <!-- Seção de Vídeos (YouTube) -->
-    <section id="simulacoes" class="content-section">
-      <h2>Simulações Práticas no Tinkercad</h2>
-      <div class="videos-grid">
-        <article class="video-card">
-          <h3>1. LED Fade-In</h3>
-          <iframe width="100%" height="215" src="https://www.youtube.com/embed/aa7UwsZd0Ys" title="LED Fade-In" frameborder="0" allowfullscreen></iframe>
-          <p>Simulação demonstrando o acendimento gradual do LED.</p>
-        </article>
-        <article class="video-card">
-          <h3>2. LED Fade-Out</h3>
-          <iframe width="100%" height="215" src="https://www.youtube.com/embed/8GQymf7eCT4" title="LED Fade-Out" frameborder="0" allowfullscreen></iframe>
-          <p>Simulação demonstrando a redução gradual de brilho.</p>
-        </article>
-        <article class="video-card">
-          <h3>3. LED RGB</h3>
-          <iframe width="100%" height="215" src="https://www.youtube.com/embed/CGXa6s_EOb4" title="LED RGB" frameborder="0" allowfullscreen></iframe>
-          <p>Simulação de circuito com LED RGB no Tinkercad.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Seção Disco de Newton (Interativo) -->
-    <section id="newton" class="content-section">
-      <h2>O Disco de Newton</h2>
-      <p>Quando o disco colorido gira em alta velocidade, as cores se sobrepõem na nossa retina, resultando na ilusão da cor branca.</p>
+    <!-- Seção Disco de Newton Interativo -->
+    <section id="newton" class="content-box">
+      <h2>Disco de Newton Interativo</h2>
+      <p>Clique no botão para fazer o disco girar rapidamente e ver a mistura das cores primárias resultando no branco!</p>
+      
       <div class="disk-container">
-        <!-- O CSS define o visual do disco, o JS define a rotação -->
         <div id="newton-disk" class="newton-disk"></div>
       </div>
       <button id="btn-spin" class="action-btn">Girar Disco</button>
     </section>
 
-    <!-- Seção Flashcards -->
-    <section id="cards" class="content-section">
-      <h2>Flashcards Interativos</h2>
-      <div class="cards-grid">
-        <div class="flashcard" tabindex="0" role="button">
-          <div class="card-inner">
-            <div class="card-front">O que é Síntese Aditiva?<section id="simulacoes" class="content-section">
-  <h2>Simulações Práticas no Tinkercad</h2>
-  <div class="videos-grid">
-    
-    <!-- 1. VÍDEO FADE-IN -->
-    <article class="video-card">
-      <h3>1. LED Fade-In</h3>
-      <iframe 
-        width="100%" 
-        height="215" 
-        src="https://www.youtube.com/embed/aa7UwsZd0Ys" 
-        title="LED Fade-In no Tinkercad" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-      <p>Simulação no Tinkercad demonstrando o acendimento gradual da luz do LED.</p>
-    </article>
+    <!-- Seção Simulações Práticas em Vídeo -->
+    <section id="simulacoes" class="content-box">
+      <h2>Simulações Práticas</h2>
+      <div class="videos-grid">
+        
+        <!-- 1. VÍDEO FADE-IN -->
+        <article class="video-card">
+          <h3>1. LED Fade-In</h3>
+          <iframe 
+            width="100%" 
+            height="215" 
+            src="https://www.youtube.com/embed/aa7UwsZd0Ys" 
+            title="LED Fade-In no Tinkercad" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+          <p>Simulação no Tinkercad demonstrando o acendimento gradual do luz do LED.</p>
+        </article>
 
-    <!-- 2. VÍDEO FADE-OUT -->
-    <article class="video-card">
-      <h3>2. LED Fade-Out</h3>
-      <iframe 
-        width="100%" 
-        height="215" 
-        src="https://www.youtube.com/embed/8GQymf7eCT4" 
-        title="LED Fade-Out no Tinkercad" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-      <p>Simulação no Tinkercad demonstrando a redução gradual de brilho do LED.</p>
-    </article>
+        <!-- 2. VÍDEO FADE-OUT -->
+        <article class="video-card">
+          <h3>2. LED Fade-Out</h3>
+          <iframe 
+            width="100%" 
+            height="215" 
+            src="https://www.youtube.com/embed/8GQymf7eCT4" 
+            title="LED Fade-Out no Tinkercad" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+          <p>Simulação no Tinkercad demonstrando a redução gradual de brilho do LED.</p>
+        </article>
 
-    <!-- 3. VÍDEO LED RGB -->
-    <article class="video-card">
-      <h3>3. LED RGB</h3>
-      <iframe 
-        width="100%" 
-        height="215" 
-        src="https://www.youtube.com/embed/CGXa6s_EOb4" 
-        title="LED RGB no Tinkercad" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
-      <p>Simulação de circuito com LED RGB e controle de cores no Tinkercad.</p>
-    </article>
+        <!-- 3. VÍDEO LED RGB -->
+        <article class="video-card">
+          <h3>3. LED RGB</h3>
+          <iframe 
+            width="100%" 
+            height="215" 
+            src="https://www.youtube.com/embed/CGXa6s_EOb4" 
+            title="LED RGB no Tinkercad" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+          <p>Simulação de circuito com LED RGB e controle de frequência nos conectar numéricos e componentes no Tinkercad.</p>
+        </article>
 
-  </div>
-</section>
+      </div>
+    </section>
+
+    <!-- Aba Especial: Checagem de Fake News -->
+    <section id="fakenews" class="content-box">
+      <h2>Aba Especial: Checagem de Fake News</h2>
+      
+      <div class="fake-card">
+        <h3>❌ Mito: "Lâmpadas LED transmitem dados de vírus digitais para o seu celular"</h3>
+        <p><strong>Fato:</strong> O LED emite radiação eletromagnética visível que apenas atinge o espectro visível. Embora exista a tecnologia Li-Fi (transmissão de dados por luz), ela exige receptores específicos e não é capaz de infectar dispositivos com vírus digitais automaticamente.</p>
+      </div>
+
+      <div class="fake-card">
+        <h3>❌ Mito: "O Disco de Newton prova que a luz branca não tem cor"</h3>
+        <p><strong>Fato:</strong> Na verdade, ele prova o oposto! A luz branca é a soma de todas as cores do espectro visível. O disco recombina as cores no nosso cérebro devido ao efeito da persistência retiniana.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 ecoDesign - Projeto Acessível para Todos. Hospedado no GitHub Pages.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
