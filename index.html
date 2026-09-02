@@ -3,32 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oásis da Luz - Projeto Integrador de Robótica</title>
+    <title>Oásis da Luz - Robótica, Óptica & Acessibilidade</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <!-- BARRA DE ACESSIBILIDADE FIXA -->
-    <nav id="a11y-bar">
+    <!-- BARRA DE ACESSIBILIDADE FUNCIONAL -->
+    <nav id="a11y-bar" aria-label="Barra de Acessibilidade">
         <div class="a11y-content">
-            <span class="a11y-title"><i class="fa-solid fa-universal-access"></i> Acessibilidade em Primeiro Lugar</span>
+            <span class="a11y-title"><i class="fa-solid fa-universal-access"></i> Acessibilidade Universal</span>
             <div class="a11y-buttons">
-                <button onclick="adjustFont(1)">A+ <i class="fa-solid fa-magnifying-glass-plus"></i></button>
-                <button onclick="adjustFont(-1)">A- <i class="fa-solid fa-magnifying-glass-minus"></i></button>
-                <button id="contrast-toggle" onclick="toggleContrast()">Alto Contraste <i class="fa-solid fa-circle-half-stroke"></i></button>
+                <button id="btn-increase" title="Aumentar Fonte">A+ <i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                <button id="btn-decrease" title="Diminuir Fonte">A- <i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                <button id="btn-contrast" title="Alternar Alto Contraste">Alto Contraste <i class="fa-solid fa-circle-half-stroke"></i></button>
+                <button id="btn-tts" title="Ativar Áudio Descrição / Leitura">Áudio Descrição <i class="fa-solid fa-volume-high"></i></button>
             </div>
         </div>
     </nav>
 
-    <!-- CABEÇALHO -->
+    <!-- CABEÇALHO FLUIDO -->
     <header id="main-header">
-        <h1>OÁSIS DA LUZ</h1>
-        <p class="subtitle">A Física das Cores, Robótica e Acessibilidade Visual Universal</p>
+        <div class="header-banner">
+            <h1>OÁSIS DA LUZ</h1>
+            <p class="subtitle">Óptica, Robótica e Inclusão Visual</p>
+        </div>
         <nav id="main-nav">
-            <a href="#atv1">Atividade 1: Disco de Newton</a>
-            <a href="#atv2">Atividade 2: LED Fade</a>
-            <a href="#atv3">Atividade 3: LED RGB</a>
+            <a href="#atv1"><i class="fa-solid fa-compact-disc"></i> Disco de Newton</a>
+            <a href="#atv2"><i class="fa-solid fa-lightbulb"></i> LED Fade</a>
+            <a href="#atv3"><i class="fa-solid fa-palette"></i> LED RGB</a>
         </nav>
     </header>
 
@@ -37,220 +40,193 @@
         <!-- ==========================================
              ATIVIDADE 1: DISCO DE NEWTON
         =========================================== -->
-        <section id="atv1" class="activity-section">
-            <h2 class="section-title">Atividade 1 - Disco de Newton</h2>
-            <p class="question-box"><strong>Questão de investigação:</strong> Como o estudo da luz e das cores contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</p>
+        <section id="atv1" class="activity-card">
+            <div class="badge">Atividade 01</div>
+            <h2>Disco de Newton & Decomposição da Luz</h2>
+            <div class="question-pill">
+                <i class="fa-solid fa-circle-question"></i>
+                <span><strong>Questão de Investigação:</strong> Como o estudo da luz e das cores contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</span>[span_1](start_span)[span_1](end_span)
+            </div>
 
-            <!-- 1. Apresentação da Atividade -->
-            <article class="panel">
-                <h3>1. Apresentação da Atividade</h3>
-                <p>Texto explicativo (aprox. 15 linhas) detalhando o objetivo da atividade, o processo de construção do Disco de Newton em sala de aula, como ocorreram os testes práticos e o resultado final obtido pelo grupo.</p>
-                <div class="media-grid-3">
-                    <div class="img-box"><i class="fa-solid fa-image"></i><span>Fotografia 1: Construção do Disco</span><p class="caption">Legenda da Imagem 1</p></div>
-                    <div class="img-box"><i class="fa-solid fa-image"></i><span>Fotografia 2: Montagem do Circuito/Motor</span><p class="caption">Legenda da Imagem 2</p></div>
-                    <div class="img-box"><i class="fa-solid fa-image"></i><span>Fotografia 3: Disco Finalizado</span><p class="caption">Legenda da Imagem 3</p></div>
+            <!-- 1. Apresentação -->
+            <div class="content-block">
+                <h3>1. Apresentação da Atividade</h3>[span_2](start_span)[span_2](end_span)
+                <p>Nesta atividade, exploramos a síntese aditiva e a decomposição da luz por meio da construção e motorização do Disco de Newton[span_3](start_span)[span_3](end_span). O objetivo principal foi testar na prática a percepção retiniana e entender como a rápida rotação das cores do espectro visível (vermelho, laranja, amarelo, verde, azul, anil e violeta) resulta na recomposição visual da luz branca[span_4](start_span)[span_4](end_span). Durante as aulas de robótica, o grupo acoplou o disco impresso a um motor DC e regulou a velocidade com circuitos básicos[span_5](start_span)[span_5](end_span). Os testes demonstraram que, ao atingir a frequência ideal de rotação, os olhos humanos não conseguem distinguir as cores isoladas devido à persistência retiniana, percebendo uma tonalidade predominantemente esbranquiçada/cinza clara[span_6](start_span)[span_6](end_span).</p>
+
+                <div class="media-carousel">
+                    <div class="media-placeholder"><i class="fa-solid fa-camera"></i><span>Foto 1: Montagem do Disco</span><p class="caption">Corte e fixação do disco cromático[span_7](start_span)[span_7](end_span).</p></div>
+                    <div class="media-placeholder"><i class="fa-solid fa-microchip"></i><span>Foto 2: Circuito & Motor</span><p class="caption">Ligação do motor DC na bancada[span_8](start_span)[span_8](end_span).</p></div>
+                    <div class="media-placeholder"><i class="fa-solid fa-bolt"></i><span>Foto 3: Teste de Rotação</span><p class="caption">Disco operando em alta velocidade[span_9](start_span)[span_9](end_span).</p></div>
                 </div>
-                <div class="video-box"><i class="fa-solid fa-video"></i><span>Vídeo: Funcionamento do Disco de Newton em Rotação</span></div>
-            </article>
+                <div class="video-container">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <span>Vídeo Demonstrativo: Rotação e Recomposição de Luz no Disco de Newton</span>[span_10](start_span)[span_10](end_span)
+                </div>
+            </div>
 
             <!-- 2. Explicação Científica -->
-            <article class="panel">
-                <h3>2. Explicação Científica</h3>
-                <p><strong>Isaac Newton:</strong> Biografia e contribuição para a óptica clássica.</p>
-                <p><strong>Luz Branca e Decomposição:</strong> Conceito de luz policromática, refração em prismas e o espectro visível humano.</p>
-                <p><strong>Mistura de Cores e Persistência Retiniana:</strong> Explicação de como o olho humano percebe as cores e por que a fusão temporal dos estímulos visuais na retina faz o disco parecer branco ao girar rapidamente.</p>
-                <div class="img-box single-img"><i class="fa-solid fa-diagram-project"></i><span>Esquema Ilustrativo: Decomposição e Síntese da Luz</span></div>
-            </article>
+            <div class="content-block">
+                <h3>2. Explicação Científica</h3>[span_11](start_span)[span_11](end_span)
+                <p>Isaac Newton revolucionou a óptica ao demonstrar que a luz branca do Sol não é monocromática, mas sim composta por uma mistura contínua de ondas eletromagnéticas[span_12](start_span)[span_12](end_span). Quando a luz atravessa um meio denso (como um prisma), ocorre a decomposição cromática por refração[span_13](start_span)[span_13](end_span). O espectro visível abrange comprimentos de onda entre 380 nm e 750 nm. A perceção no olho humano ocorre através dos fotorreceptores na retina: os <em>bastonetes</em> (sensíveis à intensidade luminosa) e os <em>cones</em> (especializados na recepção das cores vermelha, verde e azul). O Disco de Newton evidencia a fusão temporal dos estímulos: quando a velocidade do disco supera a capacidade de resposta dos cones, o cérebro integra os estímulos refletidos de todas as cores simultaneamente, registrando a luz branca[span_14](start_span)[span_14](end_span).</p>
+            </div>
 
-            <!-- 3. Relação com a Deficiência Visual -->
-            <article class="panel">
-                <h3>3. Relação com a Deficiência Visual</h3>
-                <ul>
-                    <li><strong>Percepção da luz na baixa visão:</strong> Como olhos com opacidade ou danos retinianos captam a luminosidade.</li>
-                    <li><strong>Percepção de cores:</strong> Variações na visão cromática entre diferentes pessoas (como no daltonismo).</li>
-                    <li><strong>Interferência da iluminação:</strong> O impacto do ofuscamento e do contraste visual no reconhecimento de objetos.</li>
-                    <li><strong>Importância da teoria das cores para a acessibilidade:</strong> Como o entendimento do espectro permite criar interfaces e ambientes acessíveis.</li>
-                </ul>
-            </article>
+            <!-- FLASHCARDS ATV 1 -->
+            <div class="flashcards-section">
+                <h4><i class="fa-solid fa-clone"></i> Flashcards do Conhecimento (Clique para Girar)</h4>
+                <div class="flashcards-grid">
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="card-inner">
+                            <div class="card-front"><strong>O que é Luz Branca?</strong><small>Clique para ver</small></div>
+                            <div class="card-back"><p>É uma luz policromática formada pela combinação de todas as cores do espectro visível[span_15](start_span)[span_15](end_span).</p></div>
+                        </div>
+                    </div>
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="card-inner">
+                            <div class="card-front"><strong>Por que o disco parece branco ao girar?</strong><small>Clique para ver</small></div>
+                            <div class="card-back"><p>Devido à persistência retiniana, os estímulos das cores refletidas se fundem no cérebro antes que a retina processe as imagens individualmente[span_16](start_span)[span_16](end_span).</p></div>
+                        </div>
+                    </div>
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="card-inner">
+                            <div class="card-front"><strong>Como os olhos veem as cores?</strong><small>Clique para ver</small></div>
+                            <div class="card-back"><p>Através das células receptoras chamadas cones (L, M e S), especializadas em comprimentos de onda longos, médios e curtos[span_17](start_span)[span_17](end_span).</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Deficiência Visual -->
+            <div class="content-block">
+                <h3>3. Relação com a Deficiência Visual</h3>[span_18](start_span)[span_18](end_span)
+                <p>Pessoas com baixa visão muitas vezes possuem perda parcial de cones ou opacidade nos meios de refração ocular (como na catarata), alterando a acuidade e o contraste[span_19](start_span)[span_19](end_span). Condições como daltonismo afetam a discriminação cromática, enquanto a fotofobia amplia a sensibilidade[span_20](start_span)[span_20](end_span). Compreender a luz e as cores possibilita criar sinalizações adaptadas com alta refletividade e contraste cromático focado, garantindo autonomia e legibilidade ambiental[span_21](start_span)[span_21](end_span).</p>
+            </div>
 
             <!-- 4. Tecnologias Existentes -->
-            <article class="panel">
-                <h3>4. Tecnologias Existentes (5 Exemplos)</h3>
-                <div class="tech-grid">
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-microchip"></i><span>Foto Tech 1</span></div><h4>1. Nome da Tecnologia</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Óptica/Luz</p><p><strong>Impacto:</strong> Melhora na qualidade de vida.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-microchip"></i><span>Foto Tech 2</span></div><h4>2. Nome da Tecnologia</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Óptica/Luz</p><p><strong>Impacto:</strong> Melhora na qualidade de vida.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-microchip"></i><span>Foto Tech 3</span></div><h4>3. Nome da Tecnologia</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Óptica/Luz</p><p><strong>Impacto:</strong> Melhora na qualidade de vida.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-microchip"></i><span>Foto Tech 4</span></div><h4>4. Nome da Tecnologia</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Óptica/Luz</p><p><strong>Impacto:</strong> Melhora na qualidade de vida.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-microchip"></i><span>Foto Tech 5</span></div><h4>5. Nome da Tecnologia</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Óptica/Luz</p><p><strong>Impacto:</strong> Melhora na qualidade de vida.</p></div>
+            <div class="content-block">
+                <h3>4. Tecnologias Existentes na Área</h3>[span_22](start_span)[span_22](end_span)
+                <div class="tech-cards-grid">
+                    <div class="tech-item">
+                        <div class="tech-img-box"><i class="fa-solid fa-camera-retro"></i></div>
+                        <h4>1. OrCam MyEye</h4>
+                        <p><strong>Finalidade:</strong> Leitura e reconhecimento visual por voz[span_23](start_span)[span_23](end_span).</p>
+                        <p><strong>Princípio Científico:</strong> Sensoriamento óptico e processamento de imagem em tempo real[span_24](start_span)[span_24](end_span).</p>
+                        <p><strong>Impacto:</strong> Leitura autônoma de livros e cédulas[span_25](start_span)[span_25](end_span).</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-img-box"><i class="fa-solid fa-glasses"></i></div>
+                        <h4>2. Óculos EnChroma</h4>
+                        <p><strong>Finalidade:</strong> Correção do contraste de cores para daltonismo[span_26](start_span)[span_26](end_span).</p>
+                        <p><strong>Princípio Científico:</strong> Filtragem de comprimentos de onda para eliminar sobreposição[span_27](start_span)[span_27](end_span).</p>
+                        <p><strong>Impacto:</strong> Discriminação de cores no dia a dia[span_28](start_span)[span_28](end_span).</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-img-box"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <h4>3. Be My Eyes App</h4>
+                        <p><strong>Finalidade:</strong> Assistência remota baseada em vídeo[span_29](start_span)[span_29](end_span).</p>
+                        <p><strong>Princípio Científico:</strong> Captura e transmissão contínua do espectro de luz RGB[span_30](start_span)[span_30](end_span).</p>
+                        <p><strong>Impacto:</strong> Suporte rápido em tarefas rotineiras[span_31](start_span)[span_31](end_span).</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-img-box"><i class="fa-solid fa-eye"></i></div>
+                        <h4>4. Lupa Eletrônica portátil</h4>
+                        <p><strong>Finalidade:</strong> Ampliação de textos com ajuste de cor[span_32](start_span)[span_32](end_span).</p>
+                        <p><strong>Princípio Científico:</strong> Sensor CMOS óptico com filtros cromáticos customizáveis[span_33](start_span)[span_33](end_span).</p>
+                        <p><strong>Impacto:</strong> Leitura confortável para pessoas com baixa visão[span_34](start_span)[span_34](end_span).</p>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-img-box"><i class="fa-solid fa-braille"></i></div>
+                        <h4>5. Scanner Text-to-Speech</h4>
+                        <p><strong>Finalidade:</strong> Digitalizador instantâneo de texto impresso[span_35](start_span)[span_35](end_span).</p>
+                        <p><strong>Princípio Científico:</strong> Reflexão e conversão de intensidade luminosa em dados[span_36](start_span)[span_36](end_span).</p>
+                        <p><strong>Impacto:</strong> Acesso irrestrito a materiais didáticos[span_37](start_span)[span_37](end_span).</p>
+                    </div>
                 </div>
-            </article>
+            </div>
 
-            <!-- 5. Nossa Proposta -->
-            <article class="panel">
-                <h3>5. Nossa Proposta de Tecnologia Assistiva</h3>
-                <p><strong>Problema a resolver:</strong> Descrição do desafio de acessibilidade.</p>
-                <p><strong>Público-alvo:</strong> Pessoas com baixa visão ou cegueira.</p>
-                <p><strong>Funcionamento e Componentes:</strong> Detalhamento técnico e circuito.</p>
-                <p><strong>Contribuição do Disco de Newton:</strong> Aplicação do aprendizado sobre síntese e recepção de luz.</p>
-                <p><strong>Uso de Inteligência Artificial:</strong> Integração com IA para otimização da solução.</p>
-                <div class="img-box single-img"><i class="fa-solid fa-pen-ruler"></i><span>Desenho / Esquema Ilustrativo da Proposta</span></div>
-            </article>
+            <!-- 5, 6, 7 e 8 -->
+            <div class="content-block">
+                <h3>5. Nossa Proposta de Tecnologia Assistiva</h3>[span_38](start_span)[span_38](end_span)
+                <p>Proponho o **OptiScanner Pro**, um dispositivo portátil com sensores ópticos que captura padrões de cores e texto em superfícies reflexivas e emite feedbacks sonoros/táteis, aplicando a lógica da síntese cromática[span_39](start_span)[span_39](end_span).</p>
+                <div class="img-box-wide"><i class="fa-solid fa-drafting-compass"></i><span>Esquema Técnico / Ilustração da Proposta 1</span></div>[span_40](start_span)[span_40](end_span)
 
-            <!-- 6, 7 e 8: IA, Conclusão e Referências -->
-            <article class="panel">
-                <h3>6. Uso da Inteligência Artificial</h3>
-                <p>Ferramentas utilizadas, prompts realizados, como as respostas auxiliaram a pesquisa e processo de checagem das informações.</p>
-                
-                <h3>7. Conclusão</h3>
-                <p>Síntese reflexiva sobre como o estudo do Disco de Newton e da óptica contribui para o desenvolvimento de tecnologias inclusivas.</p>
+                <h3>6. Utilização da Inteligência Artificial</h3>[span_41](start_span)[span_41](end_span)
+                <p>Prompts formulados para pesquisar patentes assistivas e revisar o embasamento físico do espectro eletromagnético, com posterior validação em artigos científicos[span_42](start_span)[span_42](end_span).</p>
 
-                <h3>8. Referências (Normas ABNT)</h3>
-                <p class="abnt">SOBRENOME, Nome. <em>Título da Obra</em>. Local: Editora, Ano.</p>
-            </article>
+                <h3>7. Conclusão</h3>[span_43](start_span)[span_43](end_span)
+                <p>O estudo do Disco de Newton evidencia que a luz e as cores são variáveis manipuláveis que sustentam desde exames visuais até o design de telas acessíveis[span_44](start_span)[span_44](end_span).</p>
+
+                <h3>8. Referências (ABNT)</h3>[span_45](start_span)[span_45](end_span)
+                <p class="abnt-ref">HALLIDAY, D.; RESNICK, R.; WALKER, J. <strong>Fundamentos de Física: Óptica e Física Moderna</strong>. v. 4, 10. ed. Rio de Janeiro: LTC, 2016[span_46](start_span)[span_46](end_span).</p>
+            </div>
         </section>
-
 
         <!-- ==========================================
              ATIVIDADE 2: LED FADE-IN E FADE-OUT
         =========================================== -->
-        <section id="atv2" class="activity-section">
-            <h2 class="section-title">Atividade 2 - LED Fade-In e Fade-Out</h2>
-            <p class="question-box"><strong>Questão de investigação:</strong> Como o controle da intensidade da luz contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</p>
+        <section id="atv2" class="activity-card">
+            <div class="badge">Atividade 02</div>
+            <h2>LED Fade-In & Fade-Out (Controle Luminoso)</h2>
+            <div class="question-pill">
+                <i class="fa-solid fa-circle-question"></i>
+                <span><strong>Questão de Investigação:</strong> Como o controle da intensidade da luz contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</span>[span_47](start_span)[span_47](end_span)
+            </div>
 
-            <!-- 1. Apresentação da Atividade -->
-            <article class="panel">
-                <h3>1. Apresentação da Atividade</h3>
-                <p>Texto de 15 linhas detalhando os objetivos, o desenvolvimento da montagem do circuito no Tinkercad, o processo de programação do efeito de esmaecimento (Fade) e os resultados obtidos.</p>
-                <div class="media-grid-3">
-                    <div class="img-box"><i class="fa-solid fa-laptop-code"></i><span>Captura Tinkercad 1: Circuito</span><p class="caption">Legenda da Imagem 1</p></div>
-                    <div class="img-box"><i class="fa-solid fa-laptop-code"></i><span>Captura Tinkercad 2: Código C++/Blocos</span><p class="caption">Legenda da Imagem 2</p></div>
-                    <div class="img-box"><i class="fa-solid fa-laptop-code"></i><span>Captura Tinkercad 3: Simulação Rodando</span><p class="caption">Legenda da Imagem 3</p></div>
+            <div class="content-block">
+                <h3>1. Apresentação da Atividade</h3>[span_48](start_span)[span_48](end_span)
+                <p>Nesta etapa, o grupo utilizou a plataforma Tinkercad para modelar e programar um circuito eletrônico capaz de controlar progressivamente a intensidade luminosa de um LED (Fade-In e Fade-Out)[span_49](start_span)[span_49](end_span). A simulação foi executada utilizando um microcontrolador Arduino, onde comandos lógicos alteravam o nível de tensão gradualmente[span_50](start_span)[span_50](end_span). O resultado obtido demonstrou uma transição suave da luz, permitindo ajustar o brilho de forma contínua sem brusquidão ou oscilações desagradáveis[span_51](start_span)[span_51](end_span).</p>
+
+                <div class="media-carousel">
+                    <div class="media-placeholder"><i class="fa-solid fa-laptop-code"></i><span>Prints Simulação 1</span><p class="caption">Circuito Tinkercad e resistor[span_52](start_span)[span_52](end_span).</p></div>
+                    <div class="media-placeholder"><i class="fa-solid fa-code"></i><span>Prints Simulação 2</span><p class="caption">Código C++ e saídas PWM[span_53](start_span)[span_53](end_span).</p></div>
+                    <div class="media-placeholder"><i class="fa-solid fa-sliders"></i><span>Prints Simulação 3</span><p class="caption">Simulação de variação da iluminação[span_54](start_span)[span_54](end_span).</p></div>
                 </div>
-                <div class="video-box"><i class="fa-solid fa-video"></i><span>Vídeo: Simulação do LED Fade-In e Fade-Out no Tinkercad</span></div>
-            </article>
-
-            <!-- 2. Explicação Científica -->
-            <article class="panel">
-                <h3>2. Explicação Científica</h3>
-                <p><strong>Funcionamento do LED e Intensidade Luminosa:</strong> Como diodos emissores de luz transformam energia elétrica em fótons.</p>
-                <p><strong>Controle de Brilho via PWM:</strong> Explicação da Modulação por Largura de Pulso (PWM) e variação do <em>Duty Cycle</em> para controle de fluxo luminoso.</p>
-                <p><strong>Aplicações Práticas:</strong> Importância da iluminação ajustável em ergonomia e ambientes adaptados.</p>
-                <div class="img-box single-img"><i class="fa-solid fa-chart-line"></i><span>Esquema/Gráfico do Sinal PWM (Duty Cycle)</span></div>
-            </article>
-
-            <!-- 3. Relação com a Deficiência Visual -->
-            <article class="panel">
-                <h3>3. Relação com a Deficiência Visual</h3>
-                <ul>
-                    <li><strong>Influência da intensidade de luz:</strong> Como o nível de iluminação altera o contraste e o conforto visual.</li>
-                    <li><strong>Dificuldades por iluminação inadequada:</strong> Ofuscamento (*glare*), sombras excessivas e fadiga visual.</li>
-                    <li><strong>Aumento da autonomia e segurança:</strong> Como sistemas adaptativos previnem acidentes e auxiliam a navegação espacial.</li>
-                </ul>
-            </article>
-
-            <!-- 4. Tecnologias Existentes -->
-            <article class="panel">
-                <h3>4. Tecnologias Existentes com Controle de Luz (5 Exemplos)</h3>
-                <div class="tech-grid">
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-lightbulb"></i><span>Foto Tech 1</span></div><h4>1. Nome / Fabricante</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> PWM/Luminância</p><p><strong>Impacto:</strong> Benefício ao usuário.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-lightbulb"></i><span>Foto Tech 2</span></div><h4>2. Nome / Fabricante</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> PWM/Luminância</p><p><strong>Impacto:</strong> Benefício ao usuário.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-lightbulb"></i><span>Foto Tech 3</span></div><h4>3. Nome / Fabricante</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> PWM/Luminância</p><p><strong>Impacto:</strong> Benefício ao usuário.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-lightbulb"></i><span>Foto Tech 4</span></div><h4>4. Nome / Fabricante</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> PWM/Luminância</p><p><strong>Impacto:</strong> Benefício ao usuário.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-lightbulb"></i><span>Foto Tech 5</span></div><h4>5. Nome / Fabricante</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> PWM/Luminância</p><p><strong>Impacto:</strong> Benefício ao usuário.</p></div>
+                <div class="video-container">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <span>Vídeo Demonstrativo: Esmaecimento Gradual do LED no Tinkercad</span>[span_55](start_span)[span_55](end_span)
                 </div>
-            </article>
+            </div>
 
-            <!-- 5, 6, 7, 8 -->
-            <article class="panel">
-                <h3>5. Nossa Proposta de Tecnologia Assistiva</h3>
-                <p>Detalhes da proposta utilizando variação de intensidade luminosa automatizada.</p>
-                <div class="img-box single-img"><i class="fa-solid fa-pen-ruler"></i><span>Esquema da Proposta Assistiva (LED Fade)</span></div>
+            <div class="content-block">
+                <h3>2. Explicação Científica</h3>[span_56](start_span)[span_56](end_span)
+                <p>O LED (Diodo Emissor de Luz) opera pela recombinação de elétrons na junção P-N de um semicondutor, emitindo fótons[span_57](start_span)[span_57](end_span). O controle da intensidade luminosa de forma analógica em circuitos digitais é realizado através da técnica PWM (Modulação por Largura de Pulso)[span_58](start_span)[span_58](end_span). Ao alterar o <em>Duty Cycle</em> (razão entre o tempo em nível alto e baixo em ciclos ultrarrápidos), ajusta-se a tensão média entregue ao componente, modificando seu brilho aparente para o olho humano[span_59](start_span)[span_59](end_span).</p>
+            </div>
 
-                <h3>6. Inteligência Artificial</h3>
-                <p>Prompts executados e auxílio na estruturação dos códigos Arduino/Tinkercad.</p>
-
-                <h3>7. Conclusão</h3>
-                <p>Reflexão sobre o impacto do controle da luz na criação de espaços acessíveis.</p>
-
-                <h3>8. Referências (ABNT)</h3>
-                <p class="abnt">SOBRENOME, Nome. <em>Título da Obra</em>. Local: Editora, Ano.</p>
-            </article>
-        </section>
-
-
-        <!-- ==========================================
-             ATIVIDADE 3: LED RGB
-        =========================================== -->
-        <section id="atv3" class="activity-section">
-            <h2 class="section-title">Atividade 3 - LED RGB</h2>
-            <p class="question-box"><strong>Questão de investigação:</strong> Como o estudo das cores contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</p>
-
-            <!-- 1. Apresentação da Atividade -->
-            <article class="panel">
-                <h3>1. Apresentação da Atividade</h3>
-                <p>Texto de 15 linhas apresentando os objetivos da simulação com LED RGB no Tinkercad, a lógica de conexão dos catodos/anodos e os resultados de misturas de cores.</p>
-                <div class="media-grid-3">
-                    <div class="img-box"><i class="fa-solid fa-vr-cardboard"></i><span>Captura Tinkercad 1: Montagem RGB</span><p class="caption">Legenda da Imagem 1</p></div>
-                    <div class="img-box"><i class="fa-solid fa-vr-cardboard"></i><span>Captura Tinkercad 2: Ajuste de Resistores</span><p class="caption">Legenda da Imagem 2</p></div>
-                    <div class="img-box"><i class="fa-solid fa-vr-cardboard"></i><span>Captura Tinkercad 3: Mistura Amarelo/Ciano/Magenta</span><p class="caption">Legenda da Imagem 3</p></div>
+            <!-- FLASHCARDS ATV 2 -->
+            <div class="flashcards-section">
+                <h4><i class="fa-solid fa-clone"></i> Flashcards do Conhecimento</h4>
+                <div class="flashcards-grid">
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="card-inner">
+                            <div class="card-front"><strong>O que é o PWM?</strong><small>Clique para ver</small></div>
+                            <div class="card-back"><p>Modulação por Largura de Pulso: técnica digital para controlar a energia entregue chaveando o sinal[span_60](start_span)[span_60](end_span).</p></div>
+                        </div>
+                    </div>
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="card-inner">
+                            <div class="card-front"><strong>O que é Fade-In e Fade-Out?</strong><small>Clique para ver</small></div>
+                            <div class="card-back"><p>Transição gradual da luz: o aumento progressivo do brilho (Fade-In) e seu esmaecimento (Fade-Out)[span_61](start_span)[span_61](end_span).</p></div>
+                        </div>
+                    </div>
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="card-inner">
+                            <div class="card-front"><strong>Qual o benefício para a baixa visão?</strong><small>Clique para ver</small></div>
+                            <div class="card-back"><p>Evita o ofuscamento pela adaptação suave da íris à intensidade de brilho do ambiente[span_62](start_span)[span_62](end_span).</p></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="video-box"><i class="fa-solid fa-video"></i><span>Vídeo: Simulação das Trocas de Cores do LED RGB</span></div>
-            </article>
+            </div>
 
-            <!-- 2. Explicação Científica -->
-            <article class="panel">
-                <h3>2. Explicação Científica</h3>
-                <p><strong>LED RGB e Modelo de Cores:</strong> Como os diodos Vermelho, Verde e Azul encapsulados geram diferentes comprimentos de onda.</p>
-                <p><strong>Síntese Aditiva:</strong> Tabela de combinações para geração de cores secundárias e luz branca.</p>
-                <table class="rgb-table">
-                    <thead><tr><th>Vermelho (R)</th><th>Verde (G)</th><th>Azul (B)</th><th>Cor Resultante</th></tr></thead>
-                    <tbody>
-                        <tr><td>255</td><td>255</td><td>0</td><td><strong>Amarelo</strong></td></tr>
-                        <tr><td>255</td><td>0</td><td>255</td><td><strong>Magenta</strong></td></tr>
-                        <tr><td>0</td><td>255</td><td>255</td><td><strong>Ciano</strong></td></tr>
-                        <tr><td>255</td><td>255</td><td>255</td><td><strong>Branco</strong></td></tr>
-                    </tbody>
-                </table>
-            </article>
+            <div class="content-block">
+                <h3>3. Relação com a Deficiência Visual</h3>[span_63](start_span)[span_63](end_span)
+                <p>A iluminação fixa ou descontrolada pode provocar ofuscamento severely incômodo (*glare*) ou criar sombras profundas que dificultam a orientação de pessoas com baixa visão[span_64](start_span)[span_64](end_span). O controle de brilho dinâmico compensa a resposta lenta de adaptação pupilar e retineira, garantindo segurança ao percorrer espaços internos e externos[span_65](start_span)[span_65](end_span).</p>
+            </div>
 
-            <!-- 3. Relação com a Deficiência Visual -->
-            <article class="panel">
-                <h3>3. Relação com a Deficiência Visual</h3>
-                <ul>
-                    <li><strong>Contraste Cromático:</strong> Importância das combinações de alta visibilidade em sinalizações.</li>
-                    <li><strong>Orientação em Ambientes:</strong> Uso de códigos de cores iluminadas para navegação e segurança de pessoas com baixa visão.</li>
-                </ul>
-            </article>
-
-            <!-- 4. Tecnologias Existentes (5 Exemplos) -->
-            <article class="panel">
-                <h3>4. Tecnologias Existentes com Cores e Luz (5 Exemplos)</h3>
-                <div class="tech-grid">
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-circle-dot"></i><span>Foto Tech 1</span></div><h4>1. Nome / Instituição</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Contraste/RGB</p><p><strong>Impacto:</strong> Qualidade de vida.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-circle-dot"></i><span>Foto Tech 2</span></div><h4>2. Nome / Instituição</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Contraste/RGB</p><p><strong>Impacto:</strong> Qualidade de vida.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-circle-dot"></i><span>Foto Tech 3</span></div><h4>3. Nome / Instituição</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Contraste/RGB</p><p><strong>Impacto:</strong> Qualidade de vida.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-circle-dot"></i><span>Foto Tech 4</span></div><h4>4. Nome / Instituição</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Contraste/RGB</p><p><strong>Impacto:</strong> Qualidade de vida.</p></div>
-                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-circle-dot"></i><span>Foto Tech 5</span></div><h4>5. Nome / Instituição</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Contraste/RGB</p><p><strong>Impacto:</strong> Qualidade de vida.</p></div>
-                </div>
-            </article>
-
-            <!-- 5, 6, 7, 8 -->
-            <article class="panel">
-                <h3>5. Nossa Proposta de Tecnologia Assistiva</h3>
-                <p>Ideia de dispositivo baseado na sinalização por cores e contraste adaptativo.</p>
-                <div class="img-box single-img"><i class="fa-solid fa-pen-ruler"></i><span>Desenho do Dispositivo RGB Assistivo</span></div>
-
-                <h3>6. Inteligência Artificial</h3>
-                <p>Relatório de auxílio da IA na validação do circuito e documentação.</p>
-
-                <h3>7. Conclusão</h3>
-                <p>Considerações finais sobre a importância da luz e das cores na acessibilidade universal.</p>
-
-                <h3>8. Referências (ABNT)</h3>
-                <p class="abnt">SOBRENOME, Nome. <em>Título da Obra</em>. Local: Editora, Ano.</p>
-            </article>
-        </section>
-
-    </main>
-
-    <footer
+            <div class="content-block">
+                <h3>4. Tecnologias Existentes</h3>[span_66](start_span)[span_66](end_span)
+                <div class="tech-cards-grid">
+                    <div class="tech-item">
+                        <div class="tech-img-box"><i class="fa-solid fa-house-signal"></i></div>
+                        <h4>1. Philips Hue Adaptive</h4>
+                        <p><strong>Fabricante:</strong> Signify[span_67](start_span)[span_67](end_span).</p>
+                        <p><strong>Finalidade:</strong> Iluminação inteligente regulável[span_68](start_span)[span_68](end_span).</p>
+                        <p><strong>Princípio:</strong> PWM e protocolos IoT[span_69]
