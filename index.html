@@ -1,226 +1,256 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="js-loading">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oásis da Luz - A Física das Cores e Acessibilidade</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Oásis da Luz - Projeto Integrador de Robótica</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-    <nav id="a11y-intro" class="section-content alternate-bg" aria-label="Ferramentas de Acessibilidade">
-        <div class="content-wrapper readable-content">
-            <h2 class="slide-title">Acessibilidade em Primeiro Lugar</h2>
-            <div id="top-a11y-panel">
-                <button onclick="changeFontSize('increase')" aria-label="Aumentar tamanho da fonte">A+ <i class="fa-solid fa-magnifying-glass-plus"></i></button>
-                <button onclick="changeFontSize('decrease')" aria-label="Diminuir tamanho da fonte">A- <i class="fa-solid fa-magnifying-glass-minus"></i></button>
-                <button id="toggle-contrast" aria-label="Ativar alto contraste">Alto Contraste <i class="fa-solid fa-circle-half-stroke"></i></button>
-                <button id="toggle-voice" aria-label="Ativar leitura de voz">Voz/Audiodescrição <i class="fa-solid fa-ear-listen"></i></button>
+    <!-- BARRA DE ACESSIBILIDADE FIXA -->
+    <nav id="a11y-bar">
+        <div class="a11y-content">
+            <span class="a11y-title"><i class="fa-solid fa-universal-access"></i> Acessibilidade em Primeiro Lugar</span>
+            <div class="a11y-buttons">
+                <button onclick="adjustFont(1)">A+ <i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                <button onclick="adjustFont(-1)">A- <i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                <button id="contrast-toggle" onclick="toggleContrast()">Alto Contraste <i class="fa-solid fa-circle-half-stroke"></i></button>
             </div>
-            <p class="subtitle" style="font-size: 1rem; margin-top: 15px;">Utilize o painel acima para ajustar a página às suas necessidades.</p>
         </div>
     </nav>
 
+    <!-- CABEÇALHO -->
     <header id="main-header">
-        <div class="header-content">
-            <h1>OÁSIS DA LUZ</h1>
-            <p class="subtitle">A Física das Cores e a Acessibilidade Visual Universal</p>
-        </div>
+        <h1>OÁSIS DA LUZ</h1>
+        <p class="subtitle">A Física das Cores, Robótica e Acessibilidade Visual Universal</p>
         <nav id="main-nav">
-            <a href="#teoria" class="nav-link">Teoria</a>
-            <a href="#disco" class="nav-link">Disco de Newton</a>
-            <a href="#rgb" class="nav-link">LED RGB</a>
-            <a href="#fade" class="nav-link">Fade LED</a>
-            <a href="#fakenews" class="nav-link">Fake News</a>
-            <a href="#flashcards" class="nav-link">Flashcards</a>
+            <a href="#atv1">Atividade 1: Disco de Newton</a>
+            <a href="#atv2">Atividade 2: LED Fade</a>
+            <a href="#atv3">Atividade 3: LED RGB</a>
         </nav>
     </header>
 
-    <main>
-        <section id="teoria" class="section-content">
-            <div class="content-wrapper bleed-layout shadow-panel">
-                <div class="text-side readable-content">
-                    <h2>A Ciência da Luz</h2>
-                    <p>O Oásis da Luz conecta a óptica clássica com as tecnologias modernas e a inclusão digital.</p>
-                    <h3>Isaac Newton</h3>
-                    <p>Em 1666, Sir Isaac Newton utilizou um prisma para decompor a luz branca no espectro visível (arco-íris), provando que ela é policromática (composta por várias cores).</p>
+    <main class="container">
+
+        <!-- ==========================================
+             ATIVIDADE 1: DISCO DE NEWTON
+        =========================================== -->
+        <section id="atv1" class="activity-section">
+            <h2 class="section-title">Atividade 1 - Disco de Newton</h2>
+            <p class="question-box"><strong>Questão de investigação:</strong> Como o estudo da luz e das cores contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</p>
+
+            <!-- 1. Apresentação da Atividade -->
+            <article class="panel">
+                <h3>1. Apresentação da Atividade</h3>
+                <p>Texto explicativo (aprox. 15 linhas) detalhando o objetivo da atividade, o processo de construção do Disco de Newton em sala de aula, como ocorreram os testes práticos e o resultado final obtido pelo grupo.</p>
+                <div class="media-grid-3">
+                    <div class="img-box"><i class="fa-solid fa-image"></i><span>Fotografia 1: Construção do Disco</span><p class="caption">Legenda da Imagem 1</p></div>
+                    <div class="img-box"><i class="fa-solid fa-image"></i><span>Fotografia 2: Montagem do Circuito/Motor</span><p class="caption">Legenda da Imagem 2</p></div>
+                    <div class="img-box"><i class="fa-solid fa-image"></i><span>Fotografia 3: Disco Finalizado</span><p class="caption">Legenda da Imagem 3</p></div>
                 </div>
-                <div class="image-side">
-                    <img src="Caminho/Para/Sua/Imagem/NewtonRetrato.png" alt="Retrato clássico de Isaac Newton contemplando a decomposição da luz.">
+                <div class="video-box"><i class="fa-solid fa-video"></i><span>Vídeo: Funcionamento do Disco de Newton em Rotação</span></div>
+            </article>
+
+            <!-- 2. Explicação Científica -->
+            <article class="panel">
+                <h3>2. Explicação Científica</h3>
+                <p><strong>Isaac Newton:</strong> Biografia e contribuição para a óptica clássica.</p>
+                <p><strong>Luz Branca e Decomposição:</strong> Conceito de luz policromática, refração em prismas e o espectro visível humano.</p>
+                <p><strong>Mistura de Cores e Persistência Retiniana:</strong> Explicação de como o olho humano percebe as cores e por que a fusão temporal dos estímulos visuais na retina faz o disco parecer branco ao girar rapidamente.</p>
+                <div class="img-box single-img"><i class="fa-solid fa-diagram-project"></i><span>Esquema Ilustrativo: Decomposição e Síntese da Luz</span></div>
+            </article>
+
+            <!-- 3. Relação com a Deficiência Visual -->
+            <article class="panel">
+                <h3>3. Relação com a Deficiência Visual</h3>
+                <ul>
+                    <li><strong>Percepção da luz na baixa visão:</strong> Como olhos com opacidade ou danos retinianos captam a luminosidade.</li>
+                    <li><strong>Percepção de cores:</strong> Variações na visão cromática entre diferentes pessoas (como no daltonismo).</li>
+                    <li><strong>Interferência da iluminação:</strong> O impacto do ofuscamento e do contraste visual no reconhecimento de objetos.</li>
+                    <li><strong>Importância da teoria das cores para a acessibilidade:</strong> Como o entendimento do espectro permite criar interfaces e ambientes acessíveis.</li>
+                </ul>
+            </article>
+
+            <!-- 4. Tecnologias Existentes -->
+            <article class="panel">
+                <h3>4. Tecnologias Existentes (5 Exemplos)</h3>
+                <div class="tech-grid">
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-microchip"></i><span>Foto Tech 1</span></div><h4>1. Nome da Tecnologia</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Óptica/Luz</p><p><strong>Impacto:</strong> Melhora na qualidade de vida.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-microchip"></i><span>Foto Tech 2</span></div><h4>2. Nome da Tecnologia</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Óptica/Luz</p><p><strong>Impacto:</strong> Melhora na qualidade de vida.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-microchip"></i><span>Foto Tech 3</span></div><h4>3. Nome da Tecnologia</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Óptica/Luz</p><p><strong>Impacto:</strong> Melhora na qualidade de vida.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-microchip"></i><span>Foto Tech 4</span></div><h4>4. Nome da Tecnologia</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Óptica/Luz</p><p><strong>Impacto:</strong> Melhora na qualidade de vida.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-microchip"></i><span>Foto Tech 5</span></div><h4>5. Nome da Tecnologia</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Óptica/Luz</p><p><strong>Impacto:</strong> Melhora na qualidade de vida.</p></div>
                 </div>
-            </div>
+            </article>
+
+            <!-- 5. Nossa Proposta -->
+            <article class="panel">
+                <h3>5. Nossa Proposta de Tecnologia Assistiva</h3>
+                <p><strong>Problema a resolver:</strong> Descrição do desafio de acessibilidade.</p>
+                <p><strong>Público-alvo:</strong> Pessoas com baixa visão ou cegueira.</p>
+                <p><strong>Funcionamento e Componentes:</strong> Detalhamento técnico e circuito.</p>
+                <p><strong>Contribuição do Disco de Newton:</strong> Aplicação do aprendizado sobre síntese e recepção de luz.</p>
+                <p><strong>Uso de Inteligência Artificial:</strong> Integração com IA para otimização da solução.</p>
+                <div class="img-box single-img"><i class="fa-solid fa-pen-ruler"></i><span>Desenho / Esquema Ilustrativo da Proposta</span></div>
+            </article>
+
+            <!-- 6, 7 e 8: IA, Conclusão e Referências -->
+            <article class="panel">
+                <h3>6. Uso da Inteligência Artificial</h3>
+                <p>Ferramentas utilizadas, prompts realizados, como as respostas auxiliaram a pesquisa e processo de checagem das informações.</p>
+                
+                <h3>7. Conclusão</h3>
+                <p>Síntese reflexiva sobre como o estudo do Disco de Newton e da óptica contribui para o desenvolvimento de tecnologias inclusivas.</p>
+
+                <h3>8. Referências (Normas ABNT)</h3>
+                <p class="abnt">SOBRENOME, Nome. <em>Título da Obra</em>. Local: Editora, Ano.</p>
+            </article>
         </section>
 
-        <section id="disco" class="section-content alternate-bg">
-            <div class="content-wrapper shadow-panel text-side readable-content">
-                <h2>O Disco de Newton: Síntese de Cor e Visão</h2>
-                <p>O Disco de Newton prova o fenômeno da síntese: um disco com as cores do espectro visível parece branco quando girado em alta velocidade.</p>
-                <div class="grid-2col shadow-box" style="padding: 20px; border-radius: 10px; margin: 30px 0;">
-                    <div class="image-wrapper text-center">
-                        <img src="Caminho/Para/Sua/Imagem/DiscoRepouso.png" alt="Disco de Newton em repouso mostrando os setores coloridos individuais.">
-                        <small>Disco em repouso</small>
-                    </div>
-                    <div class="image-wrapper text-center">
-                        <img src="Caminho/Para/Sua/Imagem/DiscoRotacao.png" alt="Disco de Newton em alta rotação, onde as cores se misturam em branco.">
-                        <small>Disco em rotação</small>
-                    </div>
+
+        <!-- ==========================================
+             ATIVIDADE 2: LED FADE-IN E FADE-OUT
+        =========================================== -->
+        <section id="atv2" class="activity-section">
+            <h2 class="section-title">Atividade 2 - LED Fade-In e Fade-Out</h2>
+            <p class="question-box"><strong>Questão de investigação:</strong> Como o controle da intensidade da luz contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</p>
+
+            <!-- 1. Apresentação da Atividade -->
+            <article class="panel">
+                <h3>1. Apresentação da Atividade</h3>
+                <p>Texto de 15 linhas detalhando os objetivos, o desenvolvimento da montagem do circuito no Tinkercad, o processo de programação do efeito de esmaecimento (Fade) e os resultados obtidos.</p>
+                <div class="media-grid-3">
+                    <div class="img-box"><i class="fa-solid fa-laptop-code"></i><span>Captura Tinkercad 1: Circuito</span><p class="caption">Legenda da Imagem 1</p></div>
+                    <div class="img-box"><i class="fa-solid fa-laptop-code"></i><span>Captura Tinkercad 2: Código C++/Blocos</span><p class="caption">Legenda da Imagem 2</p></div>
+                    <div class="img-box"><i class="fa-solid fa-laptop-code"></i><span>Captura Tinkercad 3: Simulação Rodando</span><p class="caption">Legenda da Imagem 3</p></div>
                 </div>
-                <p>Isso ocorre devido à **Persistência Retiniana**, onde o cérebro não consegue separar as imagens das cores individuais, sobrepondo-as em branco.</p>
-                <h3>Como Funciona a Síntese</h3>
-                <p>O disco é dividido em setores coloridos (vermelho, laranja, amarelo, verde, azul, anil, violeta). Quando o disco gira, a retina não consegue "reiniciar" a tempo de captar a próxima cor separadamente. As impressões visuais se sobrepõem e as cores primárias e secundárias do espectro visível se adicionam na nossa retina. O resultado é a percepção da soma total do espectro visível, que é a luz branca. Este experimento é a base para a compreensão da síntese aditiva de cores.</p>
-            </div>
+                <div class="video-box"><i class="fa-solid fa-video"></i><span>Vídeo: Simulação do LED Fade-In e Fade-Out no Tinkercad</span></div>
+            </article>
+
+            <!-- 2. Explicação Científica -->
+            <article class="panel">
+                <h3>2. Explicação Científica</h3>
+                <p><strong>Funcionamento do LED e Intensidade Luminosa:</strong> Como diodos emissores de luz transformam energia elétrica em fótons.</p>
+                <p><strong>Controle de Brilho via PWM:</strong> Explicação da Modulação por Largura de Pulso (PWM) e variação do <em>Duty Cycle</em> para controle de fluxo luminoso.</p>
+                <p><strong>Aplicações Práticas:</strong> Importância da iluminação ajustável em ergonomia e ambientes adaptados.</p>
+                <div class="img-box single-img"><i class="fa-solid fa-chart-line"></i><span>Esquema/Gráfico do Sinal PWM (Duty Cycle)</span></div>
+            </article>
+
+            <!-- 3. Relação com a Deficiência Visual -->
+            <article class="panel">
+                <h3>3. Relação com a Deficiência Visual</h3>
+                <ul>
+                    <li><strong>Influência da intensidade de luz:</strong> Como o nível de iluminação altera o contraste e o conforto visual.</li>
+                    <li><strong>Dificuldades por iluminação inadequada:</strong> Ofuscamento (*glare*), sombras excessivas e fadiga visual.</li>
+                    <li><strong>Aumento da autonomia e segurança:</strong> Como sistemas adaptativos previnem acidentes e auxiliam a navegação espacial.</li>
+                </ul>
+            </article>
+
+            <!-- 4. Tecnologias Existentes -->
+            <article class="panel">
+                <h3>4. Tecnologias Existentes com Controle de Luz (5 Exemplos)</h3>
+                <div class="tech-grid">
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-lightbulb"></i><span>Foto Tech 1</span></div><h4>1. Nome / Fabricante</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> PWM/Luminância</p><p><strong>Impacto:</strong> Benefício ao usuário.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-lightbulb"></i><span>Foto Tech 2</span></div><h4>2. Nome / Fabricante</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> PWM/Luminância</p><p><strong>Impacto:</strong> Benefício ao usuário.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-lightbulb"></i><span>Foto Tech 3</span></div><h4>3. Nome / Fabricante</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> PWM/Luminância</p><p><strong>Impacto:</strong> Benefício ao usuário.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-lightbulb"></i><span>Foto Tech 4</span></div><h4>4. Nome / Fabricante</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> PWM/Luminância</p><p><strong>Impacto:</strong> Benefício ao usuário.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-lightbulb"></i><span>Foto Tech 5</span></div><h4>5. Nome / Fabricante</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> PWM/Luminância</p><p><strong>Impacto:</strong> Benefício ao usuário.</p></div>
+                </div>
+            </article>
+
+            <!-- 5, 6, 7, 8 -->
+            <article class="panel">
+                <h3>5. Nossa Proposta de Tecnologia Assistiva</h3>
+                <p>Detalhes da proposta utilizando variação de intensidade luminosa automatizada.</p>
+                <div class="img-box single-img"><i class="fa-solid fa-pen-ruler"></i><span>Esquema da Proposta Assistiva (LED Fade)</span></div>
+
+                <h3>6. Inteligência Artificial</h3>
+                <p>Prompts executados e auxílio na estruturação dos códigos Arduino/Tinkercad.</p>
+
+                <h3>7. Conclusão</h3>
+                <p>Reflexão sobre o impacto do controle da luz na criação de espaços acessíveis.</p>
+
+                <h3>8. Referências (ABNT)</h3>
+                <p class="abnt">SOBRENOME, Nome. <em>Título da Obra</em>. Local: Editora, Ano.</p>
+            </article>
         </section>
 
-        <section id="rgb" class="section-content">
-            <div class="content-wrapper two-column shadow-panel">
-                <div class="image-wrapper">
-                    <img src="Caminho/Para/Sua/Imagem/LedRGB.png" alt="Visão explodida de um LED RGB mostrando os diodos vermelho, verde e azul e como eles misturam luz.">
+
+        <!-- ==========================================
+             ATIVIDADE 3: LED RGB
+        =========================================== -->
+        <section id="atv3" class="activity-section">
+            <h2 class="section-title">Atividade 3 - LED RGB</h2>
+            <p class="question-box"><strong>Questão de investigação:</strong> Como o estudo das cores contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</p>
+
+            <!-- 1. Apresentação da Atividade -->
+            <article class="panel">
+                <h3>1. Apresentação da Atividade</h3>
+                <p>Texto de 15 linhas apresentando os objetivos da simulação com LED RGB no Tinkercad, a lógica de conexão dos catodos/anodos e os resultados de misturas de cores.</p>
+                <div class="media-grid-3">
+                    <div class="img-box"><i class="fa-solid fa-vr-cardboard"></i><span>Captura Tinkercad 1: Montagem RGB</span><p class="caption">Legenda da Imagem 1</p></div>
+                    <div class="img-box"><i class="fa-solid fa-vr-cardboard"></i><span>Captura Tinkercad 2: Ajuste de Resistores</span><p class="caption">Legenda da Imagem 2</p></div>
+                    <div class="img-box"><i class="fa-solid fa-vr-cardboard"></i><span>Captura Tinkercad 3: Mistura Amarelo/Ciano/Magenta</span><p class="caption">Legenda da Imagem 3</p></div>
                 </div>
-                <div class="text-side readable-content">
-                    <h2>LED RGB e a Síntese Aditiva</h2>
-                    <p>A luz segue a **Síntese Aditiva** (modelo RGB: *Red, Green, Blue*), onde a soma de luz cria cores.</p>
-                    <p>Diferente de tintas (síntese subtrativa), um LED RGB gera milhões de cores controlando a intensidade de seus três diodos internos.</p>
-                    
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Mistura de Luzes</th>
-                                <th>Cor Resultante</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Vermelho + Verde</td>
-                                <td><strong>Amarelo</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Vermelho + Azul</td>
-                                <td><strong>Magenta</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Verde + Azul</td>
-                                <td><strong>Ciano</strong></td>
-                            </tr>
-                            <tr>
-                                <td>R + G + B (Máximo)</td>
-                                <td><strong>Branco</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="video-box"><i class="fa-solid fa-video"></i><span>Vídeo: Simulação das Trocas de Cores do LED RGB</span></div>
+            </article>
+
+            <!-- 2. Explicação Científica -->
+            <article class="panel">
+                <h3>2. Explicação Científica</h3>
+                <p><strong>LED RGB e Modelo de Cores:</strong> Como os diodos Vermelho, Verde e Azul encapsulados geram diferentes comprimentos de onda.</p>
+                <p><strong>Síntese Aditiva:</strong> Tabela de combinações para geração de cores secundárias e luz branca.</p>
+                <table class="rgb-table">
+                    <thead><tr><th>Vermelho (R)</th><th>Verde (G)</th><th>Azul (B)</th><th>Cor Resultante</th></tr></thead>
+                    <tbody>
+                        <tr><td>255</td><td>255</td><td>0</td><td><strong>Amarelo</strong></td></tr>
+                        <tr><td>255</td><td>0</td><td>255</td><td><strong>Magenta</strong></td></tr>
+                        <tr><td>0</td><td>255</td><td>255</td><td><strong>Ciano</strong></td></tr>
+                        <tr><td>255</td><td>255</td><td>255</td><td><strong>Branco</strong></td></tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <!-- 3. Relação com a Deficiência Visual -->
+            <article class="panel">
+                <h3>3. Relação com a Deficiência Visual</h3>
+                <ul>
+                    <li><strong>Contraste Cromático:</strong> Importância das combinações de alta visibilidade em sinalizações.</li>
+                    <li><strong>Orientação em Ambientes:</strong> Uso de códigos de cores iluminadas para navegação e segurança de pessoas com baixa visão.</li>
+                </ul>
+            </article>
+
+            <!-- 4. Tecnologias Existentes (5 Exemplos) -->
+            <article class="panel">
+                <h3>4. Tecnologias Existentes com Cores e Luz (5 Exemplos)</h3>
+                <div class="tech-grid">
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-circle-dot"></i><span>Foto Tech 1</span></div><h4>1. Nome / Instituição</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Contraste/RGB</p><p><strong>Impacto:</strong> Qualidade de vida.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-circle-dot"></i><span>Foto Tech 2</span></div><h4>2. Nome / Instituição</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Contraste/RGB</p><p><strong>Impacto:</strong> Qualidade de vida.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-circle-dot"></i><span>Foto Tech 3</span></div><h4>3. Nome / Instituição</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Contraste/RGB</p><p><strong>Impacto:</strong> Qualidade de vida.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-circle-dot"></i><span>Foto Tech 4</span></div><h4>4. Nome / Instituição</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Contraste/RGB</p><p><strong>Impacto:</strong> Qualidade de vida.</p></div>
+                    <div class="tech-card"><div class="img-box"><i class="fa-solid fa-circle-dot"></i><span>Foto Tech 5</span></div><h4>5. Nome / Instituição</h4><p><strong>Finalidade:</strong> Descrição</p><p><strong>Princípio Científico:</strong> Contraste/RGB</p><p><strong>Impacto:</strong> Qualidade de vida.</p></div>
                 </div>
-            </div>
-        </section>
+            </article>
 
-        <section id="fade" class="section-content alternate-bg">
-            <div class="content-wrapper shadow-panel text-side readable-content">
-                <h2>Animação de Luz: O Efeito Fade In / Fade Out</h2>
-                <div class="grid-2col shadow-box" style="padding: 20px; border-radius: 10px; margin: 30px 0;">
-                    <p>O efeito **Fade In** (acender suavemente) e **Fade Out** (apagar suavemente) nos LEDs é um dos efeitos mais comuns e fundamentais no controle de iluminação. Ele é essencial para criar transições visuais suaves, animações e efeitos de "respiração" em luzes indicadoras.</p>
-                    <div class="image-wrapper text-center">
-                        <img src="Caminho/Para/Sua/Imagem/FadeLed.png" alt="Ilustração de um LED passando por uma transição suave de brilho, acendendo e apagando.">
-                        <small>Efeito Fade LED</small>
-                    </div>
-                </div>
-                <h3>Como Funciona o Controle de Brilho</h3>
-                <p>O controle suave do brilho do LED não é feito simplesmente variando a voltagem (o que seria ineficiente e difícil de controlar para transições muito suaves), mas através de uma técnica chamada **PWM** (*Pulse Width Modulation*, ou Modulação por Largura de Pulso).</p>
-                <p>Com o PWM, o microcontrolador (como o Arduino/Tinkercad) acende e apaga o LED extremamente rápido (muito mais rápido do que a persistência retiniana, para que não notemos o piscar). Controlando o tempo que o LED permanece **ligado** (Dever de Ciclo, ou *Duty Cycle*) em comparação com o tempo que ele permanece **desligado** durante cada ciclo PWM, podemos modular a intensidade de luz percebida. Um Duty Cycle baixo (ex: 10% ligado) faz o LED parecer fraco; um Duty Cycle alto (ex: 90% ligado) faz o LED parecer brilhante. Variando este Duty Cycle suavemente ao longo do tempo, criamos a animação de Fade In e Fade Out.</p>
-            </div>
-        </section>
+            <!-- 5, 6, 7, 8 -->
+            <article class="panel">
+                <h3>5. Nossa Proposta de Tecnologia Assistiva</h3>
+                <p>Ideia de dispositivo baseado na sinalização por cores e contraste adaptativo.</p>
+                <div class="img-box single-img"><i class="fa-solid fa-pen-ruler"></i><span>Desenho do Dispositivo RGB Assistivo</span></div>
 
-        <section id="fakenews" class="section-content">
-            <div class="content-wrapper shadow-panel readable-content text-contrast-wrapper">
-                <h2>Fake News na Óptica</h2>
-                <p>É importante não apenas aprender os fatos, mas também saber verificar a veracidade das informações que consumimos. Muitas "fake news" e mitos sobre física e óptica circulam na internet, dificultando o aprendizado correto.</p>
-                <div class="grid-2col shadow-box" style="padding: 20px; border-radius: 10px; margin: 30px 0;">
-                    <p>Nesta seção, vamos desmistificar algumas das mentiras mais comuns sobre a física das cores e o trabalho de Isaac Newton, para que você possa ser um consumidor de conteúdo mais crítico.</p>
-                    <div class="image-wrapper text-center">
-                        <img src="Caminho/Para/Sua/Imagem/FakeNewsOptica.png" alt="Ilustração mostrando luz quebrada e um selo de MITO para explicar Fake News na Óptica.">
-                        <small>Fake News na Óptica</small>
-                    </div>
-                </div>
-                <p class="subtitle">Próxima Parada: MITOS vs FATOS.</p>
-            </div>
-        </section>
+                <h3>6. Inteligência Artificial</h3>
+                <p>Relatório de auxílio da IA na validação do circuito e documentação.</p>
 
-        <section id="flashcards" class="section-content alternate-bg">
-            <div class="content-wrapper">
-                <h2>Flashcards Interativos</h2>
-                <div class="flashcard-grid">
-                    
-                    <div class="flashcard-container shadow-panel" onclick="flipCard(this)">
-                        <div class="flashcard card-front" aria-label="Flashcard: O que é Dispersão? Toque para ver a resposta.">
-                            <i class="fa-solid fa-question icon"></i>
-                            <h3>O que é Dispersão?</h3>
-                        </div>
-                        <div class="flashcard card-back" aria-hidden="true">
-                            <p>É a separação da luz branca policromática em suas cores componentes (o espectro visível), como acontece quando a luz atravessa um prisma ou gotículas de água.</p>
-                        </div>
-                    </div>
+                <h3>7. Conclusão</h3>
+                <p>Considerações finais sobre a importância da luz e das cores na acessibilidade universal.</p>
 
-                    <div class="flashcard-container shadow-panel" onclick="flipCard(this)">
-                        <div class="flashcard card-front" aria-label="Flashcard: Por que o Disco de Newton parece branco? Toque para ver a resposta.">
-                            <i class="fa-solid fa-lightbulb icon"></i>
-                            <h3>Por que o Disco de Newton parece branco?</h3>
-                        </div>
-                        <div class="flashcard card-back" aria-hidden="true">
-                            <p>Devido à Persistência Retiniana. As cores giram tão rápido que a retina não consegue separá-las, e o cérebro sobrepõe as imagens, resultando na percepção da luz branca.</p>
-                        </div>
-                    </div>
-
-                    <div class="flashcard-container shadow-panel" onclick="flipCard(this)">
-                        <div class="flashcard card-front" aria-label="Flashcard: Qual a diferença entre Síntese Aditiva e Subtrativa? Toque para ver a resposta.">
-                            <i class="fa-solid fa-palette icon"></i>
-                            <h3>Síntese Aditiva vs Subtrativa</h3>
-                        </div>
-                        <div class="flashcard card-back" aria-hidden="true">
-                            <p>Aditiva (Luz) cria cores somando luz (base R,G,B). Subtrativa (Tintas) cria cores absorvendo luz (base C,M,Y,K). Adicionar todas as luzes cria branco; adicionar todas as tintas cria preto.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="videos" class="section-content">
-            <div class="content-wrapper">
-                <h2>Galeria Multimídia</h2>
-                <div class="video-grid">
-                    
-                    <a href="#" class="video-placeholder shadow-panel" target="_blank" aria-label="Assistir Vídeo 1: Experimento de Newton">
-                        <i class="fa-brands fa-youtube"></i>
-                        <span>Experimento de Newton</span>
-                    </a>
-
-                    <a href="#" class="video-placeholder shadow-panel" target="_blank" aria-label="Assistir Vídeo 2: Simulação de LED RGB">
-                        <i class="fa-brands fa-youtube"></i>
-                        <span>Simulação de LED RGB</span>
-                    </a>
-
-                    <a href="#" class="video-placeholder shadow-panel" target="_blank" aria-label="Assistir Vídeo 3: Tutorial de Acessibilidade">
-                        <i class="fa-brands fa-youtube"></i>
-                        <span>Tutorial A11y</span>
-                    </a>
-
-                </div>
-            </div>
+                <h3>8. Referências (ABNT)</h3>
+                <p class="abnt">SOBRENOME, Nome. <em>Título da Obra</em>. Local: Editora, Ano.</p>
+            </article>
         </section>
 
     </main>
 
-    <footer id="main-footer">
-        <div class="content-wrapper footer-content">
-            <p>&copy; 2023 Projeto Oásis da Luz. Educação Aberta e Inclusiva.</p>
-            <div class="contact-links">
-                <a href="#"><i class="fa-solid fa-envelope"></i></a>
-                <a href="#"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <footer
