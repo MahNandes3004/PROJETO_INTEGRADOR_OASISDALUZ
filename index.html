@@ -1,187 +1,224 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="js-loading">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oásis da Luz - A Física das Cores</title>
+    <title>Oásis da Luz - A Física das Cores e Acessibilidade</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div id="top-accessibility-bar">
-        <div class="a11y-container">
-            <span class="a11y-label"><i class="fa-solid fa-universal-access"></i> Acessibilidade:</span>
-            <div class="a11y-buttons">
-                <button onclick="changeFontSize('increase')" aria-label="Aumentar fonte">A+</button>
-                <button onclick="changeFontSize('decrease')" aria-label="Diminuir fonte">A-</button>
-                <button id="btn-contrast" onclick="toggleContrast()"><i class="fa-solid fa-circle-half-stroke"></i> Alto Contraste</button>
-                <button id="btn-voice" onclick="toggleVoice()"><i class="fa-solid fa-volume-high"></i> Leitura de Voz</button>
+    <nav id="a11y-intro" class="section-content alternate-bg" aria-label="Ferramentas de Acessibilidade">
+        <div class="content-wrapper readable-content">
+            <h2 class="slide-title">Acessibilidade em Primeiro Lugar</h2>
+            <div id="top-a11y-panel">
+                <button onclick="changeFontSize('increase')" aria-label="Aumentar tamanho da fonte">A+ <i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                <button onclick="changeFontSize('decrease')" aria-label="Diminuir tamanho da fonte">A- <i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                <button id="toggle-contrast" aria-label="Ativar alto contraste">Alto Contraste <i class="fa-solid fa-circle-half-stroke"></i></button>
+                <button id="toggle-voice" aria-label="Ativar leitura de voz">Voz/Audiodescrição <i class="fa-solid fa-ear-listen"></i></button>
             </div>
+            <p class="subtitle" style="font-size: 1rem; margin-top: 15px;">Utilize o painel acima para ajustar a página às suas necessidades.</p>
         </div>
-    </div>
+    </nav>
 
     <header id="main-header">
-        <div class="header-inner">
-            <div class="brand">
-                <h1>OÁSIS DA LUZ</h1>
-                <p>A Física das Cores e Acessibilidade Visual Universal</p>
-            </div>
-            <nav id="navbar">
-                <a href="#teoria">Teoria</a>
-                <a href="#leds">LEDs RGB</a>
-                <a href="#fakenews">Mitos & Fatos</a>
-                <a href="#videos">Vídeos LEDs</a>
-                <a href="#flashcards">Flashcards</a>
-            </nav>
+        <div class="header-content">
+            <h1>OÁSIS DA LUZ</h1>
+            <p class="subtitle">A Física das Cores e a Acessibilidade Visual Universal</p>
         </div>
+        <nav id="main-nav">
+            <a href="#teoria" class="nav-link">Teoria</a>
+            <a href="#disco" class="nav-link">Disco de Newton</a>
+            <a href="#rgb" class="nav-link">LED RGB</a>
+            <a href="#fade" class="nav-link">Fade LED</a>
+            <a href="#fakenews" class="nav-link">Fake News</a>
+            <a href="#flashcards" class="nav-link">Flashcards</a>
+        </nav>
     </header>
 
-    <main class="main-container">
-
-        <section id="teoria" class="content-block">
-            <h2 class="block-title">1. A Ciência da Luz e Isaac Newton</h2>
-            <div class="grid-2col">
-                <div class="text-content">
-                    <p>Em 1666, Sir Isaac Newton utilizou um prisma de vidro para demonstrar que a luz branca vinda do Sol é policromática, isto é, composta por todas as cores do espectro visível (arco-íris).</p>
-                    <p>Além da decomposição, Newton desenvolveu o <strong>Disco de Newton</strong>: um dispositivo circular contendo os setores coloridos que, ao girar rapidamente, faz as cores se misturarem na nossa retina, criando a percepção da luz branca através da <em>persistência retiniana</em>.</p>
+    <main>
+        <section id="teoria" class="section-content">
+            <div class="content-wrapper bleed-layout shadow-panel">
+                <div class="text-side readable-content">
+                    <h2>A Ciência da Luz</h2>
+                    <p>O Oásis da Luz conecta a óptica clássica com as tecnologias modernas e a inclusão digital.</p>
+                    <h3>Isaac Newton</h3>
+                    <p>Em 1666, Sir Isaac Newton utilizou um prisma para decompor a luz branca no espectro visível (arco-íris), provando que ela é policromática (composta por várias cores).</p>
                 </div>
-                <div class="img-placeholder">
-                    <i class="fa-regular fa-image"></i>
-                    <span>Espaço para Imagem 1</span>
-                    <small>(Insira o link da foto de Newton/Disco aqui)</small>
+                <div class="image-side">
+                    <img src="Caminho/Para/Sua/Imagem/NewtonRetrato.png" alt="Retrato clássico de Isaac Newton contemplando a decomposição da luz.">
                 </div>
             </div>
         </section>
 
-        <section id="leds" class="content-block">
-            <h2 class="block-title">2. A Física do LED RGB</h2>
-            <div class="grid-2col reverse">
-                <div class="img-placeholder">
-                    <i class="fa-regular fa-image"></i>
-                    <span>Espaço para Imagem 2</span>
-                    <small>(Insira o link da foto dos LEDs aqui)</small>
+        <section id="disco" class="section-content alternate-bg">
+            <div class="content-wrapper shadow-panel text-side readable-content">
+                <h2>O Disco de Newton: Síntese de Cor e Visão</h2>
+                <p>O Disco de Newton prova o fenômeno da síntese: um disco com as cores do espectro visível parece branco quando girado em alta velocidade.</p>
+                <div class="grid-2col shadow-box" style="padding: 20px; border-radius: 10px; margin: 30px 0;">
+                    <div class="image-wrapper text-center">
+                        <img src="Caminho/Para/Sua/Imagem/DiscoRepouso.png" alt="Disco de Newton em repouso mostrando os setores coloridos individuais.">
+                        <small>Disco em repouso</small>
+                    </div>
+                    <div class="image-wrapper text-center">
+                        <img src="Caminho/Para/Sua/Imagem/DiscoRotacao.png" alt="Disco de Newton em alta rotação, onde as cores se misturam em branco.">
+                        <small>Disco em rotação</small>
+                    </div>
                 </div>
-                <div class="text-content">
-                    <p>Ao contrário dos pigmentos de tinta (síntese subtrativa), a luz trabalha com a <strong>Síntese Aditiva (RGB)</strong>, utilizando as cores primárias de luz: Vermelho (Red), Verde (Green) e Azul (Blue).</p>
-                    <p>Um LED RGB possui três diodos independentes. Variando a intensidade da corrente em cada um, sobrepomos as frequências de onda e geramos milhões de combinações:</p>
+                <p>Isso ocorre devido à **Persistência Retiniana**, onde o cérebro não consegue separar as imagens das cores individuais, sobrepondo-as em branco.</p>
+                <h3>Como Funciona a Síntese</h3>
+                <p>O disco é dividido em setores coloridos (vermelho, laranja, amarelo, verde, azul, anil, violeta). Quando o disco gira, a retina não consegue "reiniciar" a tempo de captar a próxima cor separadamente. As impressões visuais se sobrepõem e as cores primárias e secundárias do espectro visível se adicionam na nossa retina. O resultado é a percepção da soma total do espectro visível, que é a luz branca. Este experimento é a base para a compreensão da síntese aditiva de cores.</p>
+            </div>
+        </section>
+
+        <section id="rgb" class="section-content">
+            <div class="content-wrapper two-column shadow-panel">
+                <div class="image-wrapper">
+                    <img src="Caminho/Para/Sua/Imagem/LedRGB.png" alt="Visão explodida de um LED RGB mostrando os diodos vermelho, verde e azul e como eles misturam luz.">
+                </div>
+                <div class="text-side readable-content">
+                    <h2>LED RGB e a Síntese Aditiva</h2>
+                    <p>A luz segue a **Síntese Aditiva** (modelo RGB: *Red, Green, Blue*), onde a soma de luz cria cores.</p>
+                    <p>Diferente de tintas (síntese subtrativa), um LED RGB gera milhões de cores controlando a intensidade de seus três diodos internos.</p>
                     
-                    <table class="data-table">
+                    <table>
                         <thead>
                             <tr>
-                                <th>Combinação de Luz</th>
+                                <th>Mistura de Luzes</th>
                                 <th>Cor Resultante</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>Vermelho + Verde</td><td><strong>Amarelo</strong></td></tr>
-                            <tr><td>Vermelho + Azul</td><td><strong>Magenta</strong></td></tr>
-                            <tr><td>Verde + Azul</td><td><strong>Ciano</strong></td></tr>
-                            <tr><td>Vermelho + Verde + Azul (100%)</td><td><strong>Branco</strong></td></tr>
+                            <tr>
+                                <td>Vermelho + Verde</td>
+                                <td><strong>Amarelo</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Vermelho + Azul</td>
+                                <td><strong>Magenta</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Verde + Azul</td>
+                                <td><strong>Ciano</strong></td>
+                            </tr>
+                            <tr>
+                                <td>R + G + B (Máximo)</td>
+                                <td><strong>Branco</strong></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
 
-        <section id="fakenews" class="content-block">
-            <h2 class="block-title">3. Checagem de Fatos: Mitos e Fake News na Óptica</h2>
-            <div class="fakenews-box">
-                <div class="fact-card">
-                    <span class="badge-fake"><i class="fa-solid fa-xmark"></i> MITO:</span>
-                    <p><strong>"O Disco de Newton cria luz branca do nada quando gira."</strong></p>
-                    <span class="badge-fact"><i class="fa-solid fa-check"></i> FATO:</span>
-                    <p>O disco não cria luz. Ele apenas reflete as frequências de cor existentes. O efeito de cor branca/creme ocorre dentro do olho humano devido à limitação temporal de processamento da retina (persistência retiniana).</p>
+        <section id="fade" class="section-content alternate-bg">
+            <div class="content-wrapper shadow-panel text-side readable-content">
+                <h2>Animação de Luz: O Efeito Fade In / Fade Out</h2>
+                <div class="grid-2col shadow-box" style="padding: 20px; border-radius: 10px; margin: 30px 0;">
+                    <p>O efeito **Fade In** (acender suavemente) e **Fade Out** (apagar suavemente) nos LEDs é um dos efeitos mais comuns e fundamentais no controle de iluminação. Ele é essencial para criar transições visuais suaves, animações e efeitos de "respiração" em luzes indicadoras.</p>
+                    <div class="image-wrapper text-center">
+                        <img src="Caminho/Para/Sua/Imagem/FadeLed.png" alt="Ilustração de um LED passando por uma transição suave de brilho, acendendo e apagando.">
+                        <small>Efeito Fade LED</small>
+                    </div>
                 </div>
-                <hr>
-                <div class="fact-card">
-                    <span class="badge-fake"><i class="fa-solid fa-xmark"></i> MITO:</span>
-                    <p><strong>"Misturar luzes funciona exatamente como misturar tintas de canetinha."</strong></p>
-                    <span class="badge-fact"><i class="fa-solid fa-check"></i> FATO:</span>
-                    <p>Tintas absorvem (subtraem) luz; misturar todas gera preto. Luzes somam (adicionam) frequências; misturar luz vermelha, verde e azul na intensidade máxima gera luz branca.</p>
+                <h3>Como Funciona o Controle de Brilho</h3>
+                <p>O controle suave do brilho do LED não é feito simplesmente variando a voltagem (o que seria ineficiente e difícil de controlar para transições muito suaves), mas através de uma técnica chamada **PWM** (*Pulse Width Modulation*, ou Modulação por Largura de Pulso).</p>
+                <p>Com o PWM, o microcontrolador (como o Arduino/Tinkercad) acende e apaga o LED extremamente rápido (muito mais rápido do que a persistência retiniana, para que não notemos o piscar). Controlando o tempo que o LED permanece **ligado** (Dever de Ciclo, ou *Duty Cycle*) em comparação com o tempo que ele permanece **desligado** durante cada ciclo PWM, podemos modular a intensidade de luz percebida. Um Duty Cycle baixo (ex: 10% ligado) faz o LED parecer fraco; um Duty Cycle alto (ex: 90% ligado) faz o LED parecer brilhante. Variando este Duty Cycle suavemente ao longo do tempo, criamos a animação de Fade In e Fade Out.</p>
+            </div>
+        </section>
+
+        <section id="fakenews" class="section-content">
+            <div class="content-wrapper shadow-panel readable-content text-contrast-wrapper">
+                <h2>Fake News na Óptica</h2>
+                <p>É importante não apenas aprender os fatos, mas também saber verificar a veracidade das informações que consumimos. Muitas "fake news" e mitos sobre física e óptica circulam na internet, dificultando o aprendizado correto.</p>
+                <div class="grid-2col shadow-box" style="padding: 20px; border-radius: 10px; margin: 30px 0;">
+                    <p>Nesta seção, vamos desmistificar algumas das mentiras mais comuns sobre a física das cores e o trabalho de Isaac Newton, para que você possa ser um consumidor de conteúdo mais crítico.</p>
+                    <div class="image-wrapper text-center">
+                        <img src="Caminho/Para/Sua/Imagem/FakeNewsOptica.png" alt="Ilustração mostrando luz quebrada e um selo de MITO para explicar Fake News na Óptica.">
+                        <small>Fake News na Óptica</small>
+                    </div>
+                </div>
+                <p class="subtitle">Próxima Parada: MITOS vs FATOS.</p>
+            </div>
+        </section>
+
+        <section id="flashcards" class="section-content alternate-bg">
+            <div class="content-wrapper">
+                <h2>Flashcards Interativos</h2>
+                <div class="flashcard-grid">
+                    
+                    <div class="flashcard-container shadow-panel" onclick="flipCard(this)">
+                        <div class="flashcard card-front" aria-label="Flashcard: O que é Dispersão? Toque para ver a resposta.">
+                            <i class="fa-solid fa-question icon"></i>
+                            <h3>O que é Dispersão?</h3>
+                        </div>
+                        <div class="flashcard card-back" aria-hidden="true">
+                            <p>É a separação da luz branca policromática em suas cores componentes (o espectro visível), como acontece quando a luz atravessa um prisma ou gotículas de água.</p>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-container shadow-panel" onclick="flipCard(this)">
+                        <div class="flashcard card-front" aria-label="Flashcard: Por que o Disco de Newton parece branco? Toque para ver a resposta.">
+                            <i class="fa-solid fa-lightbulb icon"></i>
+                            <h3>Por que o Disco de Newton parece branco?</h3>
+                        </div>
+                        <div class="flashcard card-back" aria-hidden="true">
+                            <p>Devido à Persistência Retiniana. As cores giram tão rápido que a retina não consegue separá-las, e o cérebro sobrepõe as imagens, resultando na percepção da luz branca.</p>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-container shadow-panel" onclick="flipCard(this)">
+                        <div class="flashcard card-front" aria-label="Flashcard: Qual a diferença entre Síntese Aditiva e Subtrativa? Toque para ver a resposta.">
+                            <i class="fa-solid fa-palette icon"></i>
+                            <h3>Síntese Aditiva vs Subtrativa</h3>
+                        </div>
+                        <div class="flashcard card-back" aria-hidden="true">
+                            <p>Aditiva (Luz) cria cores somando luz (base R,G,B). Subtrativa (Tintas) cria cores absorvendo luz (base C,M,Y,K). Adicionar todas as luzes cria branco; adicionar todas as tintas cria preto.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="videos" class="content-block">
-            <h2 class="block-title">4. Demonstrações Práticas: Projetos com LEDs</h2>
-            <div class="grid-3col">
-                <div class="video-card">
-                    <div class="video-thumb">
+        <section id="videos" class="section-content">
+            <div class="content-wrapper">
+                <h2>Galeria Multimídia</h2>
+                <div class="video-grid">
+                    
+                    <a href="#" class="video-placeholder shadow-panel" target="_blank" aria-label="Assistir Vídeo 1: Experimento de Newton">
                         <i class="fa-brands fa-youtube"></i>
-                    </div>
-                    <h3>Vídeo 1: Funcionamento do LED RGB</h3>
-                    <p>Entendendo os anodos, catodos e emissão de luz.</p>
-                    <a href="#" target="_blank" class="btn-link">Assistir Vídeo</a>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumb">
-                        <i class="fa-brands fa-youtube"></i>
-                    </div>
-                    <h3>Vídeo 2: Circuito na Protoboard</h3>
-                    <p>Montagem física dos resistores e diodos RGB.</p>
-                    <a href="#" target="_blank" class="btn-link">Assistir Vídeo</a>
-                </div>
-                <div class="video-card">
-                    <div class="video-thumb">
-                        <i class="fa-brands fa-youtube"></i>
-                    </div>
-                    <h3>Vídeo 3: Simulação Tinkercad</h3>
-                    <p>Controle de cores e código em blocos/C++.</p>
-                    <a href="#" target="_blank" class="btn-link">Assistir Vídeo</a>
-                </div>
-            </div>
-        </section>
+                        <span>Experimento de Newton</span>
+                    </a>
 
-        <section id="flashcards" class="content-block">
-            <h2 class="block-title">5. Fixação de Conteúdo: Flashcards</h2>
-            <div class="grid-3col">
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <i class="fa-solid fa-rotate"></i>
-                            <p>O que é Dispersão Luminosa?</p>
-                            <small>Clique para virar</small>
-                        </div>
-                        <div class="card-back">
-                            <p>É a separação da luz policromática branca em suas diferentes frequências de cores ao passar por um meio refratário (como o prisma).</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <i class="fa-solid fa-rotate"></i>
-                            <p>Como o LED RGB gera o Amarelo?</p>
-                            <small>Clique para virar</small>
-                        </div>
-                        <div class="card-back">
-                            <p>Ativando simultaneamente o diodo Vermelho e o diodo Verde com igual intensidade de luz.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flashcard" onclick="this.classList.toggle('flipped')">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <i class="fa-solid fa-rotate"></i>
-                            <p>O que é Persistência Retiniana?</p>
-                            <small>Clique para virar</small>
-                        </div>
-                        <div class="card-back">
-                            <p>A capacidade do olho humano de reter uma imagem por uma fração de segundo, fazendo com que estímulos rápidos se fundam em uma única imagem.</p>
-                        </div>
-                    </div>
+                    <a href="#" class="video-placeholder shadow-panel" target="_blank" aria-label="Assistir Vídeo 2: Simulação de LED RGB">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span>Simulação de LED RGB</span>
+                    </a>
+
+                    <a href="#" class="video-placeholder shadow-panel" target="_blank" aria-label="Assistir Vídeo 3: Tutorial de Acessibilidade">
+                        <i class="fa-brands fa-youtube"></i>
+                        <span>Tutorial A11y</span>
+                    </a>
+
                 </div>
             </div>
         </section>
 
     </main>
 
-    <footer id="footer">
-        <p>Projeto Oásis da Luz &copy; 2026 - Ensino Livre de Óptica e Acessibilidade</p>
+    <footer id="main-footer">
+        <div class="content-wrapper footer-content">
+            <p>&copy; 2023 Projeto Oásis da Luz. Educação Aberta e Inclusiva.</p>
+            <div class="contact-links">
+                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
