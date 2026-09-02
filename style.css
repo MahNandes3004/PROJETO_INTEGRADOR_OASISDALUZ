@@ -1,225 +1,79 @@
-
-/* 1. VARIÁVEIS DO TEMA E RESET */
+/* VARIÁVEIS DE COR E LAYOUT */
 :root {
-    --primary-bg: #fdfaf5; /* Creme acadêmico */
-    --alternate-bg: #f5f2ed; /* Creme mais escuro */
-    --accent-blue: #003057; /* Azul marinho profundo */
-    --secondary-blue: #005088; /* Azul ciência */
-    --text-dark: #121212;
-    --text-muted: #4a4a4a;
-    --white: #ffffff;
-    --highlight: #e6f0f8;
-    
-    --header-height: 120px;
+    --bg-main: #f4efea;
+    --panel-bg: #ffffff;
+    --text-color: #1a1a1a;
+    --primary-blue: #0b1d33;
+    --secondary-blue: #162a45;
+    --accent-blue: #3b597b;
+    --border-color: #e2dad1;
+    --font-stack: 'Georgia', serif;
+    --font-sans: 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Reset Básico */
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 100%; /* 16px */ }
-body {
-    background-color: var(--primary-bg);
-    color: var(--text-dark);
-    font-family: 'DM Sans', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
+body { background-color: var(--bg-main); color: var(--text-color); font-family: var(--font-stack); line-height: 1.6; }
 
-/* 2. TIPOGRAFIA */
-h1, h2, h3 {
-    color: var(--accent-blue);
-    font-family: 'Merriweather', serif;
-    margin-bottom: 20px;
-}
+/* BARRA DE ACESSIBILIDADE FIXA NO TOPO */
+#a11y-bar { background-color: #e8e2d9; border-bottom: 2px solid #b5a899; padding: 10px 20px; position: sticky; top: 0; z-index: 1000; }
+.a11y-content { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; font-family: var(--font-sans); }
+.a11y-title { font-weight: bold; color: var(--primary-blue); }
+.a11y-buttons button { background: var(--primary-blue); color: #fff; border: none; padding: 6px 12px; margin-left: 5px; border-radius: 4px; cursor: pointer; font-weight: bold; }
 
-h1 { font-size: 3rem; font-weight: 700; line-height: 1.1; }
-h2 { font-size: 2.2rem; font-weight: 700; border-left: 6px solid var(--secondary-blue); padding-left: 15px; margin-bottom: 30px; }
-h3 { font-size: 1.5rem; font-weight: 700; margin-top: 25px; }
+/* HEADER E NAV */
+#main-header { background-color: var(--primary-blue); color: #fff; padding: 25px 20px; text-align: center; }
+#main-header h1 { font-family: var(--font-sans); font-size: 2.2rem; letter-spacing: 2px; }
+.subtitle { color: #b0c4de; font-family: var(--font-sans); margin-bottom: 15px; }
+#main-nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 10px; }
+#main-nav a { color: #d1e0f0; text-decoration: none; font-family: var(--font-sans); font-weight: bold; background: var(--secondary-blue); padding: 8px 16px; border-radius: 4px; }
+#main-nav a:hover { background: var(--accent-blue); }
 
-p { font-size: 1.1rem; line-height: 1.6; color: var(--text-dark); margin-bottom: 15px; }
-.subtitle { font-size: 1.3rem; color: var(--secondary-blue); font-style: italic; margin-bottom: 20px; font-family: 'DM Sans', sans-serif;}
+/* LAYOUT E PAINEIS */
+.container { max-width: 1100px; margin: 20px auto; padding: 0 15px; }
+.activity-section { margin-bottom: 40px; }
+.section-title { font-family: var(--font-sans); color: var(--primary-blue); font-size: 1.8rem; border-bottom: 3px solid var(--primary-blue); padding-bottom: 5px; margin-bottom: 15px; }
+.question-box { background: #eaf2fa; border-left: 5px solid var(--primary-blue); padding: 12px; margin-bottom: 20px; font-family: var(--font-sans); }
 
-/* Estilo para Títulos de Seções Interativas (inspirado na imagem 0) */
-.slide-title { font-size: 44px; margin-bottom: 40px; text-align: left; width: 100%; border-left: 6px solid var(--secondary-blue); padding-left: 20px; border-radius: 0 10px 10px 0; }
+.panel { background: var(--panel-bg); border-radius: 8px; border: 1px solid var(--border-color); padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.panel h3 { font-family: var(--font-sans); color: var(--secondary-blue); margin-top: 15px; margin-bottom: 8px; border-bottom: 1px solid var(--border-color); padding-bottom: 4px; }
+.panel p, .panel li { margin-bottom: 10px; text-align: justify; }
+.panel ul { margin-left: 20px; }
 
-/* 3. LAYOUTS GERAIS E SHADOW PANELS */
-.section-content { padding: 80px 20px; width: 100%; display: flex; justify-content: center; }
-.content-wrapper { max-width: 1200px; width: 100%; }
-.alternate-bg { background-color: var(--alternate-bg); }
+/* CAIXAS DE MÍDIA (IMAGENS E VÍDEOS) */
+.media-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin: 15px 0; }
+.img-box { border: 2px dashed var(--accent-blue); background-color: #f0f4f8; border-radius: 6px; padding: 25px 10px; text-align: center; color: var(--accent-blue); font-family: var(--font-sans); }
+.img-box i { font-size: 2rem; display: block; margin-bottom: 5px; }
+.img-box.single-img { margin: 15px 0; padding: 35px 10px; }
+.caption { font-size: 0.85rem; color: #555; margin-top: 8px; font-style: italic; }
 
-/* Shadow Panel - O segredo do design limpo com sombra */
-.shadow-panel {
-    background: var(--white);
-    padding: 60px;
-    border-radius: 12px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Sombra elegante */
-}
+.video-box { border: 2px solid #1a1a1a; background-color: #000; color: #fff; border-radius: 6px; padding: 20px; text-align: center; font-family: var(--font-sans); margin: 15px 0; }
+.video-box i { font-size: 2rem; color: #ff0000; display: block; margin-bottom: 5px; }
 
-/* Shadow Box - Para blocos internos com sombra */
-.shadow-box {
-    background: var(--white);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
+/* GRIDS DE TECNOLOGIAS E TABELAS */
+.tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 15px; }
+.tech-card { background: #f9f7f5; border: 1px solid var(--border-color); border-radius: 6px; padding: 10px; font-family: var(--font-sans); font-size: 0.9rem; }
+.tech-card h4 { color: var(--primary-blue); margin: 8px 0 4px 0; }
 
-/* Layouts Específicos */
-.two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-.image-wrapper img { width: 100%; height: auto; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+.rgb-table { width: 100%; border-collapse: collapse; margin: 15px 0; font-family: var(--font-sans); }
+.rgb-table th, .rgb-table td { border: 1px solid var(--border-color); padding: 8px; text-align: center; }
+.rgb-table th { background-color: var(--primary-blue); color: #fff; }
 
-/* Bleed Image Layout */
-.bleed-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-.image-side img { width: 100%; height: auto; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+.abnt { font-family: var(--font-sans); font-size: 0.9rem; color: #444; }
 
-/* Grid de Imagens */
-.grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
-
-/* Tabelas */
-table { width: 100%; border-collapse: collapse; margin-top: 30px; background: var(--white); border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-th, td { padding: 20px; text-align: left; border-bottom: 1px solid var(--highlight); }
-th { background-color: var(--accent-blue); color: var(--white); font-family: 'Merriweather', serif; font-size: 1.1rem; }
-td strong { color: var(--secondary-blue); }
-
-/* 4. SEÇÃO 1: ACESSIBILIDADE PRIMEIRO (TOPO ABSOLUTO) */
-#a11y-intro { padding: 40px 20px; text-align: left; }
-#a11y-intro .readable-content { padding-left: 20px; }
-
-#top-a11y-panel {
-    display: flex; gap: 15px; margin-top: 30px; flex-wrap: wrap;
-}
-
-#top-a11y-panel button {
-    background: var(--white);
-    color: var(--accent-blue);
-    padding: 15px 30px;
-    border-radius: 10px;
-    border: 1px solid var(--highlight);
-    cursor: pointer;
-    text-align: left;
-    font-weight: 700;
-    font-size: 1.1rem;
-    display: flex; justify-content: space-between; align-items: center;
-    transition: transform 0.3s ease, background 0.3s ease;
-    min-width: 250px;
-}
-
-#top-a11y-panel button:hover {
-    transform: translateY(-5px);
-    background: var(--accent-blue);
-    color: var(--white);
-}
-
-#top-a11y-panel button i { font-size: 20px; margin-left: 15px;}
-
-/* Alto Contraste */
+/* CORREÇÃO PARA MODO ALTO CONTRASTE (WCAG AAA) */
 body.high-contrast {
-    --primary-bg: #000000;
-    --alternate-bg: #1a1a1a;
-    --text-dark: #ffffff;
-    --text-muted: #dcdcdc;
-    --white: #111111;
-    --accent-blue: #ffee00; /* Amarelo acessível */
-    --secondary-blue: #00ddff; /* Ciano acessível */
-    --highlight: #333333;
+    --bg-main: #000000 !important;
+    --panel-bg: #121212 !important;
+    --text-color: #ffff00 !important; /* Texto amarelo para máxima visibilidade */
+    --primary-blue: #ffff00 !important;
+    --secondary-blue: #ffffff !important;
+    --border-color: #ffff00 !important;
 }
 
-body.high-contrast table th { color: #000; }
-body.high-contrast .video-placeholder { border-color: #ffee00; color: #ffee00; }
+body.high-contrast #main-header, body.high-contrast #a11y-bar { background-color: #000 !important; border-bottom: 2px solid #ffff00 !important; }
+body.high-contrast h1, body.high-contrast h2, body.high-contrast h3, body.high-contrast h4, body.high-contrast strong { color: #ffffff !important; }
+body.high-contrast .img-box, body.high-contrast .question-box, body.high-contrast .tech-card { background-color: #000 !important; border-color: #ffff00 !important; color: #ffff00 !important; }
+body.high-contrast .video-box { border-color: #ffff00 !important; }
 
-/* CORREÇÃO PARA FAKE NEWS NO ALTO CONTRASTE */
-/* Este wrapper força o texto a ser preto sobre um fundo específico, 
-   mesmo em alto contraste, para manter a identidade visual pedida */
-.text-contrast-wrapper {
-    background: var(--white) !important;
-    color: var(--text-dark) !important;
-}
-.text-contrast-wrapper * {
-    color: var(--text-dark) !important;
-}
-.text-contrast-wrapper table th { color: var(--white) !important; }
-.text-contrast-wrapper .shadow-box { background: var(--alternate-bg) !important;}
-.high-contrast .text-contrast-wrapper { background: #ffee00 !important; } /* Fundo amarelo no HC */
-.high-contrast .text-contrast-wrapper * { color: #000000 !important; } /* Texto preto no HC */
-
-
-/* 5. HEADER E NAVEGAÇÃO */
-#main-header {
-    background-color: rgba(253, 250, 245, 0.95); /* Opacidade para sobrepor */
-    height: var(--header-height);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
-    position: sticky; /* Sticky, mas abaixo do A11y */
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
-}
-
-#main-nav { display: flex; gap: 30px; }
-.nav-link { text-decoration: none; color: var(--text-dark); font-weight: 500; font-size: 1rem; transition: color 0.3s; }
-.nav-link:hover { color: var(--secondary-blue); }
-
-/* 6. FLASHCARDS */
-.flashcard-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; margin-top: 50px; }
-.flashcard-container {
-    perspective: 1000px;
-    height: 300px;
-    cursor: pointer;
-    padding: 0; /* Flashcard container sem padding */
-}
-
-.flashcard {
-    width: 100%; height: 100%;
-    border-radius: 15px;
-    padding: 40px;
-    transition: transform 0.6s ease;
-    transform-style: preserve-3d;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: absolute; top: 0; left: 0;
-}
-
-.card-front {
-    background-color: var(--white);
-    z-index: 2;
-    backface-visibility: hidden;
-    text-align: center;
-}
-
-.card-front .icon { font-size: 50px; color: var(--secondary-blue); margin-bottom: 25px; }
-
-.card-back {
-    background-color: var(--secondary-blue);
-    color: var(--white);
-    transform: rotateY(180deg);
-    z-index: 1;
-    backface-visibility: hidden;
-}
-
-.card-back p { color: var(--white); font-size: 1rem; text-align: center; }
-
-/* Inverter Cartão no JavaScript */
-.flashcard-container.flipped .card-front { transform: rotateY(180deg); }
-.flashcard-container.flipped .card-back { transform: rotateY(0deg); }
-
-/* 7. VÍDEOS E FOOTER */
-.video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-.video-placeholder {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    background-color: #000; color: #fff;
-    height: 220px; border-radius: 12px;
-    text-decoration: none; border: 2px solid transparent;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-.video-placeholder:hover { transform: scale(1.03); border-color: var(--accent-blue); }
-.video-placeholder i { font-size: 50px; color: var(--secondary-blue); margin-bottom: 15px; }
-.video-placeholder span { font-weight: 500; font-size: 1rem; }
-
-/* Footer */
-#main-footer { background-color: var(--accent-blue); color: var(--white); padding: 50px 20px; display: flex; justify-content: center; margin-top: 100px;}
-.footer-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px;}
-.footer-content p { color: rgba(255,255,255,0.8); font-size: 0.9rem; }
-.contact-links { display: flex; gap: 20px; }
-.contact-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 1.2rem; transition: color 0.3s ease; }
-.contact-links a:hover { color: var(--white); }
+/* FOOTER */
+#main-footer { background: var(--primary-blue); color: #fff; text-align: center; padding: 20px; font-family: var(--font-sans); margin-top: 40px; }
