@@ -1,58 +1,91 @@
-document.addEventListener('DOMContentLoaded', () => {
+:root {
+    --bg-color: #f0f4f8;
+    --card-bg: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --brand-blue: #0f172a;
+    --brand-accent: #2563eb;
+    --pill-bg: #e0e7ff;
+    --border-subtle: #cbd5e1;
+    --shadow-soft: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+}
 
-    // 1. AJUSTE DE FONTE (FUNCIONAL)
-    let currentZoom = 100;
-    const btnIncrease = document.getElementById('btn-increase');
-    const btnDecrease = document.getElementById('btn-decrease');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background-color: var(--bg-color); color: var(--text-primary); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.6; }
 
-    btnIncrease.addEventListener('click', () => {
-        if (currentZoom < 140) {
-            currentZoom += 10;
-            document.documentElement.style.fontSize = `${currentZoom}%`;
-        }
-    });
+/* BARRA FIXA DE ACESSIBILIDADE */
+#a11y-bar { background: #1e293b; color: #fff; padding: 12px 20px; position: sticky; top: 0; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.a11y-content { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.a11y-buttons button { background: var(--brand-accent); color: white; border: none; padding: 8px 14px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: transform 0.2s; }
+.a11y-buttons button:hover { transform: scale(1.05); }
 
-    btnDecrease.addEventListener('click', () => {
-        if (currentZoom > 80) {
-            currentZoom -= 10;
-            document.documentElement.style.fontSize = `${currentZoom}%`;
-        }
-    });
+/* HEADER ORGANIZADO */
+#main-header { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white; padding: 40px 20px 20px 20px; text-align: center; border-radius: 0 0 30px 30px; }
+#main-header h1 { font-size: 2.5rem; letter-spacing: 2px; }
+.subtitle { color: #93c5fd; font-size: 1.1rem; margin-bottom: 25px; }
+#main-nav { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+#main-nav a { background: rgba(255, 255, 255, 0.1); color: white; text-decoration: none; padding: 10px 20px; border-radius: 25px; font-weight: 500; backdrop-filter: blur(5px); transition: all 0.3s; }
+#main-nav a:hover { background: white; color: var(--brand-blue); }
 
-    // 2. TOGGLE ALTO CONTRASTE (FUNCIONAL)
-    const btnContrast = document.getElementById('btn-contrast');
-    btnContrast.addEventListener('click', () => {
-        document.body.classList.toggle('high-contrast');
-    });
+/* CONTAINER PRINCIPAL & CARTÕES */
+.container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
+.activity-card { background: var(--card-bg); border-radius: 24px; padding: 35px; margin-bottom: 40px; box-shadow: var(--shadow-soft); position: relative; border: 1px solid var(--border-subtle); }
+.badge { position: absolute; top: -15px; left: 35px; background: var(--brand-accent); color: white; padding: 4px 16px; border-radius: 12px; font-weight: bold; font-size: 0.85rem; }
 
-    // 3. ÁUDIO DESCRIÇÃO / LEITURA DE TELA (FUNCIONAL)
-    const btnTTS = document.getElementById('btn-tts');
-    let isSpeaking = false;
+h2 { font-size: 1.8rem; color: var(--brand-blue); margin-bottom: 15px; }
+.question-pill { background: var(--pill-bg); padding: 15px 20px; border-radius: 16px; margin-bottom: 25px; display: flex; gap: 12px; align-items: center; color: #1e40af; }
 
-    btnTTS.addEventListener('click', () => {
-        if ('speechSynthesis' in window) {
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-                isSpeaking = false;
-                btnTTS.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
-            } else {
-                // Captura os textos principais da página para leitura
-                const textToRead = document.querySelector('main').innerText;
-                const utterance = new SpeechSynthesisUtterance(textToRead);
-                utterance.lang = 'pt-BR';
-                utterance.rate = 1.0;
+.content-block { margin-bottom: 25px; }
+.content-block h3 { color: var(--brand-accent); font-size: 1.3rem; margin-bottom: 10px; border-left: 4px solid var(--brand-accent); padding-left: 10px; }
+.content-block p { color: var(--text-secondary); text-align: justify; margin-bottom: 12px; }
 
-                utterance.onend = () => {
-                    isSpeaking = false;
-                    btnTTS.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
-                };
+/* MÍDIAS E VÍDEO */
+.media-carousel { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin: 15px 0; }
+.media-placeholder { border: 2px dashed var(--brand-accent); background: #f8fafc; padding: 20px; border-radius: 16px; text-align: center; color: var(--brand-accent); }
+.media-placeholder i { font-size: 1.8rem; display: block; margin-bottom: 5px; }
+.caption { font-size: 0.8rem; color: var(--text-secondary); margin-top: 5px; }
 
-                window.speechSynthesis.speak(utterance);
-                isSpeaking = true;
-                btnTTS.innerHTML = 'Parar Áudio <i class="fa-solid fa-circle-stop"></i>';
-            }
-        } else {
-            alert('A síntese de voz não é suportada pelo seu navegador.');
-        }
-    });
-});
+.video-container { background: #0f172a; color: white; padding: 20px; border-radius: 16px; text-align: center; margin: 15px 0; cursor: pointer; }
+.video-container i { font-size: 2rem; color: #ef4444; margin-bottom: 5px; display: block; }
+.img-box-wide { border: 2px dashed #94a3b8; background: #f8fafc; padding: 30px; border-radius: 16px; text-align: center; color: #64748b; margin: 15px 0; }
+
+/* FLASHCARDS INTERATIVOS (GIRATÓRIOS) */
+.flashcards-section { background: #f8fafc; padding: 20px; border-radius: 20px; margin: 25px 0; }
+.flashcards-section h4 { color: var(--brand-blue); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+.flashcards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; }
+.flashcard { height: 140px; perspective: 1000px; cursor: pointer; }
+.card-inner { width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; position: relative; }
+.flashcard.flipped .card-inner { transform: rotateY(180deg); }
+.card-front, .card-back { width: 100%; height: 100%; position: absolute; backface-visibility: hidden; border-radius: 16px; padding: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; border: 1px solid var(--border-subtle); }
+.card-front { background: var(--card-bg); color: var(--brand-blue); }
+.card-front small { color: var(--brand-accent); margin-top: 8px; font-size: 0.75rem; }
+.card-back { background: var(--brand-accent); color: white; transform: rotateY(180deg); font-size: 0.85rem; }
+
+/* GRID DE TECNOLOGIAS EXISTENTES */
+.tech-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 15px; }
+.tech-item { background: #f8fafc; border: 1px solid var(--border-subtle); border-radius: 16px; padding: 15px; font-size: 0.85rem; }
+.tech-img-box { text-align: center; font-size: 1.5rem; color: var(--brand-accent); margin-bottom: 8px; }
+.tech-item h4 { color: var(--brand-blue); margin-bottom: 6px; }
+
+.abnt-ref { font-size: 0.85rem; font-style: italic; color: #64748b; }
+
+/* MODALIDADE ALTO CONTRASTE REFEITA (TOTALMENTE VISÍVEL) */
+body.high-contrast {
+    --bg-color: #000000 !important;
+    --card-bg: #000000 !important;
+    --text-primary: #ffff00 !important;
+    --text-secondary: #ffffff !important;
+    --brand-blue: #ffff00 !important;
+    --brand-accent: #ffff00 !important;
+    --pill-bg: #111111 !important;
+    --border-subtle: #ffff00 !important;
+}
+
+body.high-contrast #a11y-bar, 
+body.high-contrast #main-header { background: #000000 !important; border-bottom: 2px solid #ffff00 !important; }
+body.high-contrast .flashcard .card-front { background: #000 !important; color: #fff !important; border-color: #ffff00 !important; }
+body.high-contrast .flashcard .card-back { background: #ffff00 !important; color: #000 !important; }
+body.high-contrast .a11y-buttons button { background: #ffff00 !important; color: #000 !important; }
+body.high-contrast .tech-item, body.high-contrast .media-placeholder { background: #000 !important; border-color: #ffff00 !important; color: #ffff00 !important; }
+
+#main-footer { text-align: center; padding: 30px; color: var(--text-secondary); font-size: 0.9rem; }
