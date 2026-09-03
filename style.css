@@ -1,224 +1,29 @@
-:root {
-    --bg-primary: #f8fafc;
-    --card-bg: #ffffff;
-    --text-primary: #1e293b;
-    --text-sub: #64748b;
-    --accent: #2563eb;
-    --accent-hover: #1d4ed8;
-    --border: #e2e8f0;
-    --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-}
 
-body.dark-theme {
-    --bg-primary: #0f172a;
-    --card-bg: #1e293b;
-    --text-primary: #f8fafc;
-    --text-sub: #cbd5e1;
-    --accent: #3b82f6;
-    --border: #334155;
-}
-
-body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: system-ui, -apple-system, sans-serif;
-    margin: 0;
-    padding-top: 50px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-#a11y-bar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #000;
-    color: #fff;
-    z-index: 1000;
-    padding: 8px 0;
-}
-
-.a11y-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-.a11y-buttons button {
-    background: #333;
-    color: #fff;
-    border: 1px solid #555;
-    padding: 4px 8px;
-    margin-left: 5px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#main-header {
-    background: linear-gradient(135deg, #1e3a8a, #2563eb);
-    color: #fff;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-#main-nav {
-    margin-top: 20px;
-}
-
-#main-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 10px;
-    padding: 8px 16px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 20px;
-}
-
-.container {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 0 20px;
-}
-
-.activity-card {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 40px;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-}
-
-.badge {
-    background: var(--accent);
-    color: #fff;
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-.question-pill {
-    background: rgba(37, 99, 235, 0.1);
-    padding: 15px;
+/* ESTILO DA CAIXA DE CHECAGEM DE FAKE NEWS */
+.fake-news-card {
+    background: rgba(220, 38, 38, 0.08);
+    border-left: 4px solid #dc2626;
+    padding: 16px;
     border-radius: 8px;
-    margin: 15px 0;
-}
-
-/* REGRAS DE MÍDIA (VÍDEO E IMAGEM) */
-.media-box {
     margin: 20px 0;
-    text-align: center;
 }
 
-.responsive-media {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid var(--border);
+.fake-news-card h4 {
+    color: #dc2626;
+    margin-bottom: 8px;
+    font-size: 1rem;
 }
 
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
-    background: #000;
+.fake-news-card p {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
 }
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
+body.dark-theme .fake-news-card {
+    background: rgba(239, 68, 68, 0.15);
+    border-left-color: #ef4444;
 }
 
-.media-caption {
-    font-size: 0.85rem;
-    color: var(--text-sub);
-    margin-top: 6px;
-    font-style: italic;
-}
-
-/* FLASHCARDS */
-.flashcards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.flashcard {
-    height: 150px;
-    perspective: 1000px;
-    cursor: pointer;
-}
-
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-}
-
-.flashcard.flipped .card-inner {
-    transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 8px;
-    padding: 15px;
-    box-sizing: border-box;
-    border: 1px solid var(--border);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.card-front {
-    background: var(--card-bg);
-}
-
-.card-back {
-    background: var(--accent);
-    color: #fff;
-    transform: rotateY(180deg);
-}
-
-/* CARDS TECNOLOGIAS */
-.tech-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.tech-item {
-    background: var(--bg-primary);
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-}
-
-.abnt-ref {
-    font-size: 0.85rem;
-    color: var(--text-sub);
-}
-
-#main-footer {
-    text-align: center;
-    padding: 20px;
-    color: var(--text-sub);
+body.dark-theme .fake-news-card h4 {
+    color: #fca5a5;
 }
