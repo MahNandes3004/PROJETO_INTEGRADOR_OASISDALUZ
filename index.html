@@ -352,4 +352,29 @@
                     <h4>♿ Tecnologias Assistivas Associadas</h4>
                     <ul>
                         <li><strong>Identificadores Vocais de Cores:</strong> Dispositivos com sensores RGB que apontam para um objeto e falam a cor em áudio.</li>
-                        <li><strong>Display Brail
+                       <script>
+    // Teste de vida imediato para ver se o navegador executa
+    console.log("O script inline carregou!");
+
+    // 1. Alto Contraste Direto
+    document.getElementById('btn-contrast').onclick = function() {
+        document.body.classList.toggle('high-contrast');
+        alert('Contraste ativado com sucesso!');
+    };
+
+    // 2. Disco de Newton Direto
+    document.getElementById('btn-spin').onclick = function() {
+        const disk = document.getElementById('newton-disk');
+        disk.style.transform = 'rotate(1800deg)';
+        disk.style.transition = 'transform 2s ease';
+    };
+
+    // 3. Flashcards Diretos
+    document.querySelectorAll('.flashcard').forEach(card => {
+        card.onclick = function() {
+            card.style.background = '#8b0000';
+            card.style.color = '#fff';
+            alert('Flashcard clicado!');
+        };
+    });
+</script>
