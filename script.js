@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Alto Contraste
+    // 1. Alto Contraste (Persistente)
     const btnContrast = document.getElementById('btn-contrast');
     if (btnContrast) {
         btnContrast.addEventListener('click', (e) => {
@@ -40,32 +40,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Virar os Flashcards
+    // 3. Virar os Flashcards (Compatível com toque no celular e clique)
     const flashcards = document.querySelectorAll('.flashcard');
     flashcards.forEach((card) => {
-        card.addEventListener('click', () => {
+        const toggleFlip = (e) => {
+            e.preventDefault();
             card.classList.toggle('flipped');
-        });
+        };
+        card.addEventListener('click', toggleFlip);
+        card.addEventListener('touchstart', toggleFlip, { passive: false });
     });
 
-    // 4. Giro do Disco de Newton
+    // 4. Giro do Disco de Newton (Força o reset da animação CSS)
     const btnSpin = document.getElementById('btn-spin');
     const newtonDisk = document.getElementById('newton-disk');
 
     if (btnSpin && newtonDisk) {
-        btnSpin.addEventListener('click', (e) => {
+        const spinAction = (e) => {
             e.preventDefault();
             newtonDisk.classList.remove('spinning');
             void newtonDisk.offsetWidth; // Força o navegador a reiniciar a animação
             newtonDisk.classList.add('spinning');
-            
-            setTimeout(() => {
-                newtonDisk.classList.remove('spinning');
-            }, 2500);
-        });
+        };
+
+        btnSpin.addEventListener('click', spinAction);
+        btnSpin.addEventListener('touchstart', spinAction, { passive: false });
     }
 
-    // 5. Áudiodescrição (Síntese de Voz)
+    // 5. Áudiodescrição por Síntese de Voz Nativa
     const audioButtons = document.querySelectorAll('.btn-audio');
     audioButtons.forEach((btn) => {
         btn.addEventListener('click', (e) => {
