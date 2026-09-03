@@ -1,23 +1,18 @@
-// Controle do Modo Alto Contraste
+// Controle de Contraste
 function toggleContrast() {
     document.body.classList.toggle('high-contrast');
     const isContrast = document.body.classList.contains('high-contrast');
-    localStorage.setItem('highContrast', isContrast);
+    localStorage.setItem('oasis_contrast', isContrast);
 }
 
-// Controle do Tamanho da Fonte
-let currentFontSize = 16;
+// Controle de Tamanho de Fonte
+let fontSizePx = 16;
 
-function changeFontSize(step) {
-    currentFontSize += step * 2;
-    if (currentFontSize < 12) currentFontSize = 12;
-    if (currentFontSize > 24) currentFontSize = 24;
-    document.documentElement.style.setProperty('--font-size-base', `${currentFontSize}px`);
-}
-
-function resetFontSize() {
-    currentFontSize = 16;
-    document.documentElement.style.setProperty('--font-size-base', '16px');
+function changeFontSize(delta) {
+    fontSizePx += delta;
+    if (fontSizePx < 13) fontSizePx = 13;
+    if (fontSizePx > 22) fontSizePx = 22;
+    document.documentElement.style.setProperty('--font-scale', `${fontSizePx}px`);
 }
 
 // Animação do Disco de Newton
@@ -26,19 +21,17 @@ function spinDisk() {
     disk.classList.add('spinning');
     setTimeout(() => {
         disk.classList.remove('spinning');
-    }, 2000);
+    }, 2500);
 }
 
-// Interatividade dos Flashcards
+// Virar Flashcard
 function flipCard(cardElement) {
     cardElement.classList.toggle('flipped');
-    const isFlipped = cardElement.classList.contains('flipped');
-    cardElement.setAttribute('aria-pressed', isFlipped);
 }
 
-// Preservar Preferência de Contraste ao Recarregar
+// Lembrar preferência de contraste
 window.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('highContrast') === 'true') {
+    if (localStorage.getItem('oasis_contrast') === 'true') {
         document.body.classList.add('high-contrast');
     }
 });
