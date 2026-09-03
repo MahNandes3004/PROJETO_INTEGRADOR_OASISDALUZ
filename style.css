@@ -8,11 +8,40 @@
     --accent: #d9534f;
 }
 
+/* CLASSE DE ALTO CONTRASTE (MODO ESCURO) */
 body.dark-theme {
-    --bg-main: #121212;
-    --card-bg: #1e1e1e;
-    --text-color: #f1f1f1;
-    --border: #333333;
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .activity-card,
+body.dark-theme .tech-item,
+body.dark-theme .card-front,
+body.dark-theme .card-back {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+body.dark-theme h1, 
+body.dark-theme h2, 
+body.dark-theme h3, 
+body.dark-theme h4, 
+body.dark-theme p, 
+body.dark-theme span, 
+body.dark-theme strong {
+    color: #ffffff !important;
+}
+
+body.dark-theme .question-pill {
+    background-color: #2a2a2a !important;
+    border-left-color: #ff4d4d !important;
+}
+
+body.dark-theme .fake-news-card {
+    background-color: #332b00 !important;
+    color: #ffecb3 !important;
+    border-color: #665200 !important;
 }
 
 * {
@@ -26,13 +55,14 @@ body {
     background-color: var(--bg-main);
     color: var(--text-color);
     line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* BARRA FIXA DE ACESSIBILIDADE */
 #a11y-bar {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 10000;
     background-color: #222;
     color: #fff;
     padding: 8px 15px;
@@ -51,12 +81,14 @@ body {
 .a11y-buttons button {
     background-color: #444;
     color: #fff;
-    border: none;
+    border: 1px solid #666;
     padding: 6px 12px;
     margin-left: 5px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.9rem;
+    position: relative;
+    z-index: 10001;
 }
 
 .a11y-buttons button:hover {
@@ -155,7 +187,7 @@ body {
     padding-bottom: 4px;
 }
 
-/* MIDIAS (IMAGENS E VIDEOS) */
+/* MIDIAS */
 .media-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -209,12 +241,6 @@ body {
     margin: 20px 0;
 }
 
-body.dark-theme .fake-news-card {
-    background-color: #332b00;
-    color: #ffecb3;
-    border-color: #665200;
-}
-
 /* TECNOLOGIAS ASSISTIVAS */
 .tech-cards-grid {
     display: grid;
@@ -245,7 +271,6 @@ body.dark-theme .fake-news-card {
 .flashcard {
     height: 140px;
     perspective: 1000px;
-    cursor: pointer;
 }
 
 .card-inner {
@@ -255,10 +280,6 @@ body.dark-theme .fake-news-card {
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-}
-
-.flashcard.flipped .card-inner {
-    transform: rotateY(180deg);
 }
 
 .card-front, .card-back {
@@ -278,8 +299,8 @@ body.dark-theme .fake-news-card {
 
 .card-back {
     transform: rotateY(180deg);
-    background-color: var(--primary);
-    color: #fff;
+    background-color: var(--primary) !important;
+    color: #fff !important;
 }
 
 .abnt-ref {
