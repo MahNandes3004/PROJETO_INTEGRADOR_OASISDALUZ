@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oásis da Luz | Física Óptica & Acessibilidade</title>
-
-    <!-- Conexão com o CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,115 +29,195 @@
     <!-- Navegação -->
     <nav class="sticky-nav">
         <ul>
-            <li><a href="#optica">Óptica</a></li>
-            <li><a href="#tinkercad">Simulações</a></li>
+            <li><a href="#newton">Disco de Newton</a></li>
+            <li><a href="#rgb">LEDs RGB</a></li>
+            <li><a href="#fade">Fade-In/Out</a></li>
             <li><a href="#flashcards">Flashcards</a></li>
-            <li><a href="#fakenews">Mitos & Fatos</a></li>
         </ul>
     </nav>
 
     <main class="main-container">
 
-        <!-- Seção Física Óptica -->
-        <section id="optica" class="section">
+        <!-- TÓPICO 1: DISCO DE NEWTON -->
+        <section id="newton" class="section">
             <div class="section-title">
-                <h2>Física Óptica & Acomodação</h2>
-                <p>Conceitos visuais e a física da luz</p>
+                <h2>1. O Disco de Newton & Acomodação Visual</h2>
+                <p>Teoria da recomposição da luz e percepção retiniana</p>
             </div>
 
-            <div class="card">
-                <h3>O Disco de Newton</h3>
-                <p>Demonstração da recomposição da luz branca a partir da mistura rápida das cores do espectro visível (persistência retiniana).</p>
+            <article class="card">
+                <div class="card-header-actions">
+                    <h3>Teoria e Fenômeno da Persistência Retiniana</h3>
+                    <button class="btn-audio" onclick="playAudio('audio-newton')">🔊 Ouvir Áudiodescrição</button>
+                </div>
                 
+                <p id="audio-newton" class="description-text">
+                    O Disco de Newton é um experimento clássico idealizado por Sir Isaac Newton para provar que a luz branca do Sol é composta pela união de todas as cores do espectro visível. Ao girar o disco rapidamente, o cérebro humano não consegue processar cada cor individualmente devido à persistência retiniana — a retenção da imagem na retina por uma fração de segundo —, resultando no fenômeno visual em que as cores se fundem, gerando a percepção da cor branca ou de um tom acinzentado claro.
+                </p>
+
+                <!-- Espaço para Imagem -->
+                <div class="media-placeholder image-placeholder">
+                    <img src="https://via.placeholder.com/600x300?text=Sua+Imagem+do+Disco+de+Newton" alt="Diagrama demonstrando o Disco de Newton estático e em rotação" class="media-content">
+                    <span class="placeholder-tag">📸 Espaço para sua Imagem (Substitua a URL na tag img)</span>
+                </div>
+
+                <!-- Demonstração Interativa -->
                 <div class="newton-container">
                     <div id="newton-disk" class="disk"></div>
-                    <button id="btn-spin" class="btn-primary">Girar Disco</button>
+                    <button id="btn-spin" class="btn-primary">Girar Disco Interativo</button>
                 </div>
+
+                <!-- Espaço para Vídeo -->
+                <div class="media-placeholder video-placeholder">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo explicativo do Disco de Newton" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <span class="placeholder-tag">🎥 Espaço para o seu Vídeo explicativo</span>
+                </div>
+
+                <!-- Mito / Fato do Tópico -->
+                <div class="fact-box">
+                    <span class="fact-badge mito">MITO</span>
+                    <h4>"O disco de Newton girando fica perfeitamente branco como uma folha de papel."</h4>
+                    <hr>
+                    <span class="fact-badge fato">FATO</span>
+                    <p>Devido a imperfeições nos pigmentos das tintas e refletividade da luz, a rotação rápida gera uma tonalidade acinzentada ou bege-claro, demonstrando a sobreposição prática das ondas de luz.</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- TÓPICO 2: LEDS RGB -->
+        <section id="rgb" class="section">
+            <div class="section-title">
+                <h2>2. LEDs RGB & Síntese Aditiva</h2>
+                <p>Composição de frequências de luz visível</p>
             </div>
 
-            <div class="card">
-                <h3>LEDs RGB & Síntese Aditiva</h3>
-                <p>Na síntese aditiva, as cores primárias de luz (<strong>Vermelho, Verde e Azul</strong>) se combinam para formar novas cores. A junção máxima das três resulta na cor branca.</p>
-                
+            <article class="card">
+                <div class="card-header-actions">
+                    <h3>O Funcionamento da Mistura de Cores Primárias</h3>
+                    <button class="btn-audio" onclick="playAudio('audio-rgb')">🔊 Ouvir Áudiodescrição</button>
+                </div>
+
+                <p id="audio-rgb" class="description-text">
+                    Diferente da síntese subtrativa (utilizada em tintas e impressões), a tecnologia de displays e luzes utiliza a síntese aditiva de cores baseada no sistema RGB (Red, Green, Blue). Um LED RGB reúne três diodos emissores de luz em um único componente. Modulando a intensidade luminosa de cada cor primária, é possível estimular os fotorreceptores dos olhos (cones) para criar milhões de combinações de cores. A soma de 100% de intensidade das três cores primárias produz a luz branca.
+                </p>
+
+                <!-- Espaço para Imagem -->
+                <div class="media-placeholder image-placeholder">
+                    <img src="https://via.placeholder.com/600x300?text=Sua+Imagem+de+Esquema+RGB" alt="Esquema da sobreposição das luzes Vermelha, Verde e Azul" class="media-content">
+                    <span class="placeholder-tag">📸 Espaço para sua Imagem do Diagrama RGB</span>
+                </div>
+
                 <div class="rgb-demo">
                     <div class="rgb-circle red">R</div>
                     <div class="rgb-circle green">G</div>
                     <div class="rgb-circle blue">B</div>
                 </div>
-            </div>
+
+                <!-- Espaço para Vídeo -->
+                <div class="media-placeholder video-placeholder">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo sobre circuito de LED RGB" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <span class="placeholder-tag">🎥 Espaço para o seu Vídeo de LEDs RGB</span>
+                </div>
+
+                <!-- Mito / Fato do Tópico -->
+                <div class="fact-box">
+                    <span class="fact-badge mito">MITO</span>
+                    <h4>"As cores primárias da luz são Vermelho, Amarelo e Azul."</h4>
+                    <hr>
+                    <span class="fact-badge fato">FATO</span>
+                    <p>Vermelho, Amarelo e Azul são primárias na pigmentação (tintas). Para ondas eletromagnéticas e emissão direta de luz, as cores primárias corretas são Vermelho, Verde e Azul (RGB).</p>
+                </div>
+            </article>
         </section>
 
-        <!-- Seção Tinkercad -->
-        <section id="tinkercad" class="section">
+        <!-- TÓPICO 3: CONTROLADORES & FADE-IN/OUT -->
+        <section id="fade" class="section">
             <div class="section-title">
-                <h2>Simulações Tinkercad</h2>
-                <p>Projetos práticos com Arduino e LEDs</p>
+                <h2>3. Simulação Tinkercad: Fade-In e Fade-Out</h2>
+                <p>Controle de pulso (PWM) e conforto óptico</p>
             </div>
 
-            <div class="card">
-                <h3>LED Fade-In & Fade-Out</h3>
-                <p>Circuito programado para transição suave de intensidade luminosa utilizando modulação por largura de pulso (PWM).</p>
-                
+            <article class="card">
+                <div class="card-header-actions">
+                    <h3>Modulação por Largura de Pulso e Acomodação</h3>
+                    <button class="btn-audio" onclick="playAudio('audio-fade')">🔊 Ouvir Áudiodescrição</button>
+                </div>
+
+                <p id="audio-fade" class="description-text">
+                    O efeito Fade-In e Fade-Out consiste na variação gradual da intensidade da emissão de luz. Em sistemas microcontrolados como o Arduino, isso é feito via PWM (Modulação por Largura de Pulso), que alterna rapidamente a alimentação do LED entre LIGADO e DESLIGADO em frequências imperceptíveis ao olho. Essa transição suave evita o estresse visual e o choque óptico causados por acendimentos e apagamentos abruptos em ambientes escuros.
+                </p>
+
+                <!-- Espaço para Imagem -->
+                <div class="media-placeholder image-placeholder">
+                    <img src="https://via.placeholder.com/600x300?text=Sua+Imagem+do+Circuito+Tinkercad" alt="Print do circuito eletrônico montado no Tinkercad" class="media-content">
+                    <span class="placeholder-tag">📸 Espaço para sua Imagem da Montagem no Tinkercad</span>
+                </div>
+
                 <div class="circuit-preview">
                     <div class="circuit-icon">💡</div>
-                    <span>Simulação de Controle Luminoso</span>
+                    <span>Simulação Tinkercad - Controle de Iluminação Suave</span>
                 </div>
 
                 <a href="https://www.tinkercad.com" target="_blank" rel="noopener" class="btn-secondary">
                     Abrir Simulação no Tinkercad ↗
                 </a>
-            </div>
 
-            <div class="card">
-                <h3>Controle de LED RGB</h3>
-                <p>Programação para mesclagem de cores em tempo real via controle de portas analógicas/digitais do Arduino.</p>
-
-                <div class="circuit-preview">
-                    <div class="circuit-icon">🌈</div>
-                    <span>Simulação de Mistura de Cores</span>
+                <!-- Espaço para Vídeo -->
+                <div class="media-placeholder video-placeholder">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo do circuito Tinkercad em execução" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <span class="placeholder-tag">🎥 Espaço para o seu Vídeo da Simulação no Tinkercad</span>
                 </div>
 
-                <a href="https://www.tinkercad.com" target="_blank" rel="noopener" class="btn-secondary">
-                    Abrir Simulação no Tinkercad ↗
-                </a>
-            </div>
+                <!-- Mito / Fato do Tópico -->
+                <div class="fact-box">
+                    <span class="fact-badge mito">MITO</span>
+                    <h4>"Ler com luz fraca ou telas no escuro causa cegueira permanente."</h4>
+                    <hr>
+                    <span class="fact-badge fato">FATO</span>
+                    <p>Não há evidência de danos anatômicos permanentes. Contudo, a variação brusca de luz gera astenopia (fadiga ocular), o que justifica o uso de transições suaves de iluminação.</p>
+                </div>
+            </article>
         </section>
 
-        <!-- Seção Flashcards -->
+        <!-- TÓPICO 4: FLASHCARDS INTERATIVOS -->
         <section id="flashcards" class="section">
             <div class="section-title">
-                <h2>Flashcards de Estudo</h2>
-                <p>Toque no cartão para ver a resposta</p>
+                <h2>4. Flashcards de Fixação</h2>
+                <p>Revise os principais conceitos aprendidos</p>
             </div>
 
             <div class="flashcard">
                 <div class="flashcard-inner">
                     <div class="flashcard-front">
-                        <span class="card-type">Pergunta</span>
-                        <p>O que é a Síntese Aditiva de Cores?</p>
+                        <span class="card-type">Pergunta 1</span>
+                        <p>O que possibilita a fusão das cores no Disco de Newton?</p>
                         <small>Toque para virar ↺</small>
                     </div>
                     <div class="flashcard-back">
                         <span class="card-type">Resposta</span>
-                        <p>É a criação de cores a partir da combinação de luzes coloridas (Red, Green, Blue).</p>
+                        <p>A persistência retiniana, que retém imagens no olho por frações de segundo.</p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Seção Checagem de Fatos -->
-        <section id="fakenews" class="section">
-            <div class="section-title">
-                <h2>Checagem de Fatos</h2>
-                <p>Mitos sobre a visão humana e luz</p>
-            </div>
-
-            <div class="card fact-card">
-                <span class="fact-badge mito">MITO</span>
-                <h3>"Ler no escuro ou com pouca luz causa cegueira permanente."</h3>
-                <hr>
-                <span class="fact-badge fato">FATO</span>
-                <p>Ler sob pouca iluminação pode causar fadiga e desconforto visual temporário, mas <strong>não provoca danos estruturais ou cegueira permanente</strong> nos olhos.</p>
+            <div class="flashcard" style="margin-top: 15px;">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <span class="card-type">Pergunta 2</span>
+                        <p>Quais são as cores primárias na síntese aditiva de luz?</p>
+                        <small>Toque para virar ↺</small>
+                    </div>
+                    <div class="flashcard-back">
+                        <span class="card-type">Resposta</span>
+                        <p>Vermelho (Red), Verde (Green) e Azul (Blue) - RGB.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -150,7 +228,6 @@
         <p class="sub-footer">Física Óptica e Acessibilidade Web</p>
     </footer>
 
-    <!-- Conexão com o JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
