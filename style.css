@@ -313,7 +313,7 @@ body {
     margin: 10px 0;
 }
 
-/* Flashcards rigorosamente alinhados e de mesmo tamanho */
+/* Flashcards rigorosamente alinhados e interativos */
 .flashcard-group {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -346,6 +346,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .flashcard.flipped .flashcard-inner {
