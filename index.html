@@ -3,488 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oásis da Luz - Robótica Integrada & Acessibilidade Visual</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --primary: #8b0000;
-            --bg-main: #f4f4f9;
-            --card-bg: #ffffff;
-            --text-color: #333333;
-            --border: #dddddd;
-        }
-
-        body.dark-theme {
-            background-color: #121212 !important;
-            color: #ffffff !important;
-        }
-        body.dark-theme .activity-card,
-        body.dark-theme .tech-item,
-        body.dark-theme .card-front,
-        body.dark-theme .card-back {
-            background-color: #1e1e1e !important;
-            color: #ffffff !important;
-            border-color: #333333 !important;
-        }
-        body.dark-theme h1, body.dark-theme h2, body.dark-theme h3, body.dark-theme h4, 
-        body.dark-theme p, body.dark-theme span, body.dark-theme strong, body.dark-theme li {
-            color: #ffffff !important;
-        }
-        body.dark-theme .question-pill {
-            background-color: #2a2a2a !important;
-            border-left-color: #ff4d4d !important;
-        }
-        body.dark-theme .fake-news-card {
-            background-color: #332b00 !important;
-            color: #ffecb3 !important;
-            border-color: #665200 !important;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        #a11y-bar {
-            position: sticky;
-            top: 0;
-            z-index: 99999;
-            background-color: #222222;
-            color: #ffffff;
-            padding: 10px 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .a11y-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .a11y-buttons button {
-            background-color: #444444;
-            color: #ffffff;
-            border: 1px solid #666666;
-            padding: 8px 14px;
-            margin-left: 5px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        .a11y-buttons button:hover {
-            background-color: var(--primary);
-        }
-
-        #main-header {
-            background-color: var(--primary);
-            color: #ffffff;
-            text-align: center;
-            padding: 30px 15px 15px 15px;
-        }
-
-        .header-banner h1 {
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            margin-top: 5px;
-            opacity: 0.9;
-        }
-
-        .authors {
-            margin-top: 8px;
-            font-size: 0.95rem;
-        }
-
-        #main-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        #main-nav a {
-            color: #fff;
-            text-decoration: none;
-            background-color: rgba(0,0,0,0.2);
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
-
-        .activity-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: var(--primary);
-            color: #fff;
-            padding: 4px 10px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-
-        .question-pill {
-            background-color: rgba(139, 0, 0, 0.08);
-            border-left: 4px solid var(--primary);
-            padding: 12px;
-            margin: 15px 0 20px 0;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .content-block {
-            margin: 20px 0;
-        }
-
-        .content-block h3 {
-            margin-bottom: 10px;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 4px;
-        }
-
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .media-box {
-            text-align: center;
-        }
-
-        .responsive-media {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-        }
-
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 6px;
-            background-color: #000;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .media-caption {
-            font-size: 0.85rem;
-            margin-top: 6px;
-            opacity: 0.8;
-        }
-
-        .fake-news-card {
-            background-color: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeeba;
-            padding: 15px;
-            border-radius: 6px;
-            margin: 20px 0;
-        }
-
-        .tech-cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .tech-item {
-            background-color: rgba(0,0,0,0.02);
-            border: 1px solid var(--border);
-            padding: 12px;
-            border-radius: 6px;
-        }
-
-        .flashcards-section {
-            margin: 25px 0;
-        }
-
-        .flashcards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .flashcard {
-            height: 140px;
-            perspective: 1000px;
-        }
-
-        .flashcard-toggle {
-            display: none;
-        }
-
-        .flashcard-label {
-            display: block;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-        }
-
-        .card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-
-        .flashcard-toggle:checked + .flashcard-label .card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .card-front, .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--card-bg);
-        }
-
-        .card-back {
-            transform: rotateY(180deg);
-            background-color: var(--primary) !important;
-            color: #ffffff !important;
-        }
-
-        .abnt-ref {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            background: rgba(0,0,0,0.03);
-            padding: 10px 12px;
-            border-left: 4px solid var(--primary);
-            margin-bottom: 8px;
-            border-radius: 0 4px 4px 0;
-        }
-
-        #main-footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #222222;
-            color: #ffffff;
-            font-size: 0.9rem;
-        }
-    </style>
+    <title>Oásis da Luz - Física Óptica e Acessibilidade</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- BARRA DE ACESSIBILIDADE UNIVERSAL -->
-    <nav id="a11y-bar" aria-label="Barra de Acessibilidade Universal">
-        <div class="a11y-content">
-            <span class="a11y-title"><i class="fa-solid fa-universal-access"></i> Acessibilidade</span>
-            <div class="a11y-buttons">
-                <button type="button" onclick="changeFontSize(10)" title="Aumentar Fonte">A+</button>
-                <button type="button" onclick="changeFontSize(-10)" title="Diminuir Fonte">A-</button>
-                <button type="button" onclick="toggleContrast()" title="Alternar Alto Contraste">Alto Contraste</button>
-                <button type="button" id="btn-tts" onclick="toggleSpeech()" title="Ativar Áudio Descrição">Áudio Descrição <i class="fa-solid fa-volume-high"></i></button>
-            </div>
+    <!-- Barra de Acessibilidade -->
+    <header class="accessibility-bar" role="region" aria-label="Ferramentas de Acessibilidade">
+        <div class="container accessibility-controls">
+            <button id="btn-contrast" onclick="toggleContrast()" aria-label="Alternar Alto Contraste">Alto Contraste</button>
+            <button onclick="changeFontSize(1)" aria-label="Aumentar tamanho do texto">A+</button>
+            <button onclick="changeFontSize(-1)" aria-label="Diminuir tamanho do texto">A-</button>
+            <button onclick="resetFontSize()" aria-label="Restaurar tamanho original do texto">A Normal</button>
+        </div>
+    </header>
+
+    <!-- Cabeçalho Principal -->
+    <header class="main-header">
+        <div class="container">
+            <h1>Oásis da Luz</h1>
+            <p>Explorando a Física Óptica, Cores e Tecnologia Acessível</p>
+        </div>
+    </header>
+
+    <!-- Navegação -->
+    <nav class="main-nav" aria-label="Navegação Principal">
+        <div class="container">
+            <ul>
+                <li><a href="#optica">Física Óptica</a></li>
+                <li><a href="#tinkercad">Simulações Tinkercad</a></li>
+                <li><a href="#flashcards">Flashcards</a></li>
+                <li><a href="#fakenews">Checagem de Fatos</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- CABEÇALHO PRINCIPAL -->
-    <header id="main-header">
-        <div class="header-banner">
-            <h1>OÁSIS DA LUZ</h1>
-            <p class="subtitle">Robótica, Física Óptica e Tecnologias Assistivas</p>
-            <p class="authors"><strong>Integrantes:</strong> Maiara, Bruna e Nicoly</p>
-        </div>
-        <nav id="main-nav">
-            <a href="#atv1"><i class="fa-solid fa-compact-disc"></i> Disco de Newton</a>
-            <a href="#atv2"><i class="fa-solid fa-lightbulb"></i> LED Fade-In & Fade-Out</a>
-            <a href="#atv3"><i class="fa-solid fa-palette"></i> LED RGB</a>
-        </nav>
-    </header>
-
     <main class="container">
 
-        <!-- ATIVIDADE 01: DISCO DE NEWTON -->
-        <section id="atv1" class="activity-card">
-            <div class="badge">Atividade 01</div>
-            <h2>Disco de Newton & Decomposição da Luz</h2>
-            <div class="question-pill">
-                <i class="fa-solid fa-circle-question"></i>
-                <span><strong>Questão de Investigação:</strong> Como o estudo da luz e das cores contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</span>
-            </div>
-
-            <div class="media-grid">
-                <div class="media-box">
-                    <img src="LINK_DA_IMAGEM_1_ATV1" alt="Imagem 1: Montagem do Disco de Newton" class="responsive-media">
-                    <p class="media-caption">Figura 1.1: Montagem do experimento.</p>
+        <!-- Seção: Física Óptica -->
+        <section id="optica" class="content-section">
+            <h2>Física Óptica & Acomodação Visual</h2>
+            <article class="card">
+                <h3>O Disco de Newton e a Mistura de Cores</h3>
+                <p>O Disco de Newton demonstra a decomposição e recomposição da luz branca. Ao girar rapidamente, os setores coloridos se fundem na percepção visual humana devido ao fenômeno da persistência retiniana.</p>
+                <div class="interactive-demo">
+                    <div id="newton-disk" class="disk"></div>
+                    <button onclick="spinDisk()" aria-label="Girar Disco de Newton">Girar Disco</button>
                 </div>
-                <div class="media-box">
-                    <img src="LINK_DA_IMAGEM_2_ATV1" alt="Imagem 2: Disco de Newton em alta rotação" class="responsive-media">
-                    <p class="media-caption">Figura 1.2: Rotação e fusão das cores.</p>
-                </div>
-                <div class="media-box">
-                    <img src="LINK_DA_IMAGEM_3_ATV1" alt="Imagem 3: Espectro visível da luz" class="responsive-media">
-                    <p class="media-caption">Figura 1.3: Decomposição do espectro da luz.</p>
-                </div>
-            </div>
+            </article>
 
-            <div class="content-block">
-                <h3>1. Apresentação da Atividade</h3>
-                <p>Desenvolvido pelas alunas Maiara, Bruna e Nicoly, o experimento do Disco de Newton demonstra a composição da luz branca a partir das cores primárias do espectro visível (vermelho, laranja, amarelo, verde, azul, anil e violeta). Quando o disco está parado, a separação das cores é nitidamente visível; ao girar em alta velocidade, as cores se misturam e o disco passa a parecer branco.</p>
-            </div>
+            <article class="card">
+                <h3>LEDs RGB e a Adição de Cores</h3>
+                <p>A síntese aditiva de cores utiliza Vermelho (Red), Verde (Green) e Azul (Blue) para compor todas as outras cores do espectro visível. A junção das três cores primárias na intensidade máxima resulta na cor branca.</p>
+            </article>
+        </section>
 
-            <div class="fake-news-card">
-                <h4><i class="fa-solid fa-triangle-exclamation"></i> Checagem de Fatos: Fake News & Mitos</h4>
-                <p><strong>Boato Falso:</strong> <em>"O Disco de Newton prova que a luz branca não possui cores reais e que a mistura de cores é uma ilusão prejudicial à visão."</em></p>
-                <p><strong>Fato Científico:</strong> A luz branca é a sobreposição de todas as cores do espectro visível. A sensação visual do disco branco ao girar ocorre pela persistência retiniana, onde o cérebro integra os estímulos sem causar qualquer dano à visão.</p>
-            </div>
-
-            <div class="media-box">
-                <div class="video-container">
-                    <iframe src="LINK_DO_VIDEO_ATV1" title="Vídeo demonstrativo Atividade 01" allowfullscreen></iframe>
-                </div>
-                <p class="media-caption">Vídeo 1: Demonstração prática do Disco de Newton em funcionamento.</p>
-            </div>
-
-            <div class="content-block">
-                <h3>2. Explicação Científica</h3>
-                <p>A luz viaja a aproximadamente 300.000 km/s no vácuo e no ar. Quando a luz atinge a retina, estimula os fotorreceptores (cones e bastonetes), que contêm o pigmento opsina. A alteração estrutural dessa molécula ocorre em picossegundos, mas a conversão do impulso elétrico pelo cérebro em imagem leva cerca de um décimo de segundo (0,1 s). Esse intervalo é chamado de tempo de persistência retiniana. Devido a isso, quando o disco gira acima de uma velocidade mínima, o cérebro funde os estímulos visuais das cores e percebe a luz branca.</p>
-            </div>
-
-            <div class="content-block">
-                <h3>3. Tecnologias Assistivas e Acessibilidade</h3>
-                <div class="tech-cards-grid">
-                    <div class="tech-item">
-                        <h4>Filtros Seletores de Espectro</h4>
-                        <p>Lentes especiais que filtram comprimentos de onda específicos para aumentar o contraste em pacientes com baixa visão grave.</p>
+        <!-- Seção: Simulações Tinkercad -->
+        <section id="tinkercad" class="content-section">
+            <h2>Simulações do Tinkercad</h2>
+            <p>Acompanhe a aplicação prática dos conceitos de iluminação, controle de corrente e circuitos eletrônicos:</p>
+            
+            <div class="grid-cards">
+                <article class="card">
+                    <h3>LED Fade-In & Fade-Out</h3>
+                    <p>Controle de intensidade luminosa gradual utilizando modulação por largura de pulso (PWM) no Arduino.</p>
+                    <div class="embed-container">
+                        <iframe src="https://www.tinkercad.com/embed/g8X2mK0L1aP" frameborder="0" width="100%" height="300" loading="lazy" title="Simulação Tinkercad LED Fade"></iframe>
                     </div>
-                    <div class="tech-item">
-                        <h4>Sistemas de Contraste Dinâmico</h4>
-                        <p>Telas e monitores que ajustam a decomposição luminosa para facilitar a leitura de pessoas com fotofobia ou degeneração macular.</p>
-                    </div>
-                </div>
-            </div>
+                </article>
 
-            <div class="flashcards-section">
-                <h4><i class="fa-solid fa-clone"></i> Flashcards de Estudo (Clique para girar)</h4>
-                <div class="flashcards-grid">
-                    <div class="flashcard">
-                        <input type="checkbox" id="card1" class="flashcard-toggle">
-                        <label for="card1" class="flashcard-label">
-                            <div class="card-inner">
-                                <div class="card-front"><strong>O que é Persistência Retiniana?</strong><small>Clique para ver a resposta</small></div>
-                                <div class="card-back"><p>É o tempo de cerca de 0,1s que o cérebro leva para processar e descartar um estímulo visual.</p></div>
-                            </div>
-                        </label>
+                <article class="card">
+                    <h3>Controle de LED RGB</h3>
+                    <p>Mistura de cores primárias via programação para gerar diferentes matizes de luz.</p>
+                    <div class="embed-container">
+                        <iframe src="https://www.tinkercad.com/embed/k9Y3nL1M2bQ" frameborder="0" width="100%" height="300" loading="lazy" title="Simulação Tinkercad LED RGB"></iframe>
                     </div>
-                    <div class="flashcard">
-                        <input type="checkbox" id="card2" class="flashcard-toggle">
-                        <label for="card2" class="flashcard-label">
-                            <div class="card-inner">
-                                <div class="card-front"><strong>Quais são os fotorreceptores da retina?</strong><small>Clique para ver a resposta</small></div>
-                                <div class="card-back"><p>Cones (responsáveis pela visão das cores) e bastonetes (sensíveis à intensidade luminosa).</p></div>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="flashcard">
-                        <input type="checkbox" id="card3" class="flashcard-toggle">
-                        <label for="card3" class="flashcard-label">
-                            <div class="card-inner">
-                                <div class="card-front"><strong>Por que as cores se fundem?</strong><small>Clique para ver a resposta</small></div>
-                                <div class="card-back"><p>Porque a velocidade de rotação faz com que novas cores atinjam a retina antes que o cérebro processe a imagem anterior.</p></div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-block">
-                <h3>4. Referências (ABNT NBR 6023)</h3>
-                <p class="abnt-ref">HALLIDAY, David; RESNICK, Robert; WALKER, Jearl. <strong>Fundamentos de Física: Óptica e Física Moderna</strong>. 10. ed. Rio de Janeiro: LTC, 2016. v. 4.</p>
-                <p class="abnt-ref">HECHT, Eugene. <strong>Optics</strong>. 5. ed. Boston: Pearson Education, 2017.</p>
-                <p class="abnt-ref">SANTOS, Marco Aurélio da Silva. Experimento do Disco de Newton. <strong>Brasil Escola</strong>, 2026. Disponível em: https://educador.brasilescola.uol.com.br/estrategias-ensino/experimento-disco-newton.htm. Acesso em: 2 set. 2026.</p>
+                </article>
             </div>
         </section>
 
-        <!-- ATIVIDADE 02: LED FADE-IN & FADE-OUT -->
-        <section id="atv2" class="activity-card">
-            <div class="badge">Atividade 02</div>
-            <h2>LED Fade-In & Fade-Out (Controle Luminoso)</h2>
-            <div class="question-pill">
-                <i class="fa-solid fa-circle-question"></i>
-                <span><strong>Questão de Investigação:</strong> Como o controle da intensidade da luz contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</span>
-            </div>
-
-            <div class="media-grid">
-                <div class="media-box">
-                    <img src="LINK_DA_IMAGEM_1_ATV2" alt="Imagem 1: Circuito no Tinkercad" class="responsive-media">
-                    <p class="media-caption">Figura 2.1: Esquema do circuito no Tinkercad.</p>
-                </div>
-                <div class="media-box">
-                    <img src="LINK_DA_IMAGEM_2_ATV2" alt="Imagem 2: Código no Arduino Uno" class="responsive-media">
-                    <p class="media-caption">Figura 2.2: Estrutura do código PWM no Arduino.</p>
-                </div>
-                <div class="media-box">
-                    <img src="LINK_DA_IMAGEM_3_ATV2" alt="Imagem 3: Variação da intensidade de brilho" class="responsive-media">
-                    <p class="media-caption">Figura 2.3: Gráfico de intensidade luminosa.</p>
+        <!-- Seção: Flashcards Interativos -->
+        <section id="flashcards" class="content-section">
+            <h2>Flashcards de Estudo</h2>
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-pressed="false" aria-label="Flashcard: Clique para alternar entre Pergunta e Resposta">
+                    <div class="front">
+                        <p><strong>Pergunta:</strong> O que é a Síntese Aditiva de Cores?</p>
+                    </div>
+                    <div class="back">
+                        <p><strong>Resposta:</strong> É o processo de criação de cores pela junção de luzes coloridas (RGB - Red, Green, Blue).</p>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="content-block">
-                <h3>1. Apresentação da Atividade</h3>
-                <p>Desenvolvido na plataforma Tinkercad pelas alunas Maiara, Bruna e Nicoly (Colégio Cívico Militar Professor Francisco Villanueva), o circuito utilizou um Arduino Uno, resistor de 220 Ω e LED em pino PWM (pino 11). O código aplicou a função <code>analogWrite()</code> e uma estrutura de repetição para alterar o duty cycle de 0 a 255 em incrementos de 1 com intervalo de 100ms, proporcionando a transição fluida do brilho.</p>
+        <!-- Seção: Checagem de Fake News -->
+        <section id="fakenews" class="content-section">
+            <h2>Verificação de Fatos: Mitos sobre Óptica e Luz</h2>
+            <div class="card warning-card">
+                <h3>Mito: "Ler no escuro ou sob pouca luz causa cegueira permanente."</h3>
+                <p><strong>Fato:</strong> Ler com pouca luz pode causar fadiga ocular temporária e cansaço visual, mas não provoca danos anatômicos definitivos nem cegueira permanente.</p>
             </div>
+        </section>
 
-            <div class="fake-news-card">
-                <h4><i class="fa-solid fa-triangle-exclamation"></i> Checagem de Fatos: Fake News & Mitos</h4>
-                <p><strong>Boato Falso:</strong> <em>"Lâmpadas LED controladas por PWM emitem radiação perigosa e podem transmitir vírus digitais para celulares próximos."</em></p>
-                <p><strong>Fato Científico:</strong> LEDs emitem exclusivamente radiação eletromagnética na faixa da luz visível e não possuem capacidade física de transmitir dados maliciosos ou vírus digitais para dispositivos móveis. O controle PWM apenas chaveia a corrente elétrica em alta frequência para ajuste suave da iluminação.</p>
-            </div>
+    </main>
 
-   
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Oásis da Luz — Maiara, Bruna & Nicoly. Projeto focado em Física Óptica e Acessibilidade Web.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
