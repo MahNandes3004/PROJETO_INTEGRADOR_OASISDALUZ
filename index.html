@@ -4,27 +4,341 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oásis da Luz - Robótica Integrada & Acessibilidade Visual</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* CSS dos Flashcards Funcionais por Clique sem JS */
-        .flashcard-toggle { display: none; }
-        .flashcard-label { display: block; width: 100%; height: 100%; cursor: pointer; }
-        .flashcard-toggle:checked + .flashcard-label .card-inner { transform: rotateY(180deg); }
-        .a11y-buttons button { cursor: pointer; position: relative; z-index: 9999; }
+        :root {
+            --primary: #8b0000;
+            --bg-main: #f4f4f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border: #dddddd;
+        }
+
+        /* ESTILOS DE ALTO CONTRASTE APLICADOS VIA JS NO HTML */
+        body.dark-theme {
+            background-color: #121212 !important;
+            color: #ffffff !important;
+        }
+        body.dark-theme .activity-card,
+        body.dark-theme .tech-item,
+        body.dark-theme .card-front,
+        body.dark-theme .card-back {
+            background-color: #1e1e1e !important;
+            color: #ffffff !important;
+            border-color: #333333 !important;
+        }
+        body.dark-theme h1, body.dark-theme h2, body.dark-theme h3, body.dark-theme h4, 
+        body.dark-theme p, body.dark-theme span, body.dark-theme strong {
+            color: #ffffff !important;
+        }
+        body.dark-theme .question-pill {
+            background-color: #2a2a2a !important;
+            border-left-color: #ff4d4d !important;
+        }
+        body.dark-theme .fake-news-card {
+            background-color: #332b00 !important;
+            color: #ffecb3 !important;
+            border-color: #665200 !important;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* BARRA FIXA DE ACESSIBILIDADE - COM Z-INDEX MÁXIMO E PONTEIRO DE CLIQUE */
+        #a11y-bar {
+            position: sticky;
+            top: 0;
+            z-index: 999999 !important;
+            background-color: #222222;
+            color: #ffffff;
+            padding: 10px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .a11y-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .a11y-buttons button {
+            background-color: #444444;
+            color: #ffffff;
+            border: 1px solid #666666;
+            padding: 8px 14px;
+            margin-left: 5px;
+            border-radius: 4px;
+            cursor: pointer !important;
+            font-size: 0.9rem;
+            font-weight: bold;
+            position: relative;
+            z-index: 1000000 !important;
+            pointer-events: auto !important;
+        }
+
+        .a11y-buttons button:hover {
+            background-color: var(--primary);
+        }
+
+        /* CABEÇALHO */
+        #main-header {
+            background-color: var(--primary);
+            color: #ffffff;
+            text-align: center;
+            padding: 30px 15px 15px 15px;
+        }
+
+        .header-banner h1 {
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .authors {
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+        #main-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        #main-nav a {
+            color: #fff;
+            text-decoration: none;
+            background-color: rgba(0,0,0,0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* ESTRUTURA PRINCIPAL */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .activity-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .question-pill {
+            background-color: rgba(139, 0, 0, 0.08);
+            border-left: 4px solid var(--primary);
+            padding: 12px;
+            margin: 15px 0 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .content-block {
+            margin: 20px 0;
+        }
+
+        .content-block h3 {
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 4px;
+        }
+
+        /* MIDIAS */
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .media-box {
+            text-align: center;
+        }
+
+        .responsive-media {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 6px;
+            background-color: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .media-caption {
+            font-size: 0.85rem;
+            margin-top: 6px;
+            opacity: 0.8;
+        }
+
+        /* FAKE NEWS CARD */
+        .fake-news-card {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        /* TECNOLOGIAS ASSISTIVAS */
+        .tech-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .tech-item {
+            background-color: rgba(0,0,0,0.02);
+            border: 1px solid var(--border);
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        /* FLASHCARDS VIA CSS PURO */
+        .flashcards-section {
+            margin: 25px 0;
+        }
+
+        .flashcards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .flashcard {
+            height: 140px;
+            perspective: 1000px;
+        }
+
+        .flashcard-toggle {
+            display: none;
+        }
+
+        .flashcard-label {
+            display: block;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flashcard-toggle:checked + .flashcard-label .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--card-bg);
+        }
+
+        .card-back {
+            transform: rotateY(180deg);
+            background-color: var(--primary) !important;
+            color: #ffffff !important;
+        }
+
+        .abnt-ref {
+            font-size: 0.85rem;
+            word-break: break-all;
+            background: rgba(0,0,0,0.03);
+            padding: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        #main-footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #222222;
+            color: #ffffff;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
-    <!-- BARRA FIXA DE ACESSIBILIDADE -->
+    <!-- BARRA FIXA DE ACESSIBILIDADE COM EVENTOS DIRETOS -->
     <nav id="a11y-bar" aria-label="Barra de Acessibilidade Universal">
         <div class="a11y-content">
             <span class="a11y-title"><i class="fa-solid fa-universal-access"></i> Acessibilidade</span>
             <div class="a11y-buttons">
-                <button type="button" onclick="changeFontSize(1)" title="Aumentar Fonte">A+</button>
-                <button type="button" onclick="changeFontSize(-1)" title="Diminuir Fonte">A-</button>
-                <button type="button" onclick="toggleHighContrast()" title="Alternar Alto Contraste">Alto Contraste</button>
-                <button type="button" id="btn-tts" onclick="toggleAudioDescription()" title="Ativar Áudio Descrição">Áudio Descrição <i class="fa-solid fa-volume-high"></i></button>
+                <button type="button" id="btn-a-plus" title="Aumentar Fonte">A+</button>
+                <button type="button" id="btn-a-minus" title="Diminuir Fonte">A-</button>
+                <button type="button" id="btn-contrast" title="Alternar Alto Contraste">Alto Contraste</button>
+                <button type="button" id="btn-tts" title="Ativar Áudio Descrição">Áudio Descrição <i class="fa-solid fa-volume-high"></i></button>
             </div>
         </div>
     </nav>
@@ -181,131 +495,4 @@
                 <p><strong>Fato Científico:</strong> LEDs emitem exclusivamente radiação eletromagnética na faixa da luz visível e não possuem capacidade física de transmitir dados maliciosos ou vírus digitais para dispositivos móveis. O controle PWM apenas chaveia a corrente elétrica em alta frequência para ajuste suave da iluminação.</p>
             </div>
 
-            <div class="media-box">
-                <div class="video-container">
-                    <iframe src="LINK_DO_VIDEO_ATV2" title="Vídeo demonstrativo Atividade 02" allowfullscreen></iframe>
-                </div>
-                <p class="media-caption">Vídeo 2: Demonstração prática da simulação Fade-In e Fade-Out.</p>
-            </div>
-
-            <div class="content-block">
-                <h3>2. Explicação Científica</h3>
-                <p>O LED é um componente semicondutor. O controle por PWM (Modulação por Largura de Pulso) liga e desliga a corrente em alta frequência (acima de 100 Hz). O olho humano não detecta o chaveamento rápido e percebe a potência média proporcional ao duty cycle. Mudanças graduais evitam choques visuais e favorecem a adaptação fotópica e escotópica de pessoas com baixa visão.</p>
-            </div>
-
-            <div class="content-block">
-                <h3>3. Tecnologias Existentes</h3>
-                <div class="tech-cards-grid">
-                    <div class="tech-item">
-                        <h4>Philips Hue</h4>
-                        <p>Lâmpadas inteligentes controladas por aplicativo/voz via PWM para ajuste suave, evitando desconforto visual.</p>
-                    </div>
-                    <div class="tech-item">
-                        <h4>Vídeo Ampliadores</h4>
-                        <p>Dispositivos portáteis com controle ajustável de iluminação de tarefa (ex: Laramara) para auxílio na leitura.</p>
-                    </div>
-                    <div class="tech-item">
-                        <h4>LightSound</h4>
-                        <p>Desenvolvido com apoio da ONCE, converte dados luminosos em sinais audíveis para pessoas cegas.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FLASHCARDS ATV 2 -->
-            <div class="flashcards-section">
-                <h4><i class="fa-solid fa-clone"></i> Flashcards de Estudo (Clique para girar)</h4>
-                <div class="flashcards-grid">
-                    <div class="flashcard">
-                        <input type="checkbox" id="card4" class="flashcard-toggle">
-                        <label for="card4" class="flashcard-label">
-                            <div class="card-inner">
-                                <div class="card-front"><strong>O que é Duty Cycle no PWM?</strong><small>Clique para ver a resposta</small></div>
-                                <div class="card-back"><p>É a proporção de tempo em que o sinal elétrico permanece em nível alto durante um ciclo.</p></div>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="flashcard">
-                        <input type="checkbox" id="card5" class="flashcard-toggle">
-                        <label for="card5" class="flashcard-label">
-                            <div class="card-inner">
-                                <div class="card-front"><strong>O que é Ofuscamento (Glare)?</strong><small>Clique para ver a resposta</small></div>
-                                <div class="card-back"><p>Desconforto ou redução visual provocados por níveis excessivos ou mudanças bruscas de iluminação.</p></div>
-                            </div>
-                        </label>
-                    </div>
-                    <div class="flashcard">
-                        <input type="checkbox" id="card6" class="flashcard-toggle">
-                        <label for="card6" class="flashcard-label">
-                            <div class="card-inner">
-                                <div class="card-front"><strong>O que é o LightSound?</strong><small>Clique para ver a resposta</small></div>
-                                <div class="card-back"><p>Dispositivo que converte a variação de intensidade luminosa em frequências sonoras.</p></div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-block">
-                <h3>4. Referências (ABNT)</h3>
-                <p class="abnt-ref">LARAMARA. 6 Tecnologias assistivas para pessoas com deficiência visual. Disponível em: https://laramara.org.br. Acesso em: 7 ago. 2026.</p>
-            </div>
-        </section>
-
-        <!-- ATIVIDADE 03: LED RGB -->
-        <section id="atv3" class="activity-card">
-            <div class="badge">Atividade 03</div>
-            <h2>LED RGB & Mistura Aditiva de Cores</h2>
-            <div class="question-pill">
-                <i class="fa-solid fa-circle-question"></i>
-                <span><strong>Questão de Investigação:</strong> Como o estudo das cores contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</span>
-            </div>
-
-            <div class="media-grid">
-                <div class="media-box">
-                    <img src="LINK_DA_IMAGEM_1_ATV3" alt="Imagem 1: Circuito LED RGB Catodo Comum" class="responsive-media">
-                    <p class="media-caption">Figura 3.1: Circuito com LED RGB e resistores.</p>
-                </div>
-                <div class="media-box">
-                    <img src="LINK_DA_IMAGEM_2_ATV3" alt="Imagem 2: Síntese Aditiva de Cores" class="responsive-media">
-                    <p class="media-caption">Figura 3.2: Mistura aditiva das cores R, G e B.</p>
-                </div>
-                <div class="media-box">
-                    <img src="LINK_DA_IMAGEM_3_ATV3" alt="Imagem 3: Testes de combinações de cores no Arduino" class="responsive-media">
-                    <p class="media-caption">Figura 3.3: Teste de acionamento dos canais de cor.</p>
-                </div>
-            </div>
-
-            <div class="content-block">
-                <h3>1. Apresentação da Atividade</h3>
-                <p>Relatório elaborado pelas alunas Maiara, Bruna e Nicoly (agosto de 2026). Utilizou Arduino Uno, LED RGB de catodo comum e resistores de 220 Ω em portas PWM no Tinkercad para validar as combinações de cor.</p>
-            </div>
-
-            <div class="fake-news-card">
-                <h4><i class="fa-solid fa-triangle-exclamation"></i> Checagem de Fatos: Fake News & Mitos</h4>
-                <p><strong>Boato Falso:</strong> <em>"Luzes de LED RGB azuis alteram permanentemente os fotorreceptores da retina, anulando a capacidade do olho de perceber cores."</em></p>
-                <p><strong>Fato Científico:</strong> A mistura aditiva de cores (RGB) estimula os cones da retina sem causar destruição dos fotorreceptores. Tecnologias assistivas utilizam filtros e ajustes de espectro de luz RGB para otimizar o contraste visual e auxiliar a acessibilidade de pessoas com baixa visão ou daltonismo.</p>
-            </div>
-
-            <div class="media-box">
-                <div class="video-container">
-                    <iframe src="LINK_DO_VIDEO_ATV3" title="Vídeo demonstrativo Atividade 03" allowfullscreen></iframe>
-                </div>
-                <p class="media-caption">Vídeo 3: Simulação prática das misturas aditivas de cores.</p>
-            </div>
-
-            <div class="content-block">
-                <h3>2. Explicação Científica</h3>
-                <p>O LED RGB possui três chips semicondutores (Red, Green, Blue) no mesmo encapsulamento. A síntese aditiva fundamenta-se na sobreposição de comprimentos de onda de luz:</p>
-                <ul>
-                    <li><strong>Vermelho + Verde</strong> = Amarelo</li>
-                    <li><strong>Vermelho + Azul</strong> = Magenta</li>
-                    <li><strong>Verde + Azul</strong> = Ciano</li>
-                    <li><strong>Vermelho + Verde + Azul (Máximo)</strong> = Luz Branca</li>
-                </ul>
-            </div>
-
-            <div class="content-block">
-                <h3>3. Tecnologias Existentes</h3>
-                <div class="tech-cards-grid">
-                    <div class="tech-item">
-                        <h4>Óculos 
+            <div class="
