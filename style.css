@@ -8,6 +8,12 @@
     --border-color: #e2e8f0;
     --radius-lg: 16px;
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+    --base-font-size: 16px;
+}
+
+html {
+    font-size: var(--base-font-size);
+    scroll-behavior: smooth;
 }
 
 body.high-contrast {
@@ -26,15 +32,12 @@ body.high-contrast {
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--bg-body);
     color: var(--text-main);
     line-height: 1.6;
+    font-size: 1rem;
     padding-bottom: 40px;
 }
 
@@ -313,7 +316,7 @@ body {
     margin: 10px 0;
 }
 
-/* Flashcards rigorosamente alinhados e interativos */
+/* Flashcards Corrigidos: Exibem o texto perfeitamente ao virar */
 .flashcard-group {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -344,7 +347,7 @@ body {
     min-height: 120px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     transition: background 0.3s ease, color 0.3s ease;
 }
@@ -359,19 +362,26 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    margin-bottom: 6px;
 }
 
-.flashcard-front, .flashcard-back {
+/* Regra corrigida para alternar frente e verso sem sumir o texto */
+.flashcard-back { 
+    display: none; 
+}
+
+.flashcard.flipped .flashcard-front { 
+    display: none; 
+}
+
+.flashcard.flipped .flashcard-back { 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     height: 100%;
 }
-
-.flashcard-back { display: none; }
-.flashcard.flipped .flashcard-front { display: none; }
-.flashcard.flipped .flashcard-back { display: flex; }
 
 /* Demo RGB */
 .rgb-demo {
