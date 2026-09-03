@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oásis da Luz | Física Óptica & Acessibilidade</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Conexão com o CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header / Hero Section -->
+    <!-- Header / Hero -->
     <header class="hero">
         <div class="accessibility-toolbar" role="region" aria-label="Acessibilidade">
             <span class="toolbar-label">Acessibilidade:</span>
             <div class="toolbar-btns">
-                <button onclick="toggleContrast()" aria-label="Alto Contraste">◐ Contraste</button>
-                <button onclick="changeFontSize(1)" aria-label="Aumentar Fonte">A+</button>
-                <button onclick="changeFontSize(-1)" aria-label="Diminuir Fonte">A-</button>
+                <button id="btn-contrast" aria-label="Alto Contraste">◐ Contraste</button>
+                <button id="btn-font-increase" aria-label="Aumentar Fonte">A+</button>
+                <button id="btn-font-decrease" aria-label="Diminuir Fonte">A-</button>
             </div>
         </div>
 
@@ -29,7 +28,7 @@
         </div>
     </header>
 
-    <!-- Navegação Mobile / Desktop -->
+    <!-- Navegação -->
     <nav class="sticky-nav">
         <ul>
             <li><a href="#optica">Óptica</a></li>
@@ -48,13 +47,13 @@
                 <p>Conceitos visuais e a física da luz</p>
             </div>
 
-            <div class="card interactive-card">
+            <div class="card">
                 <h3>O Disco de Newton</h3>
                 <p>Demonstração da recomposição da luz branca a partir da mistura rápida das cores do espectro visível (persistência retiniana).</p>
                 
                 <div class="newton-container">
                     <div id="newton-disk" class="disk"></div>
-                    <button class="btn-primary" onclick="spinDisk()">Girar Disco</button>
+                    <button id="btn-spin" class="btn-primary">Girar Disco</button>
                 </div>
             </div>
 
@@ -77,42 +76,32 @@
                 <p>Projetos práticos com Arduino e LEDs</p>
             </div>
 
-            <div class="card-grid">
+            <div class="card">
+                <h3>LED Fade-In & Fade-Out</h3>
+                <p>Circuito programado para transição suave de intensidade luminosa utilizando modulação por largura de pulso (PWM).</p>
                 
-                <article class="card project-card">
-                    <div class="project-header">
-                        <span class="project-tag">Arduino PWM</span>
-                        <h3>LED Fade-In & Fade-Out</h3>
-                    </div>
-                    <p>Circuito programado para transição suave de intensidade luminosa utilizando modulação por largura de pulso (PWM).</p>
-                    
-                    <div class="circuit-preview">
-                        <div class="circuit-icon">💡</div>
-                        <span>Simulação de Controle Luminoso</span>
-                    </div>
+                <div class="circuit-preview">
+                    <div class="circuit-icon">💡</div>
+                    <span>Simulação de Controle Luminoso</span>
+                </div>
 
-                    <a href="https://www.tinkercad.com" target="_blank" rel="noopener" class="btn-secondary">
-                        Abrir Simulação no Tinkercad ↗
-                    </a>
-                </article>
+                <a href="https://www.tinkercad.com" target="_blank" rel="noopener" class="btn-secondary">
+                    Abrir Simulação no Tinkercad ↗
+                </a>
+            </div>
 
-                <article class="card project-card">
-                    <div class="project-header">
-                        <span class="project-tag">Circuito RGB</span>
-                        <h3>Controle de LED RGB</h3>
-                    </div>
-                    <p>Programação para mesclagem de cores em tempo real via controle de portas analógicas/digitais do Arduino.</p>
+            <div class="card">
+                <h3>Controle de LED RGB</h3>
+                <p>Programação para mesclagem de cores em tempo real via controle de portas analógicas/digitais do Arduino.</p>
 
-                    <div class="circuit-preview rgb-preview">
-                        <div class="circuit-icon">🌈</div>
-                        <span>Simulação de Mistura de Cores</span>
-                    </div>
+                <div class="circuit-preview">
+                    <div class="circuit-icon">🌈</div>
+                    <span>Simulação de Mistura de Cores</span>
+                </div>
 
-                    <a href="https://www.tinkercad.com" target="_blank" rel="noopener" class="btn-secondary">
-                        Abrir Simulação no Tinkercad ↗
-                    </a>
-                </article>
-
+                <a href="https://www.tinkercad.com" target="_blank" rel="noopener" class="btn-secondary">
+                    Abrir Simulação no Tinkercad ↗
+                </a>
             </div>
         </section>
 
@@ -123,7 +112,7 @@
                 <p>Toque no cartão para ver a resposta</p>
             </div>
 
-            <div class="flashcard" onclick="flipCard(this)">
+            <div class="flashcard">
                 <div class="flashcard-inner">
                     <div class="flashcard-front">
                         <span class="card-type">Pergunta</span>
@@ -161,6 +150,7 @@
         <p class="sub-footer">Física Óptica e Acessibilidade Web</p>
     </footer>
 
+    <!-- Conexão com o JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
