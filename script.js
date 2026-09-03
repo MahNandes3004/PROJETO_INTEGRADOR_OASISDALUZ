@@ -1,7 +1,6 @@
-
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Controle de Alto Contraste
+    // 1. Alto Contraste
     const btnContrast = document.getElementById('btn-contrast');
     if (btnContrast) {
         btnContrast.addEventListener('click', (e) => {
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('high-contrast');
     }
 
-    // 2. Controle do Tamanho da Fonte (Aumentar / Diminuir)
+    // 2. Aumentar e Diminuir Fonte (A+ / A-)
     let fontSizePx = 16;
     const btnIncrease = document.getElementById('btn-font-increase');
     const btnDecrease = document.getElementById('btn-font-decrease');
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Giro dos Flashcards (Com verificação robusta de clique)
+    // 3. Virar os Flashcards
     const flashcards = document.querySelectorAll('.flashcard');
     flashcards.forEach((card) => {
         card.addEventListener('click', () => {
@@ -49,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Animação do Disco de Newton
+    // 4. Giro do Disco de Newton
     const btnSpin = document.getElementById('btn-spin');
     const newtonDisk = document.getElementById('newton-disk');
 
@@ -57,8 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnSpin.addEventListener('click', (e) => {
             e.preventDefault();
             newtonDisk.classList.remove('spinning');
-            // Força o reflow para garantir que a animação reinicie sempre que clicado
-            void newtonDisk.offsetWidth;
+            void newtonDisk.offsetWidth; // Força o navegador a reiniciar a animação
             newtonDisk.classList.add('spinning');
             
             setTimeout(() => {
@@ -67,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. Botões de Áudiodescrição por Voz (Atrelados programaticamente)
+    // 5. Áudiodescrição (Síntese de Voz)
     const audioButtons = document.querySelectorAll('.btn-audio');
     audioButtons.forEach((btn) => {
         btn.addEventListener('click', (e) => {
@@ -78,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Função Global de Voz
 function playAudio(elementId) {
     const textElement = document.getElementById(elementId);
     if (!textElement) return;
