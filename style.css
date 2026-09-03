@@ -1,20 +1,19 @@
 :root {
     --bg-body: #f4f6f8;
     --bg-card: #ffffff;
-    --primary-color: #8b0000; /* Vinho / Dark Red */
+    --primary-color: #8b0000;
     --primary-gradient: linear-gradient(135deg, #8b0000, #40000b);
     --text-main: #1e293b;
     --text-muted: #64748b;
     --border-color: #e2e8f0;
     --radius-lg: 16px;
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-    --font-scale: 16px;
 }
 
 body.high-contrast {
     --bg-body: #000000;
     --bg-card: #121212;
-    --primary-color: #ffff00; /* Amarelo para Alto Contraste */
+    --primary-color: #ffff00;
     --primary-gradient: #121212;
     --text-main: #ffffff;
     --text-muted: #e2e8f0;
@@ -28,7 +27,6 @@ body.high-contrast {
 }
 
 html {
-    font-size: var(--font-scale);
     scroll-behavior: smooth;
 }
 
@@ -186,7 +184,7 @@ body {
 
 .media-grid-3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 12px;
     margin: 15px 0;
 }
@@ -197,7 +195,7 @@ body {
 
 .media-placeholder {
     background: var(--bg-body);
-    border: 1fr dashed var(--border-color);
+    border: 1px dashed var(--border-color);
     border-radius: 12px;
     padding: 8px;
     text-align: center;
@@ -315,28 +313,39 @@ body {
     margin: 10px 0;
 }
 
-/* Flashcards */
+/* Flashcards rigorosamente alinhados e de mesmo tamanho */
 .flashcard-group {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
     margin-top: 20px;
+    align-items: stretch;
 }
 
 @media (max-width: 600px) {
-    .flashcard-group { grid-template-columns: 1fr; }
+    .flashcard-group { 
+        grid-template-columns: 1fr; 
+    }
 }
 
 .flashcard {
     cursor: pointer;
+    display: flex;
+    width: 100%;
 }
 
 .flashcard-inner {
     background: var(--bg-card);
     border: 2px solid var(--primary-color);
     border-radius: var(--radius-lg);
-    padding: 20px 15px;
+    padding: 16px 12px;
     text-align: center;
+    width: 100%;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .flashcard.flipped .flashcard-inner {
@@ -348,11 +357,20 @@ body {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.flashcard-front, .flashcard-back {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }
 
 .flashcard-back { display: none; }
 .flashcard.flipped .flashcard-front { display: none; }
-.flashcard.flipped .flashcard-back { display: block; }
+.flashcard.flipped .flashcard-back { display: flex; }
 
 /* Demo RGB */
 .rgb-demo {
