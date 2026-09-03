@@ -29,6 +29,8 @@
     <nav class="sticky-nav">
         <ul>
             <li><a href="#newton">Disco de Newton</a></li>
+            <li><a href="#fadein">LED Fade-In</a></li>
+            <li><a href="#fadeout">LED Fade-Out</a></li>
             <li><a href="#rgb">LEDs RGB</a></li>
             <li><a href="#flashcards">Flashcards</a></li>
         </ul>
@@ -37,7 +39,7 @@
     <!-- Conteúdo Principal -->
     <main class="main-container">
 
-        <!-- Seção Disco de Newton -->
+        <!-- 1. Disco de Newton -->
         <section id="newton" class="section">
             <div class="section-title">
                 <h2>1. O Disco de Newton</h2>
@@ -53,81 +55,151 @@
                     O Disco de Newton demonstra que a luz branca é a mistura de todas as cores do espectro visível. Ao girar o disco em alta velocidade, o olho humano não consegue diferenciar cada cor individualmente devido à persistência retiniana, sobrepondo os estímulos e gerando a percepção visual do branco.
                 </p>
                 
-                <!-- Espaços para Imagens -->
                 <div class="media-grid">
                     <div class="media-placeholder">
-                        <span class="placeholder-tag">🖼️ Espaço para primeira imagem do Disco de Newton</span>
-                        <span class="placeholder-tag" style="font-weight: normal; font-size: 0.7rem;">📷 Imagem 1: Disco de Newton Estático</span>
+                        <span class="placeholder-tag">🖼️ Espaço para imagem do Disco Estático</span>
                     </div>
                     <div class="media-placeholder">
-                        <span class="placeholder-tag">🖼️ Espaço para segunda imagem do Disco de Newton</span>
-                        <span class="placeholder-tag" style="font-weight: normal; font-size: 0.7rem;">📷 Imagem 2: Disco de Newton em Rotação</span>
+                        <span class="placeholder-tag">🖼️ Espaço para imagem do Disco em Rotação</span>
                     </div>
                 </div>
 
-                <!-- Simulação Disco -->
                 <div class="newton-container">
                     <div id="newton-disk" class="disk"></div>
                     <button id="btn-spin" class="btn-primary">Girar Disco Interativo</button>
                 </div>
 
-                <!-- Espaço para Vídeo (Apenas estrutura limpa) -->
                 <div class="video-placeholder">
-                    <div class="video-container" style="background:#000; display:flex; align-items:center; justify-content:center; color:#fff; min-height:180px; border-radius:8px;">
-                        <span style="font-size: 0.85rem; text-align: center; padding: 10px;">▶️ Espaço reservado para o Vídeo Demonstrativo do Projeto</span>
+                    <div class="video-container" style="background:#000; display:flex; align-items:center; justify-content:center; color:#fff; min-height:160px; border-radius:8px;">
+                        <span style="font-size: 0.8rem; text-align: center; padding: 10px;">▶️ Espaço reservado para o Vídeo do Disco de Newton</span>
                     </div>
-                    <span class="placeholder-tag" style="text-align:center; display:block; margin-top:5px;">📹 Vídeo 1: Demonstração Prática do Disco de Newton</span>
                 </div>
 
-                <!-- Tecnologias Assistivas -->
                 <div class="tech-box">
                     <h4>💡 Tecnologias Assistivas Associadas</h4>
                     <ul>
-                        <li><strong>Software de Contraste Dinâmico:</strong> Permite adaptar variações de matriz do espectro para pessoas com acromatopsia ou daltonismo.</li>
-                        <li><strong>Lupas Eletrônicas Digitais:</strong> Iluminam e ampliam a frequência de cor para auxílio em casos de baixa visão acentuada.</li>
+                        <li><strong>Contraste Dinâmico:</strong> Adapta variações do espectro para pessoas com daltonismo.</li>
+                        <li><strong>Lupas Digitais:</strong> Ampliam frequências de cor para auxílio em baixa visão.</li>
                     </ul>
                 </div>
 
-                <!-- Mitos e Fatos -->
                 <div class="fact-box">
                     <span class="fact-badge mito">MITO</span>
                     <p>"O disco fica perfeitamente branco como papel quando gira."</p>
                     <hr>
                     <span class="fact-badge fato">FATO</span>
-                    <p>Devido à pigmentação das tintas e refletividade, a rotação gera uma tonalidade acinzentada ou bege-claro, provando a sobreposição física da luz.</p>
+                    <p>Devido à pigmentação e refletividade, a rotação gera uma tonalidade acinzentada ou bege-claro, provando a sobreposição física.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. LED Fade-In -->
+        <section id="fadein" class="section">
+            <div class="section-title">
+                <h2>2. Circuito LED Fade-In</h2>
+                <p>Aumento progressivo da intensidade luminosa</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header-actions">
+                    <h3>Progressão Gradual de Brilho</h3>
+                    <button class="btn-audio" data-audio-target="texto-fadein">Ouvir Audiodescrição</button>
+                </div>
+                <p id="texto-fadein" class="description-text">
+                    O efeito Fade-In simula o acendimento suave de um ponto de luz, alterando de forma gradual a tensão enviada ao componente eletrônico. Essa técnica reduz o impacto visual brusco em ambientes de baixa luminosidade.
+                </p>
+
+                <div class="media-placeholder" style="margin: 15px 0;">
+                    <span class="placeholder-tag">🖼️ Espaço reservado para Esquema / Simulação Tinkercad do Fade-In</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. LED Fade-Out -->
+        <section id="fadeout" class="section">
+            <div class="section-title">
+                <h2>3. Circuito LED Fade-Out</h2>
+                <p>Redução suave e gradual da luminosidade</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header-actions">
+                    <h3>Desligamento Suave</h3>
+                    <button class="btn-audio" data-audio-target="texto-fadeout">Ouvir Audiodescrição</button>
+                </div>
+                <p id="texto-fadeout" class="description-text">
+                    O efeito Fade-Out complementa o ciclo de transição visual, apagando o LED de maneira controlada. É amplamente utilizado em interfaces adaptativas para evitar fadiga visual e desconforto ao usuário.
+                </p>
+
+                <div class="media-placeholder" style="margin: 15px 0;">
+                    <span class="placeholder-tag">🖼️ Espaço reservado para Esquema / Simulação Tinkercad do Fade-Out</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. LEDs RGB -->
+        <section id="rgb" class="section">
+            <div class="section-title">
+                <h2>4. Física dos LEDs RGB</h2>
+                <p>Mistura aditiva de cores na prática</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header-actions">
+                    <h3>Cores Primárias da Luz</h3>
+                    <button class="btn-audio" data-audio-target="texto-rgb">Ouvir Audiodescrição</button>
+                </div>
+                <p id="texto-rgb" class="description-text">
+                    A combinação de Vermelho (Red), Verde (Green) e Azul (Blue) em diferentes intensidades gera todo o espectro luminoso visível em monitores e dispositivos de suporte à acessibilidade visual.
+                </p>
+                
+                <div class="rgb-demo" style="display: flex; justify-content: center; gap: 15px; margin: 15px 0;">
+                    <div class="rgb-circle red" style="width:45px; height:45px; border-radius:50%; background:#ef4444; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">R</div>
+                    <div class="rgb-circle green" style="width:45px; height:45px; border-radius:50%; background:#10b981; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">G</div>
+                    <div class="rgb-circle blue" style="width:45px; height:45px; border-radius:50%; background:#3b82f6; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold;">B</div>
                 </div>
 
-                <!-- Flashcards Perfeitamente Alinhados -->
-                <div class="flashcard-group">
-                    <div class="card flashcard">
-                        <div class="flashcard-inner">
-                            <div class="flashcard-front">
-                                <span class="card-type">Flashcard 1</span>
-                                <p>O que faz as cores se misturarem na visão?</p>
-                                <span style="font-size:0.7rem; color:var(--text-muted); margin-top:8px;">Toque para virar ↺</span>
-                            </div>
-                            <div class="flashcard-back">
-                                <span class="card-type">Resposta 1</span>
-                                <p>A persistência retiniana do olho humano em alta velocidade.</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="media-placeholder" style="margin: 15px 0;">
+                    <span class="placeholder-tag">🖼️ Espaço reservado para Esquema de Conexão dos LEDs RGB</span>
+                </div>
+            </div>
+        </section>
 
-                    <div class="card flashcard">
-                        <div class="flashcard-inner">
-                            <div class="flashcard-front">
-                                <span class="card-type">Flashcard 2</span>
-                                <p>Quem demonstrou a recomposição da luz branca?</p>
-                                <span style="font-size:0.7rem; color:var(--text-muted); margin-top:8px;">Toque para virar ↺</span>
-                            </div>
-                            <div class="flashcard-back">
-                                <span class="card-type">Resposta 2</span>
-                                <p>Sir Isaac Newton através de seus estudos ópticos.</p>
-                            </div>
+        <!-- Flashcards de Revisão -->
+        <section id="flashcards" class="section">
+            <div class="section-title">
+                <h2>Flashcards de Revisão</h2>
+                <p>Toque em cada cartão para revelar a resposta</p>
+            </div>
+
+            <div class="flashcard-group">
+                <div class="card flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="card-type">FLASHCARD 1</span>
+                            <p>O que faz as cores se misturarem na visão?</p>
+                            <span style="font-size:0.65rem; color:var(--text-muted); margin-top:4px;">Toque para virar ↺</span>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="card-type">RESPOSTA 1</span>
+                            <p>A persistência retiniana do olho humano em alta velocidade.</p>
                         </div>
                     </div>
                 </div>
 
+                <div class="card flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="card-type">FLASHCARD 2</span>
+                            <p>Qual a função do efeito Fade no LED?</p>
+                            <span style="font-size:0.65rem; color:var(--text-muted); margin-top:4px;">Toque para virar ↺</span>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="card-type">RESPOSTA 2</span>
+                            <p>Controlar de forma suave a transição e intensidade do brilho.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
