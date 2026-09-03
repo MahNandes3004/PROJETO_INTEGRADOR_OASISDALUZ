@@ -18,7 +18,7 @@ function flipCard(card) {
     card.classList.toggle('flipped');
 }
 
-// CARREGAMENTO SEGURO DE VOZES DA SÍNTESE
+// CARREGAMENTO SEGURO DE VOZES PARA ÁUDIO DESCRIÇÃO
 let voices = [];
 function loadVoices() {
     if ('speechSynthesis' in window) {
@@ -31,7 +31,7 @@ if ('speechSynthesis' in window) {
     window.speechSynthesis.onvoiceschanged = loadVoices;
 }
 
-// ÁUDIO DESCRIÇÃO E LEITURA DE TELA
+// ÁUDIO DESCRIÇÃO E LEITURA DE TELA (WEB SPEECH API)
 let isSpeaking = false;
 
 function toggleAudioDescription() {
@@ -47,15 +47,15 @@ function toggleAudioDescription() {
         isSpeaking = false;
         btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
     } else {
-        window.speechSynthesis.cancel(); // Limpa leituras anteriores pendentes
+        window.speechSynthesis.cancel(); // Limpa leituras em fila
         
         const mainContent = document.querySelector('main').innerText;
         const utterance = new SpeechSynthesisUtterance(mainContent);
         
-        // Garante idioma em português do Brasil
+        // Define o idioma para Português do Brasil
         utterance.lang = 'pt-BR';
         
-        // Tenta associar uma voz em pt-BR disponível
+        // Seleciona uma voz em Português disponível no sistema
         const ptVoice = voices.find(voice => voice.lang.includes('pt-BR') || voice.lang.includes('pt'));
         if (ptVoice) {
             utterance.voice = ptVoice;
