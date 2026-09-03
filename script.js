@@ -1,6 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-
-    // 1. Alto Contraste
+// 1. Controle de Alto Contraste
     const btnContrast = document.getElementById('btn-contrast');
     if (btnContrast) {
         btnContrast.addEventListener('click', () => {
@@ -14,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('high-contrast');
     }
 
-    // 2. Tamanho da Fonte
+    // 2. Controle do Tamanho da Fonte
     let fontSizePx = 16;
     const btnIncrease = document.getElementById('btn-font-increase');
     const btnDecrease = document.getElementById('btn-font-decrease');
@@ -31,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Giro do Disco de Newton
+    // 3. Animação do Disco de Newton
     const btnSpin = document.getElementById('btn-spin');
     const newtonDisk = document.getElementById('newton-disk');
 
@@ -44,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Interatividade dos Flashcards
+    // 4. Giro dos Flashcards
     const flashcards = document.querySelectorAll('.flashcard');
     flashcards.forEach(card => {
         card.addEventListener('click', () => {
@@ -54,18 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// 5. Síntese de Voz para Áudiodescrição (Funciona sem precisar de arquivos externos)
+// 5. Função de Áudiodescrição por Voz Nativa
 function playAudio(elementId) {
     const textElement = document.getElementById(elementId);
     if (!textElement) return;
 
     if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel(); // Para leituras anteriores
+        window.speechSynthesis.cancel(); // Cancela falas anteriores
         const utterance = new SpeechSynthesisUtterance(textElement.innerText);
         utterance.lang = 'pt-BR';
-        utterance.rate = 0.95; // Velocidade confortável
+        utterance.rate = 0.95;
         window.speechSynthesis.speak(utterance);
     } else {
-        alert('Seu navegador não suporta a síntese de áudio nativa.');
+        alert('Seu navegador não possui suporte para síntese de voz.');
     }
 }
