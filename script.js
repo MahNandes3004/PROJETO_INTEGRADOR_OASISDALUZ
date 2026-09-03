@@ -1,4 +1,7 @@
-// 1. Controle de Alto Contraste
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Controle de Alto Contraste
     const btnContrast = document.getElementById('btn-contrast');
     if (btnContrast) {
         btnContrast.addEventListener('click', (e) => {
@@ -38,7 +41,7 @@
         });
     }
 
-    // 3. Giro dos Flashcards
+    // 3. Giro dos Flashcards (Com verificação robusta de clique)
     const flashcards = document.querySelectorAll('.flashcard');
     flashcards.forEach((card) => {
         card.addEventListener('click', () => {
@@ -53,15 +56,29 @@
     if (btnSpin && newtonDisk) {
         btnSpin.addEventListener('click', (e) => {
             e.preventDefault();
+            newtonDisk.classList.remove('spinning');
+            // Força o reflow para garantir que a animação reinicie sempre que clicado
+            void newtonDisk.offsetWidth;
             newtonDisk.classList.add('spinning');
+            
             setTimeout(() => {
                 newtonDisk.classList.remove('spinning');
             }, 2500);
         });
     }
+
+    // 5. Botões de Áudiodescrição por Voz (Atrelados programaticamente)
+    const audioButtons = document.querySelectorAll('.btn-audio');
+    audioButtons.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = btn.getAttribute('data-audio-target');
+            playAudio(targetId);
+        });
+    });
 });
 
-// 5. Função Global de Áudiodescrição por Voz (Acessibilidade)
+// Função Global de Voz
 function playAudio(elementId) {
     const textElement = document.getElementById(elementId);
     if (!textElement) return;
