@@ -8,8 +8,8 @@
 </head>
 <body>
 
+    <!-- BARRA DE ACESSIBILIDADE E HEADER -->
     <header class="hero">
-        <!-- Controles de Acessibilidade: IDs corretos para contraste e fonte -->
         <div class="accessibility-toolbar" role="region" aria-label="Controles de Acessibilidade">
             <span class="toolbar-label">Acessibilidade:</span>
             <div class="toolbar-btns">
@@ -26,7 +26,18 @@
         </div>
     </header>
 
+    <!-- MENU DE NAVEGAÇÃO -->
+    <nav class="sticky-nav">
+        <ul>
+            <li><a href="#newton">Disco de Newton</a></li>
+            <li><a href="#fade-in">LED Fade-In</a></li>
+            <li><a href="#fade-out">LED Fade-Out</a></li>
+            <li><a href="#rgb">LED RGB</a></li>
+        </ul>
+    </nav>
+
     <main class="main-container">
+
         <!-- TÓPICO 1: DISCO DE NEWTON -->
         <section id="newton" class="section">
             <div class="section-title">
@@ -37,21 +48,58 @@
             <article class="card">
                 <div class="card-header-actions">
                     <h3>Teoria Óptica e Persistência Retiniana</h3>
-                    <!-- Botão de Áudiodescrição vinculado por data-attribute -->
                     <button type="button" class="btn-audio" data-audio-target="audio-newton">🔊 Ouvir Áudiodescrição</button>
                 </div>
                 
                 <p id="audio-newton" class="description-text">
-                    O Disco de Newton demonstra que a luz branca é a mistura de todas as cores do espectro visível. Ao girar o disco em alta velocidade, o olho humano não consegue diferenciar cada cor individualmente devido à persistência retiniana.
+                    O Disco de Newton demonstra que a luz branca é a mistura de todas as cores do espectro visível. Ao girar o disco em alta velocidade, o olho humano não consegue diferenciar cada cor individualmente devido à persistência retiniana, sobrepondo os estímulos e gerando a percepção visual do branco.
                 </p>
 
-                <!-- Demonstração Interativa do Disco -->
+                <!-- 2 Mídias de Imagem -->
+                <div class="media-grid">
+                    <div class="media-placeholder image-placeholder">
+                        <img src="https://via.placeholder.com/600x350?text=Imagem+1:+Disco+de+Newton+Parado" alt="Espaço para primeira imagem do Disco de Newton" class="media-content">
+                        <span class="placeholder-tag">📸 Imagem 1: Disco de Newton Estático</span>
+                    </div>
+                    <div class="media-placeholder image-placeholder">
+                        <img src="https://via.placeholder.com/600x350?text=Imagem+2:+Disco+de+Newton+em+Movimento" alt="Espaço para segunda imagem do Disco de Newton" class="media-content">
+                        <span class="placeholder-tag">📸 Imagem 2: Disco de Newton em Rotação</span>
+                    </div>
+                </div>
+
+                <!-- Demonstração Interativa -->
                 <div class="newton-container">
                     <div id="newton-disk" class="disk"></div>
                     <button type="button" id="btn-spin" class="btn-primary">Girar Disco Interativo</button>
                 </div>
 
-                <!-- Flashcards interativos -->
+                <!-- 1 Mídia de Vídeo -->
+                <div class="media-placeholder video-placeholder">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo explicativo do Disco de Newton" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <span class="placeholder-tag">🎥 Vídeo 1: Demonstração Prática do Disco de Newton</span>
+                </div>
+
+                <!-- Tecnologias Assistivas -->
+                <div class="tech-box">
+                    <h4>♿ Tecnologias Assistivas Associadas</h4>
+                    <ul>
+                        <li><strong>Software de Contraste Dinâmico:</strong> Permite adaptar variações de matiz do espectro para pessoas com acromatopsia ou daltonismo.</li>
+                        <li><strong>Lupas Eletrônicas Digitais:</strong> Iluminam e ampliam a frequência de cor para auxílio em casos de baixa visão acentuada.</li>
+                    </ul>
+                </div>
+
+                <!-- Checagem de Fatos -->
+                <div class="fact-box">
+                    <span class="fact-badge mito">MITO</span>
+                    <h4>"O disco fica perfeitamente branco como papel quando gira."</h4>
+                    <hr>
+                    <span class="fact-badge fato">FATO</span>
+                    <p>Devido à pigmentação das tintas e refletividade, a rotação gera uma tonalidade acinzentada ou bege-claro, provando a sobreposição física da luz.</p>
+                </div>
+
+                <!-- 2 Flashcards -->
                 <div class="flashcard-group">
                     <div class="flashcard" tabindex="0" role="button">
                         <div class="flashcard-inner">
@@ -66,11 +114,242 @@
                             </div>
                         </div>
                     </div>
+                    <div class="flashcard" tabindex="0" role="button">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <span class="card-type">Flashcard 2</span>
+                                <p>Quem demonstrou a recomposição da luz branca?</p>
+                                <small>Toque para virar ↺</small>
+                            </div>
+                            <div class="flashcard-back">
+                                <span class="card-type">Resposta</span>
+                                <p>Sir Isaac Newton através do seu experimento do disco policromático.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </article>
         </section>
-    </main>
 
-    <script src="script.js"></script>
-</body>
-</html>
+        <!-- TÓPICO 2: LED FADE-IN -->
+        <section id="fade-in" class="section">
+            <div class="section-title">
+                <h2>2. LED Fade-In</h2>
+                <p>Aumento gradativo da intensidade luminosa via PWM</p>
+            </div>
+
+            <article class="card">
+                <div class="card-header-actions">
+                    <h3>Acomodação Pupilar e Sinalização Gradual</h3>
+                    <button type="button" class="btn-audio" data-audio-target="audio-fadein">🔊 Ouvir Áudiodescrição</button>
+                </div>
+
+                <p id="audio-fadein" class="description-text">
+                    O efeito Fade-In eleva progressivamente o brilho do LED a partir do zero usando sinal PWM no Arduino. Essa acensão suave dá tempo para a íris se contrair, evitando choque visual em pessoas com fotofobia ou alta sensibilidade luminosa.
+                </p>
+
+                <div class="media-grid-3">
+                    <div class="media-placeholder image-placeholder">
+                        <img src="https://via.placeholder.com/600x350?text=Imagem+1:+Esquema+Tinkercad" alt="Esquema Fade In" class="media-content">
+                        <span class="placeholder-tag">📸 Imagem 1: Circuito no Tinkercad</span>
+                    </div>
+                    <div class="media-placeholder image-placeholder">
+                        <img src="https://via.placeholder.com/600x350?text=Imagem+2:+Código+Arduino" alt="Código Fade In" class="media-content">
+                        <span class="placeholder-tag">📸 Imagem 2: Código-fonte C++</span>
+                    </div>
+                    <div class="media-placeholder image-placeholder">
+                        <img src="https://via.placeholder.com/600x350?text=Imagem+3:+Gráfico+PWM" alt="Gráfico PWM" class="media-content">
+                        <span class="placeholder-tag">📸 Imagem 3: Gráfico do Ciclo de Trabalho PWM</span>
+                    </div>
+                </div>
+
+                <div class="media-placeholder video-placeholder">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo do circuito Fade-In" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <span class="placeholder-tag">🎥 Vídeo 1: Simulação no Tinkercad (Fade-In)</span>
+                </div>
+
+                <div class="tech-box">
+                    <h4>♿ Tecnologias Assistivas Associadas</h4>
+                    <ul>
+                        <li><strong>Sistemas de Iluminação Inteligente Acessível:</strong> Acendimento gradual em ambientes para pessoas com fotofobia extrema.</li>
+                        <li><strong>Sensores Hápticos de Luminosidade:</strong> Dispositivos que vibram indicando o nível de brilho da lâmpada.</li>
+                    </ul>
+                </div>
+
+                <div class="fact-box">
+                    <span class="fact-badge mito">MITO</span>
+                    <h4>"O LED altera a voltagem contínua para diminuir o brilho."</h4>
+                    <hr>
+                    <span class="fact-badge fato">FATO</span>
+                    <p>O Arduino utiliza a modulação PWM, alternando entre 0V e 5V em alta frequência para simular a variação do brilho.</p>
+                </div>
+
+                <div class="flashcard-group">
+                    <div class="flashcard" tabindex="0" role="button">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <span class="card-type">Flashcard 1</span>
+                                <p>O que significa a técnica de Fade-In?</p>
+                                <small>Toque para virar ↺</small>
+                            </div>
+                            <div class="flashcard-back">
+                                <span class="card-type">Resposta</span>
+                                <p>A transição gradual do brilho do estado apagado até a intensidade máxima.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flashcard" tabindex="0" role="button">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <span class="card-type">Flashcard 2</span>
+                                <p>Qual o recurso do Arduino usado no Fade-In?</p>
+                                <small>Toque para virar ↺</small>
+                            </div>
+                            <div class="flashcard-back">
+                                <span class="card-type">Resposta</span>
+                                <p>A saída PWM (Pulse Width Modulation) através dos pinos digitais com (~).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- TÓPICO 3: LED FADE-OUT -->
+        <section id="fade-out" class="section">
+            <div class="section-title">
+                <h2>3. LED Fade-Out</h2>
+                <p>Redução gradativa da luz para transição confortável</p>
+            </div>
+
+            <article class="card">
+                <div class="card-header-actions">
+                    <h3>Desligamento Suave e Prevenção de Estresse Óptico</h3>
+                    <button type="button" class="btn-audio" data-audio-target="audio-fadeout">🔊 Ouvir Áudiodescrição</button>
+                </div>
+
+                <p id="audio-fadeout" class="description-text">
+                    O efeito Fade-Out reduz o ciclo ativo da onda PWM de forma decremental até apagar o LED. Essa transição desacelera o impacto do escurecimento repentino na visão, auxiliando na adaptação da retina em ambientes de pouca luz.
+                </p>
+
+                <div class="media-grid-3">
+                    <div class="media-placeholder image-placeholder">
+                        <img src="https://via.placeholder.com/600x350?text=Imagem+1:+Circuito+Fade-Out" alt="Circuito Fade Out" class="media-content">
+                        <span class="placeholder-tag">📸 Imagem 1: Esquema Físico do Circuito</span>
+                    </div>
+                    <div class="media-placeholder image-placeholder">
+                        <img src="https://via.placeholder.com/600x350?text=Imagem+2:+Loop+Decremental" alt="Loop Fade Out" class="media-content">
+                        <span class="placeholder-tag">📸 Imagem 2: Estrutura do Loop 'for' no Código</span>
+                    </div>
+                    <div class="media-placeholder image-placeholder">
+                        <img src="https://via.placeholder.com/600x350?text=Imagem+3:+Medição+Multímetro" alt="Medição Fade Out" class="media-content">
+                        <span class="placeholder-tag">📸 Imagem 3: Medição de Tensão Média no LED</span>
+                    </div>
+                </div>
+
+                <div class="media-placeholder video-placeholder">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo do circuito Fade-Out" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <span class="placeholder-tag">🎥 Vídeo 1: Execução do Efeito Fade-Out</span>
+                </div>
+
+                <div class="tech-box">
+                    <h4>♿ Tecnologias Assistivas Associadas</h4>
+                    <ul>
+                        <li><strong>Leitores de Tela Integrados ao SO:</strong> Ferramentas como NVDA ou TalkBack que verbalizam alterações no nível de brilho do dispositivo.</li>
+                        <li><strong>Filtros de Luz Azul Adaptativos:</strong> Softwares que reduzem o brilho e atenuam ondas de alta frequência para conforto visual.</li>
+                    </ul>
+                </div>
+
+                <div class="fact-box">
+                    <span class="fact-badge mito">MITO</span>
+                    <h4>"Apagar a luz de vez em telas não causa nenhum tipo de desconforto."</h4>
+                    <hr>
+                    <span class="fact-badge fato">FATO</span>
+                    <p>Mudanças bruscas na luminosidade provocam astenopia (fadiga ocular), tornando o desligamento gradual mais saudável para a visão.</p>
+                </div>
+
+                <div class="flashcard-group">
+                    <div class="flashcard" tabindex="0" role="button">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <span class="card-type">Flashcard 1</span>
+                                <p>Para que serve o Fade-Out na iluminação?</p>
+                                <small>Toque para virar ↺</small>
+                            </div>
+                            <div class="flashcard-back">
+                                <span class="card-type">Resposta</span>
+                                <p>Para escurecer a luz gradualmente sem agredir a visão do usuário.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flashcard" tabindex="0" role="button">
+                        <div class="flashcard-inner">
+                            <div class="flashcard-front">
+                                <span class="card-type">Flashcard 2</span>
+                                <p>Como o valor do brilho muda no código do Fade-Out?</p>
+                                <small>Toque para virar ↺</small>
+                            </div>
+                            <div class="flashcard-back">
+                                <span class="card-type">Resposta</span>
+                                <p>Através de decrementos sucessivos (ex: de 255 até 0 no PWM).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- TÓPICO 4: LED RGB -->
+        <section id="rgb" class="section">
+            <div class="section-title">
+                <h2>4. LED RGB & Síntese Aditiva</h2>
+                <p>Mistura das frequências primárias de luz</p>
+            </div>
+
+            <article class="card">
+                <div class="card-header-actions">
+                    <h3>Mistura de Cores e Fotorrecepção Visual</h3>
+                    <button type="button" class="btn-audio" data-audio-target="audio-rgb">🔊 Ouvir Áudiodescrição</button>
+                </div>
+
+                <p id="audio-rgb" class="description-text">
+                    O LED RGB combina três diodos (Red, Green, Blue) num único módulo. Ajustando as proporções das cores primárias da luz através das portas PWM, o olho humano interpreta as combinações como cores secundárias, terciárias ou até luz branca pura.
+                </p>
+
+                <div class="media-grid-3">
+                    <div class="media-placeholder image-placeholder">
+                        <img src="https://via.placeholder.com/600x350?text=Imagem+1:+Esquema+LED+RGB" alt="LED RGB" class="media-content">
+                        <span class="placeholder-tag">📸 Imagem 1: Pinos de Cátodo/Ânodo Comum</span>
+                    </div>
+                    <div class="media-placeholder image-placeholder">
+                        <img src="https://via.placeholder.com/600x350?text=Imagem+2:+Mistura+Aditiva" alt="Mistura Aditiva" class="media-content">
+                        <span class="placeholder-tag">📸 Imagem 2: Círculos das Cores Aditivas</span>
+                    </div>
+                    <div class="media-placeholder image-placeholder">
+                        <img src="https://via.placeholder.com/600x350?text=Imagem+3:+Circuito+Tinkercad+RGB" alt="Circuito RGB" class="media-content">
+                        <span class="placeholder-tag">📸 Imagem 3: Circuito Arduino montado no Tinkercad</span>
+                    </div>
+                </div>
+
+                <div class="rgb-demo">
+                    <div class="rgb-circle red">R</div>
+                    <div class="rgb-circle green">G</div>
+                    <div class="rgb-circle blue">B</div>
+                </div>
+
+                <div class="media-placeholder video-placeholder">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo do controle LED RGB" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <span class="placeholder-tag">🎥 Vídeo 1: Mistura de Cores com LED RGB</span>
+                </div>
+
+                <div class="tech-box">
+                    <h4>♿ Tecnologias Assistivas Associadas</h4>
+                    <ul>
+                        <li><strong>Identificadores Vocais de Cores:</strong> Dispositivos com sensores RGB que apontam para um objeto e falam a cor em áudio.</li>
+                        <li><strong>Display Brail
