@@ -1,6 +1,4 @@
-// ==========================================
-// 1. CONTROLE DE TAMANHO DA FONTE
-// ==========================================
+// CONTROLE DE TAMANHO DA FONTE
 let currentFontSize = 100;
 
 function changeFontSize(delta) {
@@ -10,25 +8,18 @@ function changeFontSize(delta) {
     document.body.style.fontSize = currentFontSize + '%';
 }
 
-// ==========================================
-// 2. ALTERNÂNCIA DE ALTO CONTRASTE (TEMA ESCURO)
-// ==========================================
+// TOGGLE DE ALTO CONTRASTE
 function toggleHighContrast() {
     document.body.classList.toggle('dark-theme');
 }
 
-// ==========================================
-// 3. ROTAÇÃO DOS FLASHCARDS (VIRAR CARTA)
-// ==========================================
+// ROTAÇÃO DOS FLASHCARDS
 function flipCard(card) {
     card.classList.toggle('flipped');
 }
 
-// ==========================================
-// 4. ÁUDIO DESCRIÇÃO & LEITOR DE TELA (WEB SPEECH API)
-// ==========================================
+// CARREGAMENTO SEGURO DE VOZES PARA ÁUDIO DESCRIÇÃO
 let voices = [];
-
 function loadVoices() {
     if ('speechSynthesis' in window) {
         voices = window.speechSynthesis.getVoices();
@@ -40,6 +31,7 @@ if ('speechSynthesis' in window) {
     window.speechSynthesis.onvoiceschanged = loadVoices;
 }
 
+// ÁUDIO DESCRIÇÃO E LEITURA DE TELA
 let isSpeaking = false;
 
 function toggleAudioDescription() {
@@ -55,17 +47,14 @@ function toggleAudioDescription() {
         isSpeaking = false;
         if (btn) btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
     } else {
-        window.speechSynthesis.cancel(); // Cancela falas anteriores na fila
+        window.speechSynthesis.cancel();
         
         const mainContent = document.querySelector('main');
         if (!mainContent) return;
 
         const utterance = new SpeechSynthesisUtterance(mainContent.innerText);
-        
-        // Define o idioma em português do Brasil
         utterance.lang = 'pt-BR';
         
-        // Seleciona uma voz em PT-BR disponível no sistema
         const ptVoice = voices.find(voice => voice.lang.includes('pt-BR') || voice.lang.includes('pt'));
         if (ptVoice) {
             utterance.voice = ptVoice;
