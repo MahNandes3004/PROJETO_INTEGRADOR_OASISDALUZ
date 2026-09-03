@@ -1,30 +1,49 @@
+document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. ROTAÇÃO DOS FLASHCARDS (VIRAR CARTA)
+    // 1. ROTAÇÃO DOS FLASHCARDS
     const flashcards = document.querySelectorAll('.flashcard');
     flashcards.forEach(card => {
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
+            e.stopPropagation();
             card.classList.toggle('flipped');
         });
     });
 
-    // 2. CONTROLE DE TAMANHO DA FONTE (A+ / A-)
+    // 2. CONTROLE DE FONTE (A+ / A-)
     let currentFontSize = 100;
-    
-    window.changeFontSize = function(delta) {
-        currentFontSize += delta * 10;
-        if (currentFontSize < 80) currentFontSize = 80;
-        if (currentFontSize > 150) currentFontSize = 150;
-        document.body.style.fontSize = currentFontSize + '%';
-    };
+    const btnAumentar = document.querySelector('button[title="Aumentar Fonte"]');
+    const btnDiminuir = document.querySelector('button[title="Diminuir Fonte"]');
 
-    // 3. ALTERNÂNCIA DE ALTO CONTRASTE
-    window.toggleHighContrast = function() {
-        document.body.classList.toggle('dark-theme');
-    };
+    if (btnAumentar) {
+        btnAumentar.addEventListener('click', () => {
+            if (currentFontSize < 150) {
+                currentFontSize += 10;
+                document.body.style.fontSize = currentFontSize + '%';
+            }
+        });
+    }
 
-    // 4. ÁUDIO DESCRIÇÃO & LEITOR DE TELA (WEB SPEECH API)
-    let voices = [];
+    if (btnDiminuir) {
+        btnDiminuir.addEventListener('click', () => {
+            if (currentFontSize > 80) {
+                currentFontSize -= 10;
+                document.body.style.fontSize = currentFontSize + '%';
+            }
+        });
+    }
+
+    // 3. ALTO CONTRASTE
+    const btnContraste = document.querySelector('button[title="Alternar Alto Contraste"]');
+    if (btnContraste) {
+        btnContraste.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+        });
+    }
+
+    // 4. ÁUDIO DESCRIÇÃO (WEB SPEECH API)
+    const btnAudio = document.getElementById('btn-tts');
     let isSpeaking = false;
+    let voices = [];
 
     function loadVoices() {
         if ('speechSynthesis' in window) {
@@ -37,45 +56,43 @@
         window.speechSynthesis.onvoiceschanged = loadVoices;
     }
 
-    window.toggleAudioDescription = function() {
-        const btn = document.getElementById('btn-tts');
-
-        if (!('speechSynthesis' in window)) {
-            alert('Seu navegador não suporta a síntese de voz.');
-            return;
-        }
-
-        if (isSpeaking) {
-            window.speechSynthesis.cancel();
-            isSpeaking = false;
-            if (btn) btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
-        } else {
-            window.speechSynthesis.cancel();
-            
-            const mainContent = document.querySelector('main');
-            if (!mainContent) return;
-
-            const utterance = new SpeechSynthesisUtterance(mainContent.innerText);
-            utterance.lang = 'pt-BR';
-            
-            const ptVoice = voices.find(voice => voice.lang.includes('pt-BR') || voice.lang.includes('pt'));
-            if (ptVoice) {
-                utterance.voice = ptVoice;
+    if (btnAudio) {
+        btnAudio.addEventListener('click', () => {
+            if (!('speechSynthesis' in window)) {
+                alert('Seu navegador não suporta a síntese de voz.');
+                return;
             }
 
-            utterance.onend = function() {
+            if (isSpeaking) {
+                window.speechSynthesis.cancel();
                 isSpeaking = false;
-                if (btn) btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
-            };
+                btnAudio.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
+            } else {
+                window.speechSynthesis.cancel();
+                
+                const mainContent = document.querySelector('main');
+                if (!mainContent) return;
 
-            utterance.onerror = function() {
-                isSpeaking = false;
-                if (btn) btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
-            };
+                const utterance = new SpeechSynthesisUtterance(mainContent.innerText);
+                utterance.lang = 'pt-BR';
+                
+                const ptVoice = voices.find(v => v.lang.includes('pt-BR') || v.lang.includes('pt'));
+                if (ptVoice) utterance.voice = ptVoice;
 
-            window.speechSynthesis.speak(utterance);
-            isSpeaking = true;
-            if (btn) btn.innerHTML = 'Parar Áudio <i class="fa-solid fa-circle-stop"></i>';
-        }
-    };
+                utterance.onend = () => {
+                    isSpeaking = false;
+                    btnAudio.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
+                };
+
+                utterance.onerror = () => {
+                    isSpeaking = false;
+                    btnAudio.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
+                };
+
+                window.speechSynthesis.speak(utterance);
+                isSpeaking = true;
+                btnAudio.innerHTML = 'Parar Áudio <i class="fa-solid fa-circle-stop"></i>';
+            }
+        });
+    }
 });
