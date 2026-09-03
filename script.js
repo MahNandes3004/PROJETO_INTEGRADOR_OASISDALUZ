@@ -1,4 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
 
     // 1. ROTAÇÃO DOS FLASHCARDS (VIRAR CARTA)
     const flashcards = document.querySelectorAll('.flashcard');
