@@ -3,115 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oásis da Luz - Física Óptica e Acessibilidade</title>
+    <title>Oásis da Luz | Física Óptica & Acessibilidade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Barra de Acessibilidade -->
-    <header class="accessibility-bar" role="region" aria-label="Ferramentas de Acessibilidade">
-        <div class="container accessibility-controls">
-            <button id="btn-contrast" onclick="toggleContrast()" aria-label="Alternar Alto Contraste">Alto Contraste</button>
-            <button onclick="changeFontSize(1)" aria-label="Aumentar tamanho do texto">A+</button>
-            <button onclick="changeFontSize(-1)" aria-label="Diminuir tamanho do texto">A-</button>
-            <button onclick="resetFontSize()" aria-label="Restaurar tamanho original do texto">A Normal</button>
+    <!-- Header / Hero Section -->
+    <header class="hero">
+        <div class="accessibility-toolbar" role="region" aria-label="Acessibilidade">
+            <span class="toolbar-label">Acessibilidade:</span>
+            <div class="toolbar-btns">
+                <button onclick="toggleContrast()" aria-label="Alto Contraste">◐ Contraste</button>
+                <button onclick="changeFontSize(1)" aria-label="Aumentar Fonte">A+</button>
+                <button onclick="changeFontSize(-1)" aria-label="Diminuir Fonte">A-</button>
+            </div>
         </div>
-    </header>
 
-    <!-- Cabeçalho Principal -->
-    <header class="main-header">
-        <div class="container">
+        <div class="hero-content">
+            <span class="badge">Projeto Interativo</span>
             <h1>Oásis da Luz</h1>
-            <p>Explorando a Física Óptica, Cores e Tecnologia Acessível</p>
+            <p>Física Óptica, Cores e Tecnologia Acessível</p>
         </div>
     </header>
 
-    <!-- Navegação -->
-    <nav class="main-nav" aria-label="Navegação Principal">
-        <div class="container">
-            <ul>
-                <li><a href="#optica">Física Óptica</a></li>
-                <li><a href="#tinkercad">Simulações Tinkercad</a></li>
-                <li><a href="#flashcards">Flashcards</a></li>
-                <li><a href="#fakenews">Checagem de Fatos</a></li>
-            </ul>
-        </div>
+    <!-- Navegação Mobile / Desktop -->
+    <nav class="sticky-nav">
+        <ul>
+            <li><a href="#optica">Óptica</a></li>
+            <li><a href="#tinkercad">Simulações</a></li>
+            <li><a href="#flashcards">Flashcards</a></li>
+            <li><a href="#fakenews">Mitos & Fatos</a></li>
+        </ul>
     </nav>
 
-    <main class="container">
+    <main class="main-container">
 
-        <!-- Seção: Física Óptica -->
-        <section id="optica" class="content-section">
-            <h2>Física Óptica & Acomodação Visual</h2>
-            <article class="card">
-                <h3>O Disco de Newton e a Mistura de Cores</h3>
-                <p>O Disco de Newton demonstra a decomposição e recomposição da luz branca. Ao girar rapidamente, os setores coloridos se fundem na percepção visual humana devido ao fenômeno da persistência retiniana.</p>
-                <div class="interactive-demo">
+        <!-- Seção Física Óptica -->
+        <section id="optica" class="section">
+            <div class="section-title">
+                <h2>Física Óptica & Acomodação</h2>
+                <p>Conceitos visuais e a física da luz</p>
+            </div>
+
+            <div class="card interactive-card">
+                <h3>O Disco de Newton</h3>
+                <p>Demonstração da recomposição da luz branca a partir da mistura rápida das cores do espectro visível (persistência retiniana).</p>
+                
+                <div class="newton-container">
                     <div id="newton-disk" class="disk"></div>
-                    <button onclick="spinDisk()" aria-label="Girar Disco de Newton">Girar Disco</button>
+                    <button class="btn-primary" onclick="spinDisk()">Girar Disco</button>
                 </div>
-            </article>
-
-            <article class="card">
-                <h3>LEDs RGB e a Adição de Cores</h3>
-                <p>A síntese aditiva de cores utiliza Vermelho (Red), Verde (Green) e Azul (Blue) para compor todas as outras cores do espectro visível. A junção das três cores primárias na intensidade máxima resulta na cor branca.</p>
-            </article>
-        </section>
-
-        <!-- Seção: Simulações Tinkercad -->
-        <section id="tinkercad" class="content-section">
-            <h2>Simulações do Tinkercad</h2>
-            <p>Acompanhe a aplicação prática dos conceitos de iluminação, controle de corrente e circuitos eletrônicos:</p>
-            
-            <div class="grid-cards">
-                <article class="card">
-                    <h3>LED Fade-In & Fade-Out</h3>
-                    <p>Controle de intensidade luminosa gradual utilizando modulação por largura de pulso (PWM) no Arduino.</p>
-                    <div class="embed-container">
-                        <iframe src="https://www.tinkercad.com/embed/g8X2mK0L1aP" frameborder="0" width="100%" height="300" loading="lazy" title="Simulação Tinkercad LED Fade"></iframe>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <h3>Controle de LED RGB</h3>
-                    <p>Mistura de cores primárias via programação para gerar diferentes matizes de luz.</p>
-                    <div class="embed-container">
-                        <iframe src="https://www.tinkercad.com/embed/k9Y3nL1M2bQ" frameborder="0" width="100%" height="300" loading="lazy" title="Simulação Tinkercad LED RGB"></iframe>
-                    </div>
-                </article>
             </div>
-        </section>
 
-        <!-- Seção: Flashcards Interativos -->
-        <section id="flashcards" class="content-section">
-            <h2>Flashcards de Estudo</h2>
-            <div class="flashcard-container">
-                <div class="flashcard" onclick="flipCard(this)" tabindex="0" role="button" aria-pressed="false" aria-label="Flashcard: Clique para alternar entre Pergunta e Resposta">
-                    <div class="front">
-                        <p><strong>Pergunta:</strong> O que é a Síntese Aditiva de Cores?</p>
-                    </div>
-                    <div class="back">
-                        <p><strong>Resposta:</strong> É o processo de criação de cores pela junção de luzes coloridas (RGB - Red, Green, Blue).</p>
-                    </div>
+            <div class="card">
+                <h3>LEDs RGB & Síntese Aditiva</h3>
+                <p>Na síntese aditiva, as cores primárias de luz (<strong>Vermelho, Verde e Azul</strong>) se combinam para formar novas cores. A junção máxima das três resulta na cor branca.</p>
+                
+                <div class="rgb-demo">
+                    <div class="rgb-circle red">R</div>
+                    <div class="rgb-circle green">G</div>
+                    <div class="rgb-circle blue">B</div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção: Checagem de Fake News -->
-        <section id="fakenews" class="content-section">
-            <h2>Verificação de Fatos: Mitos sobre Óptica e Luz</h2>
-            <div class="card warning-card">
-                <h3>Mito: "Ler no escuro ou sob pouca luz causa cegueira permanente."</h3>
-                <p><strong>Fato:</strong> Ler com pouca luz pode causar fadiga ocular temporária e cansaço visual, mas não provoca danos anatômicos definitivos nem cegueira permanente.</p>
+        <!-- Seção Tinkercad -->
+        <section id="tinkercad" class="section">
+            <div class="section-title">
+                <h2>Simulações Tinkercad</h2>
+                <p>Projetos práticos com Arduino e LEDs</p>
+            </div>
+
+            <div class="card-grid">
+                
+                <article class="card project-card">
+                    <div class="project-header">
+                        <span class="project-tag">Arduino PWM</span>
+                        <h3>LED Fade-In & Fade-Out</h3>
+                    </div>
+                    <p>Circuito programado para transição suave de intensidade luminosa utilizando modulação por largura de pulso (PWM).</p>
+                    
+                    <div class="circuit-preview">
+                        <div class="circuit-icon">💡</div>
+                        <span>Simulação de Controle Luminoso</span>
+                    </div>
+
+                    <a href="https://www.tinkercad.com" target="_blank" rel="noopener" class="btn-secondary">
+                        Abrir Simulação no Tinkercad ↗
+                    </a>
+                </article>
+
+                <article class="card project-card">
+                    <div class="project-header">
+                        <span class="project-tag">Circuito RGB</span>
+                        <h3>Controle de LED RGB</h3>
+                    </div>
+                    <p>Programação para mesclagem de cores em tempo real via controle de portas analógicas/digitais do Arduino.</p>
+
+                    <div class="circuit-preview rgb-preview">
+                        <div class="circuit-icon">🌈</div>
+                        <span>Simulação de Mistura de Cores</span>
+                    </div>
+
+                    <a href="https://www.tinkercad.com" target="_blank" rel="noopener" class="btn-secondary">
+                        Abrir Simulação no Tinkercad ↗
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Seção Flashcards -->
+        <section id="flashcards" class="section">
+            <div class="section-title">
+                <h2>Flashcards de Estudo</h2>
+                <p>Toque no cartão para ver a resposta</p>
+            </div>
+
+            <div class="flashcard" onclick="flipCard(this)">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <span class="card-type">Pergunta</span>
+                        <p>O que é a Síntese Aditiva de Cores?</p>
+                        <small>Toque para virar ↺</small>
+                    </div>
+                    <div class="flashcard-back">
+                        <span class="card-type">Resposta</span>
+                        <p>É a criação de cores a partir da combinação de luzes coloridas (Red, Green, Blue).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Checagem de Fatos -->
+        <section id="fakenews" class="section">
+            <div class="section-title">
+                <h2>Checagem de Fatos</h2>
+                <p>Mitos sobre a visão humana e luz</p>
+            </div>
+
+            <div class="card fact-card">
+                <span class="fact-badge mito">MITO</span>
+                <h3>"Ler no escuro ou com pouca luz causa cegueira permanente."</h3>
+                <hr>
+                <span class="fact-badge fato">FATO</span>
+                <p>Ler sob pouca iluminação pode causar fadiga e desconforto visual temporário, mas <strong>não provoca danos estruturais ou cegueira permanente</strong> nos olhos.</p>
             </div>
         </section>
 
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Oásis da Luz — Maiara, Bruna & Nicoly. Projeto focado em Física Óptica e Acessibilidade Web.</p>
-        </div>
+        <p><strong>Oásis da Luz</strong> — Maiara, Bruna & Nicoly</p>
+        <p class="sub-footer">Física Óptica e Acessibilidade Web</p>
     </footer>
 
     <script src="script.js"></script>
