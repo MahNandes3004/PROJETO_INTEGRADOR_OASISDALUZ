@@ -6,6 +6,13 @@
     <title>Oásis da Luz - Robótica Integrada & Acessibilidade Visual</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* CSS dos Flashcards Funcionais por Clique sem JS */
+        .flashcard-toggle { display: none; }
+        .flashcard-label { display: block; width: 100%; height: 100%; cursor: pointer; }
+        .flashcard-toggle:checked + .flashcard-label .card-inner { transform: rotateY(180deg); }
+        .a11y-buttons button { cursor: pointer; position: relative; z-index: 9999; }
+    </style>
 </head>
 <body>
 
@@ -14,10 +21,10 @@
         <div class="a11y-content">
             <span class="a11y-title"><i class="fa-solid fa-universal-access"></i> Acessibilidade</span>
             <div class="a11y-buttons">
-                <button type="button" title="Aumentar Fonte">A+</button>
-                <button type="button" title="Diminuir Fonte">A-</button>
-                <button type="button" title="Alternar Alto Contraste">Alto Contraste</button>
-                <button type="button" id="btn-tts" title="Ativar Áudio Descrição">Áudio Descrição <i class="fa-solid fa-volume-high"></i></button>
+                <button type="button" onclick="changeFontSize(1)" title="Aumentar Fonte">A+</button>
+                <button type="button" onclick="changeFontSize(-1)" title="Diminuir Fonte">A-</button>
+                <button type="button" onclick="toggleHighContrast()" title="Alternar Alto Contraste">Alto Contraste</button>
+                <button type="button" id="btn-tts" onclick="toggleAudioDescription()" title="Ativar Áudio Descrição">Áudio Descrição <i class="fa-solid fa-volume-high"></i></button>
             </div>
         </div>
     </nav>
@@ -47,7 +54,6 @@
                 <span><strong>Questão de Investigação:</strong> Como o estudo da luz e das cores contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</span>
             </div>
 
-            <!-- ESPAÇO PARA 3 IMAGENS NA ATV 1 -->
             <div class="media-grid">
                 <div class="media-box">
                     <img src="LINK_DA_IMAGEM_1_ATV1" alt="Imagem 1: Montagem do Disco de Newton" class="responsive-media">
@@ -68,14 +74,12 @@
                 <p>Desenvolvido pelas alunas Maiara, Bruna e Nicoly, o experimento do Disco de Newton demonstra a composição da luz branca a partir das cores primárias do espectro visível (vermelho, laranja, amarelo, verde, azul, anil e violeta). Quando o disco está parado, a separação das cores é nitidamente visível; ao girar em alta velocidade, as cores se misturam e o disco passa a parecer branco.</p>
             </div>
 
-            <!-- FAKE NEWS ATV 1 -->
             <div class="fake-news-card">
                 <h4><i class="fa-solid fa-triangle-exclamation"></i> Checagem de Fatos: Fake News & Mitos</h4>
                 <p><strong>Boato Falso:</strong> <em>"O Disco de Newton prova que a luz branca não possui cores reais e que a mistura de cores é uma ilusão prejudicial à visão."</em></p>
                 <p><strong>Fato Científico:</strong> A luz branca é a sobreposição de todas as cores do espectro visível. A sensação visual do disco branco ao girar ocorre pela persistência retiniana, onde o cérebro integra os estímulos sem causar qualquer dano à visão.</p>
             </div>
 
-            <!-- VÍDEO ATV 1 -->
             <div class="media-box">
                 <div class="video-container">
                     <iframe src="LINK_DO_VIDEO_ATV1" title="Vídeo demonstrativo Atividade 01" allowfullscreen></iframe>
@@ -88,7 +92,6 @@
                 <p>A luz viaja a aproximadamente 300.000 km/s no vácuo e no ar. Quando a luz atinge a retina, estimula os fotorreceptores (cones e bastonetes), que contêm o pigmento opsina. A alteração estrutural dessa molécula ocorre em picossegundos, mas a conversão do impulso elétrico pelo cérebro em imagem leva cerca de um décimo de segundo (0,1 s). Esse intervalo é chamado de tempo de persistência retiniana. Devido a isso, quando o disco gira acima de uma velocidade mínima, o cérebro funde os estímulos visuais das cores e percebe a luz branca.</p>
             </div>
 
-            <!-- TECNOLOGIAS ASSISTIVAS ATV 1 -->
             <div class="content-block">
                 <h3>3. Tecnologias Assistivas e Acessibilidade</h3>
                 <div class="tech-cards-grid">
@@ -108,22 +111,31 @@
                 <h4><i class="fa-solid fa-clone"></i> Flashcards de Estudo (Clique para girar)</h4>
                 <div class="flashcards-grid">
                     <div class="flashcard">
-                        <div class="card-inner">
-                            <div class="card-front"><strong>O que é Persistência Retiniana?</strong><small>Clique para ver a resposta</small></div>
-                            <div class="card-back"><p>É o tempo de cerca de 0,1s que o cérebro leva para processar e descartar um estímulo visual.</p></div>
-                        </div>
+                        <input type="checkbox" id="card1" class="flashcard-toggle">
+                        <label for="card1" class="flashcard-label">
+                            <div class="card-inner">
+                                <div class="card-front"><strong>O que é Persistência Retiniana?</strong><small>Clique para ver a resposta</small></div>
+                                <div class="card-back"><p>É o tempo de cerca de 0,1s que o cérebro leva para processar e descartar um estímulo visual.</p></div>
+                            </div>
+                        </label>
                     </div>
                     <div class="flashcard">
-                        <div class="card-inner">
-                            <div class="card-front"><strong>Quais são os fotorreceptores da retina?</strong><small>Clique para ver a resposta</small></div>
-                            <div class="card-back"><p>Cones (responsáveis pela visão das cores) e bastonetes (sensíveis à intensidade luminosa).</p></div>
-                        </div>
+                        <input type="checkbox" id="card2" class="flashcard-toggle">
+                        <label for="card2" class="flashcard-label">
+                            <div class="card-inner">
+                                <div class="card-front"><strong>Quais são os fotorreceptores da retina?</strong><small>Clique para ver a resposta</small></div>
+                                <div class="card-back"><p>Cones (responsáveis pela visão das cores) e bastonetes (sensíveis à intensidade luminosa).</p></div>
+                            </div>
+                        </label>
                     </div>
                     <div class="flashcard">
-                        <div class="card-inner">
-                            <div class="card-front"><strong>Por que as cores se fundem?</strong><small>Clique para ver a resposta</small></div>
-                            <div class="card-back"><p>Porque a velocidade de rotação faz com que novas cores atinjam a retina antes que o cérebro processe a imagem anterior.</p></div>
-                        </div>
+                        <input type="checkbox" id="card3" class="flashcard-toggle">
+                        <label for="card3" class="flashcard-label">
+                            <div class="card-inner">
+                                <div class="card-front"><strong>Por que as cores se fundem?</strong><small>Clique para ver a resposta</small></div>
+                                <div class="card-back"><p>Porque a velocidade de rotação faz com que novas cores atinjam a retina antes que o cérebro processe a imagem anterior.</p></div>
+                            </div>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -143,7 +155,6 @@
                 <span><strong>Questão de Investigação:</strong> Como o controle da intensidade da luz contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</span>
             </div>
 
-            <!-- ESPAÇO PARA 3 IMAGENS NA ATV 2 -->
             <div class="media-grid">
                 <div class="media-box">
                     <img src="LINK_DA_IMAGEM_1_ATV2" alt="Imagem 1: Circuito no Tinkercad" class="responsive-media">
@@ -164,14 +175,12 @@
                 <p>Desenvolvido na plataforma Tinkercad pelas alunas Maiara, Bruna e Nicoly (Colégio Cívico Militar Professor Francisco Villanueva), o circuito utilizou um Arduino Uno, resistor de 220 Ω e LED em pino PWM (pino 11). O código aplicou a função <code>analogWrite()</code> e uma estrutura de repetição para alterar o duty cycle de 0 a 255 em incrementos de 1 com intervalo de 100ms, proporcionando a transição fluida do brilho.</p>
             </div>
 
-            <!-- FAKE NEWS ATV 2 -->
             <div class="fake-news-card">
                 <h4><i class="fa-solid fa-triangle-exclamation"></i> Checagem de Fatos: Fake News & Mitos</h4>
                 <p><strong>Boato Falso:</strong> <em>"Lâmpadas LED controladas por PWM emitem radiação perigosa e podem transmitir vírus digitais para celulares próximos."</em></p>
                 <p><strong>Fato Científico:</strong> LEDs emitem exclusivamente radiação eletromagnética na faixa da luz visível e não possuem capacidade física de transmitir dados maliciosos ou vírus digitais para dispositivos móveis. O controle PWM apenas chaveia a corrente elétrica em alta frequência para ajuste suave da iluminação.</p>
             </div>
 
-            <!-- VÍDEO ATV 2 -->
             <div class="media-box">
                 <div class="video-container">
                     <iframe src="LINK_DO_VIDEO_ATV2" title="Vídeo demonstrativo Atividade 02" allowfullscreen></iframe>
@@ -184,7 +193,6 @@
                 <p>O LED é um componente semicondutor. O controle por PWM (Modulação por Largura de Pulso) liga e desliga a corrente em alta frequência (acima de 100 Hz). O olho humano não detecta o chaveamento rápido e percebe a potência média proporcional ao duty cycle. Mudanças graduais evitam choques visuais e favorecem a adaptação fotópica e escotópica de pessoas com baixa visão.</p>
             </div>
 
-            <!-- TECNOLOGIAS ASSISTIVAS ATV 2 -->
             <div class="content-block">
                 <h3>3. Tecnologias Existentes</h3>
                 <div class="tech-cards-grid">
@@ -208,22 +216,31 @@
                 <h4><i class="fa-solid fa-clone"></i> Flashcards de Estudo (Clique para girar)</h4>
                 <div class="flashcards-grid">
                     <div class="flashcard">
-                        <div class="card-inner">
-                            <div class="card-front"><strong>O que é Duty Cycle no PWM?</strong><small>Clique para ver a resposta</small></div>
-                            <div class="card-back"><p>É a proporção de tempo em que o sinal elétrico permanece em nível alto durante um ciclo.</p></div>
-                        </div>
+                        <input type="checkbox" id="card4" class="flashcard-toggle">
+                        <label for="card4" class="flashcard-label">
+                            <div class="card-inner">
+                                <div class="card-front"><strong>O que é Duty Cycle no PWM?</strong><small>Clique para ver a resposta</small></div>
+                                <div class="card-back"><p>É a proporção de tempo em que o sinal elétrico permanece em nível alto durante um ciclo.</p></div>
+                            </div>
+                        </label>
                     </div>
                     <div class="flashcard">
-                        <div class="card-inner">
-                            <div class="card-front"><strong>O que é Ofuscamento (Glare)?</strong><small>Clique para ver a resposta</small></div>
-                            <div class="card-back"><p>Desconforto ou redução visual provocados por níveis excessivos ou mudanças bruscas de iluminação.</p></div>
-                        </div>
+                        <input type="checkbox" id="card5" class="flashcard-toggle">
+                        <label for="card5" class="flashcard-label">
+                            <div class="card-inner">
+                                <div class="card-front"><strong>O que é Ofuscamento (Glare)?</strong><small>Clique para ver a resposta</small></div>
+                                <div class="card-back"><p>Desconforto ou redução visual provocados por níveis excessivos ou mudanças bruscas de iluminação.</p></div>
+                            </div>
+                        </label>
                     </div>
                     <div class="flashcard">
-                        <div class="card-inner">
-                            <div class="card-front"><strong>O que é o LightSound?</strong><small>Clique para ver a resposta</small></div>
-                            <div class="card-back"><p>Dispositivo que converte a variação de intensidade luminosa em frequências sonoras.</p></div>
-                        </div>
+                        <input type="checkbox" id="card6" class="flashcard-toggle">
+                        <label for="card6" class="flashcard-label">
+                            <div class="card-inner">
+                                <div class="card-front"><strong>O que é o LightSound?</strong><small>Clique para ver a resposta</small></div>
+                                <div class="card-back"><p>Dispositivo que converte a variação de intensidade luminosa em frequências sonoras.</p></div>
+                            </div>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -243,7 +260,6 @@
                 <span><strong>Questão de Investigação:</strong> Como o estudo das cores contribui para o desenvolvimento de tecnologias que auxiliam pessoas com deficiência visual ou baixa visão?</span>
             </div>
 
-            <!-- ESPAÇO PARA 3 IMAGENS NA ATV 3 -->
             <div class="media-grid">
                 <div class="media-box">
                     <img src="LINK_DA_IMAGEM_1_ATV3" alt="Imagem 1: Circuito LED RGB Catodo Comum" class="responsive-media">
@@ -264,14 +280,12 @@
                 <p>Relatório elaborado pelas alunas Maiara, Bruna e Nicoly (agosto de 2026). Utilizou Arduino Uno, LED RGB de catodo comum e resistores de 220 Ω em portas PWM no Tinkercad para validar as combinações de cor.</p>
             </div>
 
-            <!-- FAKE NEWS ATV 3 -->
             <div class="fake-news-card">
                 <h4><i class="fa-solid fa-triangle-exclamation"></i> Checagem de Fatos: Fake News & Mitos</h4>
                 <p><strong>Boato Falso:</strong> <em>"Luzes de LED RGB azuis alteram permanentemente os fotorreceptores da retina, anulando a capacidade do olho de perceber cores."</em></p>
                 <p><strong>Fato Científico:</strong> A mistura aditiva de cores (RGB) estimula os cones da retina sem causar destruição dos fotorreceptores. Tecnologias assistivas utilizam filtros e ajustes de espectro de luz RGB para otimizar o contraste visual e auxiliar a acessibilidade de pessoas com baixa visão ou daltonismo.</p>
             </div>
 
-            <!-- VÍDEO ATV 3 -->
             <div class="media-box">
                 <div class="video-container">
                     <iframe src="LINK_DO_VIDEO_ATV3" title="Vídeo demonstrativo Atividade 03" allowfullscreen></iframe>
@@ -290,30 +304,8 @@
                 </ul>
             </div>
 
-            <!-- TECNOLOGIAS ASSISTIVAS ATV 3 -->
             <div class="content-block">
                 <h3>3. Tecnologias Existentes</h3>
                 <div class="tech-cards-grid">
                     <div class="tech-item">
-                        <h4>Óculos EnChroma</h4>
-                        <p>Filtros ópticos para cortar a sobreposição de comprimentos de onda no daltonismo.</p>
-                    </div>
-                    <div class="tech-item">
-                        <h4>Lupa Eletrônica HD & Seeing AI</h4>
-                        <p>Inversão de cores em tempo real e visão computacional para ler matrizes RGB e verbalizar cores para cegos.</p>
-                    </div>
-                    <div class="tech-item">
-                        <h4>Pisos Táteis de Alto Contraste</h4>
-                        <p>Sinalização com refletância luminosa adequada em conformidade com a ABNT NBR 9050.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- FLASHCARDS ATV 3 -->
-            <div class="flashcards-section">
-                <h4><i class="fa-solid fa-clone"></i> Flashcards de Estudo (Clique para girar)</h4>
-                <div class="flashcards-grid">
-                    <div class="flashcard">
-                        <div class="card-inner">
-                            <div class="card-front"><strong>O que é Síntese Aditiva?</strong><small>Clique para ver a resposta</small></div>
-                            <div c
+                        <h4>Óculos 
