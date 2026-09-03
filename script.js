@@ -1,59 +1,49 @@
-// 1. GERENCIAMENTO DE FONTE
-let fontScale = 100;
+// CONTROLE DE TAMANHO DA FONTE
+let currentFontSize = 100;
 
-function changeFontSize(direction) {
-    if (direction === 1 && fontScale < 140) {
-        fontScale += 10;
-    } else if (direction === -1 && fontScale > 80) {
-        fontScale -= 10;
-    }
-    document.documentElement.style.setProperty('--font-scale', `${fontScale}%`);
+function changeFontSize(delta) {
+    currentFontSize += delta * 10;
+    if (currentFontSize < 80) currentFontSize = 80;
+    if (currentFontSize > 150) currentFontSize = 150;
+    document.body.style.fontSize = currentFontSize + '%';
 }
 
-// 2. ALTERNÂNCIA DE ALTO CONTRASTE
+// TOGGLE DE ALTO CONTRASTE
 function toggleHighContrast() {
-    document.body.classList.toggle('high-contrast');
+    document.body.classList.toggle('dark-theme');
 }
 
-// 3. ANIMAÇÃO DOS FLASHCARDS
-function flipCard(cardElement) {
-    cardElement.classList.toggle('flipped');
+// NAVEGAÇÃO / ROTAÇÃO DOS FLASHCARDS
+function flipCard(card) {
+    card.classList.toggle('flipped');
 }
 
-// 4. LEITURA DE TELA / ÁUDIO DESCRIÇÃO
+// ÁUDIO DESCRIÇÃO E LEITURA DE TELA (WEB SPEECH API)
 let isSpeaking = false;
-let synth = window.speechSynthesis;
 
 function toggleAudioDescription() {
     const btn = document.getElementById('btn-tts');
 
-    if (!('speechSynthesis' in window)) {
-        alert('Recurso de síntese de voz não suportado neste navegador.');
-        return;
-    }
+    if ('speechSynthesis' in window) {
+        if (isSpeaking) {
+            window.speechSynthesis.cancel();
+            isSpeaking = false;
+            btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
+        } else {
+            const mainContent = document.querySelector('main').innerText;
+            const utterance = new SpeechSynthesisUtterance(mainContent);
+            utterance.lang = 'pt-BR';
+            
+            utterance.onend = function() {
+                isSpeaking = false;
+                btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
+            };
 
-    if (isSpeaking) {
-        synth.cancel();
-        isSpeaking = false;
-        btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
+            window.speechSynthesis.speak(utterance);
+            isSpeaking = true;
+            btn.innerHTML = 'Parar Áudio <i class="fa-solid fa-circle-stop"></i>';
+        }
     } else {
-        const textToRead = document.querySelector('main').innerText;
-        const utterance = new SpeechSynthesisUtterance(textToRead);
-        utterance.lang = 'pt-BR';
-        utterance.rate = 1.0;
-
-        utterance.onend = () => {
-            isSpeaking = false;
-            btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
-        };
-
-        utterance.onerror = () => {
-            isSpeaking = false;
-            btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
-        };
-
-        synth.speak(utterance);
-        isSpeaking = true;
-        btn.innerHTML = 'Parar Áudio <i class="fa-solid fa-circle-stop"></i>';
+        alert('Seu navegador não suporta a síntese de voz para áudio descrição.');
     }
 }
