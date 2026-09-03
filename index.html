@@ -31,6 +31,8 @@
             <li><a href="#intro">Início</a></li>
             <li><a href="#newton">Disco de Newton</a></li>
             <li><a href="#rgb">LEDs RGB</a></li>
+            <li><a href="#midia">Mídia e Vídeo</a></li>
+            <li><a href="#mitos">Mitos e Fatos</a></li>
             <li><a href="#flashcards">Flashcards</a></li>
         </ul>
     </nav>
@@ -53,6 +55,15 @@
                 <p id="texto-intro" class="description-text">
                     O projeto "Oásis da Luz" demonstra os princípios da óptica física, decomposição da luz e o uso de circuitos RGB aplicados ao desenvolvimento de tecnologias acessíveis para inclusão visual.
                 </p>
+
+                <div class="tech-box">
+                    <h4>Tecnologias Assistivas Integradas</h4>
+                    <ul>
+                        <li>Simulação de circuitos de LED RGB adaptados.</li>
+                        <li>Recursos de alto contraste e redimensionamento de fontes.</li>
+                        <li>Áudiodescrição para suporte à navegação inclusiva.</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -83,7 +94,7 @@
         <section id="rgb" class="section">
             <div class="section-title">
                 <h2>Física dos LEDs RGB</h2>
-                <p>Mistura aditiva de cores.</p>
+                <p>Mistura aditiva de cores na prática.</p>
             </div>
 
             <div class="card">
@@ -92,12 +103,74 @@
                     <button class="btn-audio" data-audio-target="texto-rgb">Ouvir Áudio</button>
                 </div>
                 <p id="texto-rgb" class="description-text">
-                    A combinação de Vermelho (Red), Verde (Green) e Azul (Blue) em diferentes intensidades gera todo o espectro luminoso visível em telas e ambientes.
+                    A combinação de Vermelho (Red), Verde (Green) e Azul (Blue) em diferentes intensidades gera todo o espectro luminoso visível em monitores e dispositivos acessíveis.
                 </p>
                 <div class="rgb-demo">
                     <div class="rgb-circle red">R</div>
                     <div class="rgb-circle green">G</div>
                     <div class="rgb-circle blue">B</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Mídia e Vídeo -->
+        <section id="midia" class="section">
+            <div class="section-title">
+                <h2>Galeria e Vídeos</h2>
+                <p>Demonstrações visuais e simulações do circuito.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header-actions">
+                    <h3>Simulação Tinkercad & Experimento</h3>
+                    <button class="btn-audio" data-audio-target="texto-midia">Ouvir Áudio</button>
+                </div>
+                <p id="texto-midia" class="description-text">
+                    Acompanhe abaixo os registros visuais e o vídeo demonstrativo do funcionamento do sistema de LEDs e óptica.
+                </p>
+
+                <!-- Espaço para Imagens -->
+                <div class="media-grid">
+                    <div class="media-placeholder">
+                        <span class="placeholder-tag">Esquema do Circuito RGB</span>
+                    </div>
+                    <div class="media-placeholder">
+                        <span class="placeholder-tag">Montagem do Disco de Newton</span>
+                    </div>
+                </div>
+
+                <!-- Vídeo Integrado -->
+                <div class="video-placeholder">
+                    <div class="video-container">
+                        <!-- Substitua o src pelo link do seu vídeo (YouTube ou embed) se houver -->
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Vídeo do Projeto" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Mitos e Fatos (Fake News) -->
+        <section id="mitos" class="section">
+            <div class="section-title">
+                <h2>Mitos e Fatos Científicos</h2>
+                <p>Desvendando conceitos errôneos sobre a luz e cores.</p>
+            </div>
+
+            <div class="card">
+                <div class="fact-box">
+                    <span class="fact-badge mito">Mito</span>
+                    <p><strong>A luz branca possui apenas três cores fundamentais.</strong></p>
+                    <hr>
+                    <span class="fact-badge fato">Fato</span>
+                    <p>A luz branca do Sol engloba um espectro contínuo de radiações eletromagnéticas que o nosso cérebro interpreta como uma mistura de várias frequências visíveis (vermelho, laranja, amarelo, verde, azul, anil e violeta).</p>
+                </div>
+
+                <div class="fact-box">
+                    <span class="fact-badge mito">Mito</span>
+                    <p><strong>A cor de um objeto é inerente a ele próprio, sem depender da iluminação.</strong></p>
+                    <hr>
+                    <span class="fact-badge fato">Fato</span>
+                    <p>A cor percebida depende diretamente da luz que incide sobre o objeto e de quais comprimentos de onda são refletidos ou absorvidos por sua superfície.</p>
                 </div>
             </div>
         </section>
