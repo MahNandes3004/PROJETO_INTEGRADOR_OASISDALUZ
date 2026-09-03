@@ -14,7 +14,6 @@
             --border: #dddddd;
         }
 
-        /* ESTILOS DE ALTO CONTRASTE APLICADOS VIA JS NO HTML */
         body.dark-theme {
             background-color: #121212 !important;
             color: #ffffff !important;
@@ -54,11 +53,10 @@
             line-height: 1.6;
         }
 
-        /* BARRA FIXA DE ACESSIBILIDADE - COM Z-INDEX MÁXIMO E PONTEIRO DE CLIQUE */
         #a11y-bar {
             position: sticky;
             top: 0;
-            z-index: 999999 !important;
+            z-index: 99999;
             background-color: #222222;
             color: #ffffff;
             padding: 10px 15px;
@@ -82,19 +80,15 @@
             padding: 8px 14px;
             margin-left: 5px;
             border-radius: 4px;
-            cursor: pointer !important;
+            cursor: pointer;
             font-size: 0.9rem;
             font-weight: bold;
-            position: relative;
-            z-index: 1000000 !important;
-            pointer-events: auto !important;
         }
 
         .a11y-buttons button:hover {
             background-color: var(--primary);
         }
 
-        /* CABEÇALHO */
         #main-header {
             background-color: var(--primary);
             color: #ffffff;
@@ -135,7 +129,6 @@
             font-size: 0.9rem;
         }
 
-        /* ESTRUTURA PRINCIPAL */
         .container {
             max-width: 1000px;
             margin: 20px auto;
@@ -180,7 +173,6 @@
             padding-bottom: 4px;
         }
 
-        /* MIDIAS */
         .media-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -224,7 +216,6 @@
             opacity: 0.8;
         }
 
-        /* FAKE NEWS CARD */
         .fake-news-card {
             background-color: #fff3cd;
             color: #856404;
@@ -234,7 +225,6 @@
             margin: 20px 0;
         }
 
-        /* TECNOLOGIAS ASSISTIVAS */
         .tech-cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -249,7 +239,6 @@
             border-radius: 6px;
         }
 
-        /* FLASHCARDS VIA CSS PURO */
         .flashcards-section {
             margin: 25px 0;
         }
@@ -330,20 +319,18 @@
 </head>
 <body>
 
-    <!-- BARRA FIXA DE ACESSIBILIDADE COM EVENTOS DIRETOS -->
     <nav id="a11y-bar" aria-label="Barra de Acessibilidade Universal">
         <div class="a11y-content">
             <span class="a11y-title"><i class="fa-solid fa-universal-access"></i> Acessibilidade</span>
             <div class="a11y-buttons">
-                <button type="button" id="btn-a-plus" title="Aumentar Fonte">A+</button>
-                <button type="button" id="btn-a-minus" title="Diminuir Fonte">A-</button>
-                <button type="button" id="btn-contrast" title="Alternar Alto Contraste">Alto Contraste</button>
-                <button type="button" id="btn-tts" title="Ativar Áudio Descrição">Áudio Descrição <i class="fa-solid fa-volume-high"></i></button>
+                <button type="button" onclick="changeFontSize(10)" title="Aumentar Fonte">A+</button>
+                <button type="button" onclick="changeFontSize(-10)" title="Diminuir Fonte">A-</button>
+                <button type="button" onclick="toggleContrast()" title="Alternar Alto Contraste">Alto Contraste</button>
+                <button type="button" id="btn-tts" onclick="toggleSpeech()" title="Ativar Áudio Descrição">Áudio Descrição <i class="fa-solid fa-volume-high"></i></button>
             </div>
         </div>
     </nav>
 
-    <!-- CABEÇALHO -->
     <header id="main-header">
         <div class="header-banner">
             <h1>OÁSIS DA LUZ</h1>
@@ -420,7 +407,6 @@
                 </div>
             </div>
 
-            <!-- FLASHCARDS ATV 1 -->
             <div class="flashcards-section">
                 <h4><i class="fa-solid fa-clone"></i> Flashcards de Estudo (Clique para girar)</h4>
                 <div class="flashcards-grid">
@@ -495,4 +481,13 @@
                 <p><strong>Fato Científico:</strong> LEDs emitem exclusivamente radiação eletromagnética na faixa da luz visível e não possuem capacidade física de transmitir dados maliciosos ou vírus digitais para dispositivos móveis. O controle PWM apenas chaveia a corrente elétrica em alta frequência para ajuste suave da iluminação.</p>
             </div>
 
-            <div class="
+            <div class="media-box">
+                <div class="video-container">
+                    <iframe src="LINK_DO_VIDEO_ATV2" title="Vídeo demonstrativo Atividade 02" allowfullscreen></iframe>
+                </div>
+                <p class="media-caption">Vídeo 2: Demonstração prática da simulação Fade-In e Fade-Out.</p>
+            </div>
+
+            <div class="content-block">
+                <h3>2. Explicação Científica</h3>
+                <p>O LED é um componente semicondutor. O controle por PWM (Modulação por Largura de Pulso) liga e desl
