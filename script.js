@@ -1,95 +1,86 @@
- document.addEventListener('DOMContentLoaded', () => {
+// Aguarda o carregamento completo da página para evitar falhas de leitura
+window.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Alto Contraste (Persistente)
+    // 1. Controle de Contraste
     const btnContrast = document.getElementById('btn-contrast');
     if (btnContrast) {
-        btnContrast.addEventListener('click', (e) => {
+        btnContrast.onclick = function(e) {
             e.preventDefault();
             document.body.classList.toggle('high-contrast');
-            const isContrast = document.body.classList.contains('high-contrast');
-            localStorage.setItem('oasis_contrast', isContrast);
-        });
+            const ativo = document.body.classList.contains('high-contrast');
+            localStorage.setItem('oasis_contrast', ativo);
+        };
     }
 
     if (localStorage.getItem('oasis_contrast') === 'true') {
         document.body.classList.add('high-contrast');
     }
 
-    // 2. Aumentar e Diminuir Fonte (A+ / A-)
-    let fontSizePx = 16;
-    const btnIncrease = document.getElementById('btn-font-increase');
-    const btnDecrease = document.getElementById('btn-font-decrease');
+    // 2. Controle de Fontes (A+ / A-)
+    let tamanhoAtual = 16;
+    const btnMais = document.getElementById('btn-font-increase');
+    const btnMenos = document.getElementById('btn-font-decrease');
 
-    if (btnIncrease) {
-        btnIncrease.addEventListener('click', (e) => {
+    if (btnMais) {
+        btnMais.onclick = function(e) {
             e.preventDefault();
-            if (fontSizePx < 22) {
-                fontSizePx += 1;
-                document.documentElement.style.fontSize = `${fontSizePx}px`;
+            if (tamanhoAtual < 22) {
+                tamanhoAtual++;
+                document.documentElement.style.fontSize = tamanhoAtual + 'px';
             }
-        });
+        };
     }
 
-    if (btnDecrease) {
-        btnDecrease.addEventListener('click', (e) => {
+    if (btnMenos) {
+        btnMenos.onclick = function(e) {
             e.preventDefault();
-            if (fontSizePx > 13) {
-                fontSizePx -= 1;
-                document.documentElement.style.fontSize = `${fontSizePx}px`;
+            if (tamanhoAtual > 13) {
+                tamanhoAtual--;
+                document.documentElement.style.fontSize = tamanhoAtual + 'px';
             }
-        });
+        };
     }
 
-    // 3. Virar os Flashcards (Compatível com toque no celular e clique)
+    // 3. Flashcards (Usa pointerdown para responder instantaneamente no toque do celular)
     const flashcards = document.querySelectorAll('.flashcard');
-    flashcards.forEach((card) => {
-        const toggleFlip = (e) => {
+    flashcards.forEach(card => {
+        card.onpointerdown = function(e) {
             e.preventDefault();
             card.classList.toggle('flipped');
         };
-        card.addEventListener('click', toggleFlip);
-        card.addEventListener('touchstart', toggleFlip, { passive: false });
     });
 
-    // 4. Giro do Disco de Newton (Força o reset da animação CSS)
+    // 4. Disco de Newton
     const btnSpin = document.getElementById('btn-spin');
-    const newtonDisk = document.getElementById('newton-disk');
+    const disk = document.getElementById('newton-disk');
 
-    if (btnSpin && newtonDisk) {
-        const spinAction = (e) => {
+    if (btnSpin && disk) {
+        btnSpin.onpointerdown = function(e) {
             e.preventDefault();
-            newtonDisk.classList.remove('spinning');
-            void newtonDisk.offsetWidth; // Força o navegador a reiniciar a animação
-            newtonDisk.classList.add('spinning');
+            disk.classList.remove('spinning');
+            void disk.offsetWidth; // Reinicia a animação CSS do giro
+            disk.classList.add('spinning');
         };
-
-        btnSpin.addEventListener('click', spinAction);
-        btnSpin.addEventListener('touchstart', spinAction, { passive: false });
     }
 
-    // 5. Áudiodescrição por Síntese de Voz Nativa
-    const audioButtons = document.querySelectorAll('.btn-audio');
-    audioButtons.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
+    // 5. Áudiodescrição (Speech Synthesis)
+    const botoesAudio = document.querySelectorAll('.btn-audio');
+    botoesAudio.forEach(botao => {
+        botao.onclick = function(e) {
             e.preventDefault();
-            const targetId = btn.getAttribute('data-audio-target');
-            playAudio(targetId);
-        });
+            const idAlvo = botao.getAttribute('data-audio-target');
+            const elementoTexto = document.getElementById(idAlvo);
+            
+            if (elementoTexto && 'speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const fala = new SpeechSynthesisUtterance(elementoTexto.innerText);
+                fala.lang = 'pt-BR';
+                fala.rate = 0.95;
+                window.speechSynthesis.speak(fala);
+            } else {
+                alert('Áudio indisponível neste navegador.');
+            }
+        };
     });
+
 });
-
-function playAudio(elementId) {
-    const textElement = document.getElementById(elementId);
-    if (!textElement) return;
-
-    if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const textToSpeak = textElement.innerText || textElement.textContent;
-        const utterance = new SpeechSynthesisUtterance(textToSpeak);
-        utterance.lang = 'pt-BR';
-        utterance.rate = 0.95;
-        window.speechSynthesis.speak(utterance);
-    } else {
-        alert('Seu navegador não suporta a síntese de voz nativa.');
-    }
-}
