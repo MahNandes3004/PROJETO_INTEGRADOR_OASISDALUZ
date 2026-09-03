@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Áudio
+    // Áudio com Speech Synthesis
     document.querySelectorAll('.btn-audio').forEach(botao => {
         botao.onclick = () => {
             const idAlvo = botao.getAttribute('data-audio-target');
@@ -64,4 +64,14 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         };
     });
+
+    // Botão de Parar a Voz
+    const btnStopSpeech = document.getElementById('btn-stop-speech');
+    if (btnStopSpeech) {
+        btnStopSpeech.onclick = () => {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+        };
+    }
 });
