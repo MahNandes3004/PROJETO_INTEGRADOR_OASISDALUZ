@@ -1,4 +1,6 @@
-// CONTROLE DE TAMANHO DA FONTE
+// ==========================================
+// 1. CONTROLE DE TAMANHO DA FONTE
+// ==========================================
 let currentFontSize = 100;
 
 function changeFontSize(delta) {
@@ -8,18 +10,25 @@ function changeFontSize(delta) {
     document.body.style.fontSize = currentFontSize + '%';
 }
 
-// TOGGLE DE ALTO CONTRASTE
+// ==========================================
+// 2. ALTERNÂNCIA DE ALTO CONTRASTE (TEMA ESCURO)
+// ==========================================
 function toggleHighContrast() {
     document.body.classList.toggle('dark-theme');
 }
 
-// ROTAÇÃO DOS FLASHCARDS
+// ==========================================
+// 3. ROTAÇÃO DOS FLASHCARDS (VIRAR CARTA)
+// ==========================================
 function flipCard(card) {
     card.classList.toggle('flipped');
 }
 
-// CARREGAMENTO SEGURO DE VOZES PARA ÁUDIO DESCRIÇÃO
+// ==========================================
+// 4. ÁUDIO DESCRIÇÃO & LEITOR DE TELA (WEB SPEECH API)
+// ==========================================
 let voices = [];
+
 function loadVoices() {
     if ('speechSynthesis' in window) {
         voices = window.speechSynthesis.getVoices();
@@ -31,7 +40,6 @@ if ('speechSynthesis' in window) {
     window.speechSynthesis.onvoiceschanged = loadVoices;
 }
 
-// ÁUDIO DESCRIÇÃO E LEITURA DE TELA (WEB SPEECH API)
 let isSpeaking = false;
 
 function toggleAudioDescription() {
@@ -45,17 +53,19 @@ function toggleAudioDescription() {
     if (isSpeaking) {
         window.speechSynthesis.cancel();
         isSpeaking = false;
-        btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
+        if (btn) btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
     } else {
-        window.speechSynthesis.cancel(); // Limpa leituras em fila
+        window.speechSynthesis.cancel(); // Cancela falas anteriores na fila
         
-        const mainContent = document.querySelector('main').innerText;
-        const utterance = new SpeechSynthesisUtterance(mainContent);
+        const mainContent = document.querySelector('main');
+        if (!mainContent) return;
+
+        const utterance = new SpeechSynthesisUtterance(mainContent.innerText);
         
-        // Define o idioma para Português do Brasil
+        // Define o idioma em português do Brasil
         utterance.lang = 'pt-BR';
         
-        // Seleciona uma voz em Português disponível no sistema
+        // Seleciona uma voz em PT-BR disponível no sistema
         const ptVoice = voices.find(voice => voice.lang.includes('pt-BR') || voice.lang.includes('pt'));
         if (ptVoice) {
             utterance.voice = ptVoice;
@@ -63,16 +73,16 @@ function toggleAudioDescription() {
 
         utterance.onend = function() {
             isSpeaking = false;
-            btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
+            if (btn) btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
         };
 
         utterance.onerror = function() {
             isSpeaking = false;
-            btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
+            if (btn) btn.innerHTML = 'Áudio Descrição <i class="fa-solid fa-volume-high"></i>';
         };
 
         window.speechSynthesis.speak(utterance);
         isSpeaking = true;
-        btn.innerHTML = 'Parar Áudio <i class="fa-solid fa-circle-stop"></i>';
+        if (btn) btn.innerHTML = 'Parar Áudio <i class="fa-solid fa-circle-stop"></i>';
     }
 }
