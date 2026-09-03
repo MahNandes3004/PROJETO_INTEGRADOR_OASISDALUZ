@@ -27,7 +27,7 @@
             border-color: #333333 !important;
         }
         body.dark-theme h1, body.dark-theme h2, body.dark-theme h3, body.dark-theme h4, 
-        body.dark-theme p, body.dark-theme span, body.dark-theme strong {
+        body.dark-theme p, body.dark-theme span, body.dark-theme strong, body.dark-theme li {
             color: #ffffff !important;
         }
         body.dark-theme .question-pill {
@@ -301,11 +301,13 @@
         }
 
         .abnt-ref {
-            font-size: 0.85rem;
-            word-break: break-all;
+            font-size: 0.9rem;
+            line-height: 1.5;
             background: rgba(0,0,0,0.03);
-            padding: 8px;
-            border-left: 3px solid var(--primary);
+            padding: 10px 12px;
+            border-left: 4px solid var(--primary);
+            margin-bottom: 8px;
+            border-radius: 0 4px 4px 0;
         }
 
         #main-footer {
@@ -319,6 +321,7 @@
 </head>
 <body>
 
+    <!-- BARRA DE ACESSIBILIDADE UNIVERSAL -->
     <nav id="a11y-bar" aria-label="Barra de Acessibilidade Universal">
         <div class="a11y-content">
             <span class="a11y-title"><i class="fa-solid fa-universal-access"></i> Acessibilidade</span>
@@ -331,6 +334,7 @@
         </div>
     </nav>
 
+    <!-- CABEÇALHO PRINCIPAL -->
     <header id="main-header">
         <div class="header-banner">
             <h1>OÁSIS DA LUZ</h1>
@@ -441,8 +445,10 @@
             </div>
 
             <div class="content-block">
-                <h3>4. Referências (ABNT)</h3>
-                <p class="abnt-ref">BRASIL ESCOLA. Experimento do Disco de Newton. Disponível em: https://educador.brasilescola.uol.com.br/estrategias-ensino/experimento-disco-newton.htm. Acesso em: 2026.</p>
+                <h3>4. Referências (ABNT NBR 6023)</h3>
+                <p class="abnt-ref">HALLIDAY, David; RESNICK, Robert; WALKER, Jearl. <strong>Fundamentos de Física: Óptica e Física Moderna</strong>. 10. ed. Rio de Janeiro: LTC, 2016. v. 4.</p>
+                <p class="abnt-ref">HECHT, Eugene. <strong>Optics</strong>. 5. ed. Boston: Pearson Education, 2017.</p>
+                <p class="abnt-ref">SANTOS, Marco Aurélio da Silva. Experimento do Disco de Newton. <strong>Brasil Escola</strong>, 2026. Disponível em: https://educador.brasilescola.uol.com.br/estrategias-ensino/experimento-disco-newton.htm. Acesso em: 2 set. 2026.</p>
             </div>
         </section>
 
@@ -481,13 +487,4 @@
                 <p><strong>Fato Científico:</strong> LEDs emitem exclusivamente radiação eletromagnética na faixa da luz visível e não possuem capacidade física de transmitir dados maliciosos ou vírus digitais para dispositivos móveis. O controle PWM apenas chaveia a corrente elétrica em alta frequência para ajuste suave da iluminação.</p>
             </div>
 
-            <div class="media-box">
-                <div class="video-container">
-                    <iframe src="LINK_DO_VIDEO_ATV2" title="Vídeo demonstrativo Atividade 02" allowfullscreen></iframe>
-                </div>
-                <p class="media-caption">Vídeo 2: Demonstração prática da simulação Fade-In e Fade-Out.</p>
-            </div>
-
-            <div class="content-block">
-                <h3>2. Explicação Científica</h3>
-                <p>O LED é um componente semicondutor. O controle por PWM (Modulação por Largura de Pulso) liga e desl
+   
