@@ -3,232 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oásis da Luz</title>
-    <style>
-        :root {
-            --primary: #990000;
-            --primary-dark: #660000;
-            --accent: #ff4d4d;
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;
-            --text-main: #f0f0f0;
-            --text-muted: #b0b0b0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: #ffcccc;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .card {
-            background-color: var(--bg-card);
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-            border-left: 5px solid var(--primary);
-        }
-
-        .card h2 {
-            color: var(--accent);
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
-        }
-
-        .media-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .image-box, .video-box {
-            background: #252525;
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .image-box img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-            object-fit: cover;
-            max-height: 250px;
-        }
-
-        .video-box iframe {
-            width: 100%;
-            height: 220px;
-            border: none;
-            border-radius: 6px;
-        }
-
-        .media-label {
-            display: block;
-            margin-top: 8px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #0a0a0a;
-            color: var(--text-muted);
-            border-top: 1px solid #222;
-        }
-    </style>
+    <title>Oásis da Luz - Física Óptica, Eletrônica e Inclusão Visual</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Oásis da Luz</h1>
-        <p>Explorando Óptica, Física de LEDs RGB, Circuitos e o Disco de Newton</p>
+    <!-- Header & Acessibilidade -->
+    <header class="hero">
+        <div class="accessibility-toolbar">
+            <span class="toolbar-label">Acessibilidade:</span>
+            <div class="toolbar-btns">
+                <button id="btn-contrast" title="Alto Contraste">Contraste</button>
+                <button id="btn-font-increase" title="Aumentar Fonte">A+</button>
+                <button id="btn-font-decrease" title="Diminuir Fonte">A-</button>
+                <button id="btn-stop-speech" title="Parar Áudio" style="background: #dc2626;">Parar Voz</button>
+            </div>
+        </div>
+        <div class="hero-content">
+            <span class="badge">Projeto Interativo</span>
+            <h1>Oásis da Luz</h1>
+            <p>Física Óptica, Eletrônica e Inclusão Visual</p>
+        </div>
     </header>
 
-    <div class="container">
+    <!-- Navegação Fixa -->
+    <nav class="sticky-nav">
+        <ul>
+            <li><a href="#newton">Disco de Newton</a></li>
+            <li><a href="#fadein">LED Fade-In</a></li>
+            <li><a href="#fadeout">LED Fade-Out</a></li>
+            <li><a href="#rgb">LEDs RGB</a></li>
+            <li><a href="#mitos">Fake News</a></li>
+            <li><a href="#flashcards">Flashcards</a></li>
+        </ul>
+    </nav>
 
-        <!-- Seção: Disco de Newton -->
-        <section class="card">
-            <h2>Disco de Newton</h2>
-            <p>O disco de Newton é um dispositivo clássico usado para demonstrar a composição da luz branca. Quando o disco girado em alta velocidade exibe suas cores (vermelho, laranja, amarelo, verde, azul, anil e violeta), elas se fundem visualmente na percepção humana, dando a impressão de que o disco se torna branco.</p>
-            
-            <div class="media-grid">
-                <div class="image-box">
-                    <img src="https://www.google.com/search?client=ms-android-xiaomi-terr1-rso2&hs=72Yq&sca_esv=106c16d45a0e3fad&sxsrf=APpeQnsr_GSSa52IWLy-_BQfy3OwjDQt4A:1788432494528&udm=2&fbs=ABfTbFVGaQeaqnsRPI5sOMG32KszkLt6nAp8aiRKj5vMjqZApKYr2wv-EHakX1SS4JF8fY1_A0DfPLoyd61yD2Gjy0hF5xCGdMIu1T4OpsNqfBilMBy-wr_0h3_BvPs-ESj4m8vUTLVm3QwdIDM_SOkiQGWliErhL73ZM_upaweMkmglOorhdcIyA0o21FStoglKadLugUDrIWN9p-unePbaJ4aI7BLxTQloqwcaK_mZ8tr7QAKyhqs&q=disco+de+newton+imagens&sa=X&sqi=2&ved=2ahUKEwjMxKmcntKWAxV3ppUCHTAlPJYQtKgLegQIEhAB&biw=360&bih=691&dpr=2#sv=CAMSWRoyKhBlLThleTlRdEtMSmhLNU5NMg44ZXk5UXRLTEpoSzVOTToOZ2xjX2NURFNvaE11NU0gBCoXCgFzEhBlLThleTlRdEtMSmhLNU5NGAEwATgASgQIARACGAcgy8i41gE6AEoIEAIYASACKAE" alt="Disco de Newton 1">
-                    <span class="media-label">Ilustração do Disco</span>
+    <!-- Conteúdo Principal -->
+    <main class="main-container">
+
+        <!-- 1. Disco de Newton -->
+        <section id="newton" class="section">
+            <div class="section-title">
+                <h2>1. O Disco de Newton</h2>
+                <p>A decomposição e recomposição detalhada da luz visível</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header-actions">
+                    <h3>Teoria Óptica e Persistência Retiniana</h3>
+                    <button class="btn-audio" data-audio-target="texto-newton">Ouvir Audiodescrição</button>
                 </div>
-                <div class="image-box">
-                    <img src="https://www.google.com/search?client=ms-android-xiaomi-terr1-rso2&hs=72Yq&sca_esv=106c16d45a0e3fad&sxsrf=APpeQnsr_GSSa52IWLy-_BQfy3OwjDQt4A:1788432494528&udm=2&fbs=ABfTbFVGaQeaqnsRPI5sOMG32KszkLt6nAp8aiRKj5vMjqZApKYr2wv-EHakX1SS4JF8fY1_A0DfPLoyd61yD2Gjy0hF5xCGdMIu1T4OpsNqfBilMBy-wr_0h3_BvPs-ESj4m8vUTLVm3QwdIDM_SOkiQGWliErhL73ZM_upaweMkmglOorhdcIyA0o21FStoglKadLugUDrIWN9p-unePbaJ4aI7BLxTQloqwcaK_mZ8tr7QAKyhqs&q=disco+de+newton+imagens&sa=X&sqi=2&ved=2ahUKEwjMxKmcntKWAxV3ppUCHTAlPJYQtKgLegQIEhAB&biw=360&bih=691&dpr=2#sv=CAMSURoyKhBlLTdtMjNRczd0aHlzUjZNMg43bTIzUXM3dGh5c1I2TToOclBLOV80WHRkTlRoTk0gBCoXCgFzEhBlLTdtMjNRczd0aHlzUjZNGAEwARgHINnBrvwGSggQARgBIAEoAQ" alt="Disco de Newton 2">
-                    <span class="media-label">Disco em rotação</span>
+                <p id="texto-newton" class="description-text">
+                    O Disco de Newton demonstra de forma prática que a luz solar branca é, na verdade, um espectro composto por todas as cores visíveis. Quando o disco é submetido a uma rotação em alta velocidade, o sistema visual humano não consegue processar os estímulos individuais de cada cor devido ao fenômeno da persistência retiniana. Desse modo, ocorre uma sobreposição imediata na retina, gerando a percepção unificada do branco.
+                </p>
+                
+                <!-- 2 Espaços para Imagem -->
+                <div class="media-grid">
+                    <div class="media-placeholder">
+                        <span class="placeholder-tag">🖼️ Espaço para Imagem 1: Disco Estático</span>
+                    </div>
+                    <div class="media-placeholder">
+                        <span class="placeholder-tag">🖼️ Espaço para Imagem 2: Espectro de Cores</span>
+                    </div>
                 </div>
-                <div class="video-box">
-                    <iframe src="https://www.youtube.com/embed/LlKeTEzYrjo" title="Vídeo Disco de Newton" allowfullscreen></iframe>
-                    <span class="media-label">Demonstração Prática</span>
+
+                <div class="newton-container">
+                    <div id="newton-disk" class="disk"></div>
+                    <button id="btn-spin" class="btn-primary">Girar Disco Interativo</button>
+                </div>
+
+                <!-- 1 Espaço para Vídeo -->
+                <div class="video-placeholder" style="margin-top: 15px;">
+                    <div class="video-container" style="background:#000; display:flex; align-items:center; justify-content:center; color:#fff; min-height:150px; border-radius:8px;">
+                        <span style="font-size: 0.8rem; text-align: center; padding: 10px;">▶️ Espaço reservado para o Vídeo Demonstrativo do Disco de Newton</span>
+                    </div>
+                </div>
+
+                <!-- 2 Tecnologias Assistivas -->
+                <div class="tech-box">
+                    <h4>💡 Tecnologias Assistivas Relacionadas</h4>
+                    <ul>
+                        <li><strong>Softwares de Contraste Dinâmico:</strong> Ajustam as faixas de cores da interface para auxiliar usuários com daltonismo ou acromatopsia.</li>
+                        <li><strong>Filtros Ópticos Adaptativos:</strong> Lentes e películas que reorientam comprimentos de onda específicos para facilitar a leitura visual.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Seção: LED Fade-In -->
-        <section class="card">
-            <h2>LED Fade-In</h2>
-            <p>O efeito Fade-In consiste no aumento gradual da intensidade luminosa de um LED. Utilizando portas PWM (Modulação por Largura de Pulso) no Arduino, incrementamos o valor do brilho de forma contínua em um laço de repetição.</p>
-            
-            <div class="media-grid">
-                <div class="image-box">
-                    <img src="47227.jpg" alt="Fade-in Montagem 1">
-                    <span class="media-label">Circuito no Tinkercad</span>
+        <!-- 2. LED Fade-In -->
+        <section id="fadein" class="section">
+            <div class="section-title">
+                <h2>2. Circuito LED Fade-In</h2>
+                <p>Controle de transição e conforto visual progressivo</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header-actions">
+                    <h3>Progressão Gradual de Brilho</h3>
+                    <button class="btn-audio" data-audio-target="texto-fadein">Ouvir Audiodescrição</button>
                 </div>
-                <div class="image-box">
-                    <img src="47226.jpg" alt="Fade-in Montagem 2">
-                    <span class="media-label">Simulação em Execução</span>
+                <p id="texto-fadein" class="description-text">
+                    O efeito Fade-In simula o acendimento suave e controlado de um componente luminoso, elevando a tensão elétrica de forma incremental. Essa modulação avançada evita o impacto visual repentino, proporcionando uma adaptação confortável para retinas sensíveis à luz intensa.
+                </p>
+
+                <!-- 3 Espaços para Imagem -->
+                <div class="media-grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 15px 0;">
+                    <div class="media-placeholder"><span class="placeholder-tag" style="font-size:0.65rem;">🖼️ Imagem 1: Circuito</span></div>
+                    <div class="media-placeholder"><span class="placeholder-tag" style="font-size:0.65rem;">🖼️ Imagem 2: Código</span></div>
+                    <div class="media-placeholder"><span class="placeholder-tag" style="font-size:0.65rem;">🖼️ Imagem 3: Gráfico</span></div>
                 </div>
-                <div class="image-box">
-                    <img src="47228.jpg" alt="Fade-in Montagem 3">
-                    <span class="media-label">Detalhe das Ligações</span>
+
+                <!-- 1 Espaço para Vídeo -->
+                <div class="video-placeholder">
+                    <div class="video-container" style="background:#000; display:flex; align-items:center; justify-content:center; color:#fff; min-height:140px; border-radius:8px;">
+                        <span style="font-size: 0.8rem; text-align: center;">▶️ Espaço reservado para o Vídeo do Fade-In</span>
+                    </div>
                 </div>
-                <div class="video-box">
-                    <iframe src="https://www.youtube.com/embed/aa7UwsZd0Ys" title="Vídeo LED Fade-In" allowfullscreen></iframe>
-                    <span class="media-label">Funcionamento do Fade-In</span>
+
+                <!-- 2 Tecnologias Assistivas -->
+                <div class="tech-box">
+                    <h4>💡 Tecnologias Assistivas Relacionadas</h4>
+                    <ul>
+                        <li><strong>Moduladores de Brilho Adaptativo:</strong> Sistemas que regulam a intensidade com base na luz ambiente para evitar fadiga ocular crônica.</li>
+                        <li><strong>Interfaces de Transição Suave:</strong> Recursos que eliminam flashes repentinos na tela, prevenindo crises em pessoas fotossensíveis.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Seção: Fade-Out -->
-        <section class="card">
-            <h2>Fade-Out</h2>
-            <p>Ao contrário do Fade-In, o efeito Fade-Out reduz progressivamente o brilho do LED até que ele se apague totalmente. É muito útil em projetos de iluminação suave e sinalizações discretas.</p>
-            
-            <div class="media-grid">
-                <div class="image-box">
-                    <img src="47236.jpg" alt="Fade-out Montagem 1">
-                    <span class="media-label">Montagem do Circuito</span>
+        <!-- 3. LED Fade-Out -->
+        <section id="fadeout" class="section">
+            <div class="section-title">
+                <h2>3. Circuito LED Fade-Out</h2>
+                <p>Desligamento gradual e amigável aos olhos</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header-actions">
+                    <h3>Redução Controlada de Frequência</h3>
+                    <button class="btn-audio" data-audio-target="texto-fadeout">Ouvir Audiodescrição</button>
                 </div>
-                <div class="image-box">
-                    <img src="47235.jpg" alt="Fade-out Montagem 2">
-                    <span class="media-label">Código e Lógica</span>
+                <p id="texto-fadeout" class="description-text">
+                    O Fade-Out complementa o ciclo óptico reduzindo a luminosidade de maneira suave até a completa extinção do brilho. Esse mecanismo previne o choque visual gerado por apagões instantâneos, preservando a acomodação da visão escotópica do usuário.
+                </p>
+
+                <!-- 3 Espaços para Imagem -->
+                <div class="media-grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 15px 0;">
+                    <div class="media-placeholder"><span class="placeholder-tag" style="font-size:0.65rem;">🖼️ Imagem 1: Circuito</span></div>
+                    <div class="media-placeholder"><span class="placeholder-tag" style="font-size:0.65rem;">🖼️ Imagem 2: Simulação</span></div>
+                    <div class="media-placeholder"><span class="placeholder-tag" style="font-size:0.65rem;">🖼️ Imagem 3: Saturação</span></div>
                 </div>
-                <div class="image-box">
-                    <img src="47237.jpg" alt="Fade-out Montagem 3">
-                    <span class="media-label">LED Diminuindo o Brilho</span>
+
+                <!-- 1 Espaço para Vídeo -->
+                <div class="video-placeholder">
+                    <div class="video-container" style="background:#000; display:flex; align-items:center; justify-content:center; color:#fff; min-height:140px; border-radius:8px;">
+                        <span style="font-size: 0.8rem; text-align: center;">▶️ Espaço reservado para o Vídeo do Fade-Out</span>
+                    </div>
                 </div>
-                <div class="video-box">
-                    <iframe src="https://www.youtube.com/embed/8GQymf7eCT4" title="Vídeo LED Fade-Out" allowfullscreen></iframe>
-                    <span class="media-label">Demonstração do Fade-Out</span>
+
+                <!-- 2 Tecnologias Assistivas -->
+                <div class="tech-box">
+                    <h4>💡 Tecnologias Assistivas Relacionadas</h4>
+                    <ul>
+                        <li><strong>Filtros de Desvanecimento Noturno:</strong> Reduzem gradualmente o espectro azul antes de desligar dispositivos para proteger o ciclo do sono.</li>
+                        <li><strong>Assistentes de Adaptação Escotópica:</strong> Auxiliam a transição gradual para ambientes escuros sem perda temporária de visibilidade.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Seção: LED RGB -->
-        <section class="card">
-            <h2>LED RGB com Potenciômetro</h2>
-            <p>O LED RGB combina três cores primárias de luz (Vermelho, Verde e Azul) em um único componente. Com o auxílio de um potenciômetro ligado às entradas analógicas do Arduino, podemos controlar e alternar as matizes de cor geradas.</p>
-            
-            <div class="media-grid">
-                <div class="image-box">
-                    <img src="47239.jpg" alt="LED RGB Montagem 1">
-                    <span class="media-label">Visão Geral do Projeto</span>
+        <!-- 4. LEDs RGB -->
+        <section id="rgb" class="section">
+            <div class="section-title">
+                <h2>4. Física dos LEDs RGB</h2>
+                <p>Mistura aditiva e personalização de espectro</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header-actions">
+                    <h3>Cores Primárias da Luz</h3>
+                    <button class="btn-audio" data-audio-target="texto-rgb">Ouvir Audiodescrição</button>
                 </div>
-                <div class="image-box">
-                    <img src="47240.jpg" alt="LED RGB Montagem 2">
-                    <span class="media-label">Conexão do Potenciômetro</span>
+                <p id="texto-rgb" class="description-text">
+                    O sistema RGB combina luzes de Vermelho (Red), Verde (Green) e Azul (Blue) em intensidades variáveis. Essa mistura aditiva possibilita reproduzir qualquer tonalidade do espectro visível, sendo a base tecnológica de monitores modernos e ferramentas de acessibilidade visual.
+                </p>
+                
+                <div class="rgb-demo" style="display: flex; justify-content: center; gap: 15px; margin: 15px 0;">
+                    <div class="rgb-circle red" style="width:40px; height:40px; border-radius:50%; background:#ef4444; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; font-size:0.8rem;">R</div>
+                    <div class="rgb-circle green" style="width:40px; height:40px; border-radius:50%; background:#10b981; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; font-size:0.8rem;">G</div>
+                    <div class="rgb-circle blue" style="width:40px; height:40px; border-radius:50%; background:#3b82f6; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:bold; font-size:0.8rem;">B</div>
                 </div>
-                <div class="image-box">
-                    <img src="47238.jpg" alt="LED RGB Montagem 3">
-                    <span class="media-label">Esquema Completo</span>
+
+                <!-- 3 Espaços para Imagem -->
+                <div class="media-grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 15px 0;">
+                    <div class="media-placeholder"><span class="placeholder-tag" style="font-size:0.65rem;">🖼️ Imagem 1: Pinagem</span></div>
+                    <div class="media-placeholder"><span class="placeholder-tag" style="font-size:0.65rem;">🖼️ Imagem 2: Mistura</span></div>
+                    <div class="media-placeholder"><span class="placeholder-tag" style="font-size:0.65rem;">🖼️ Imagem 3: Espectro</span></div>
                 </div>
-                <div class="video-box">
-                    <iframe src="https://www.youtube.com/embed/CGXa6s_EOb4" title="Vídeo LED RGB" allowfullscreen></iframe>
-                    <span class="media-label">Teste do LED RGB</span>
+
+                <!-- 1 Espaço para Vídeo -->
+                <div class="video-placeholder">
+                    <div class="video-container" style="background:#000; display:flex; align-items:center; justify-content:center; color:#fff; min-height:140px; border-radius:8px;">
+                        <span style="font-size: 0.8rem; text-align: center;">▶️ Espaço reservado para o Vídeo dos LEDs RGB</span>
+                    </div>
+                </div>
+
+                <!-- 2 Tecnologias Assistivas -->
+                <div class="tech-box">
+                    <h4>💡 Tecnologias Assistivas Relacionadas</h4>
+                    <ul>
+                        <li><strong>Calibradores de Matiz Cromática:</strong> Ajustam canais RGB específicos para compensar deficiências visuais e daltonismo severo.</li>
+                        <li><strong>Iluminação de Apoio Personalizada:</strong> Ambientes inteligentes que ajustam cores frias e quentes para melhorar o foco de pessoas com neurodivergências.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-    </div>
+        <!-- Seção Fake News (Mitos e Fatos) -->
+        <section id="mitos" class="section">
+            <div class="section-title">
+                <h2>Verificação Científica (Fake News na Óptica)</h2>
+                <p>Desvendando mitos populares sobre luz, cores e visão</p>
+            </div>
+
+            <div class="card">
+                <div class="fact-box">
+                    <span class="fact-badge mito">MITO COMUM</span>
+                    <p><strong>"O Disco de Newton gira e fica totalmente branco como uma folha de papel impressa."</strong></p>
+                    <hr>
+                    <span class="fact-badge fato">FATO CIENTÍFICO</span>
+                    <p>Isso é uma falsa crença visual. Devido às propriedades dos pigmentos físicos de tinta e à reflexão difusa da luz nos materiais, o disco em rotação veloz atinge apenas uma coloração cinza-clara ou bege. A fusão pura do branco absoluto só ocorre com feixes de luz direta e pura, não com tinta.</p>
+                </div>
+
+                <div class="fact-box" style="margin-top: 15px;">
+                    <span class="fact-badge mito">MITO COMUM</span>
+                    <p><strong>"As cores dos objetos são propriedades fixas e exclusivas deles próprios, independentes da luz."</strong></p>
+                    <hr>
+                    <span class="fact-badge fato">FATO CIENTÍFICO</span>
+                    <p>Outra inverdade amplamente disseminada. Um objeto não tem cor por si só; ele apenas reflete determinados comprimentos de onda da luz que incide sobre ele e absorve os demais. Se a iluminação mudar, a cor percebida do objeto se altera completamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flashcards focados na Fake News -->
+        <section id="flashcards" class="section">
+            <div class="section-title">
+                <h2>Flashcards de Revisão (Verdade ou Mito?)</h2>
+                <p>Toque em cada cartão para revelar a explicação baseada na Fake News</p>
+            </div>
+
+            <div class="flashcard-group">
+                <div class="card flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="card-type">FLASHCARD 1</span>
+                            <p>O disco de Newton fica 100% branco como papel ao girar rápido?</p>
+                            <span style="font-size:0.65rem; color:var(--text-muted); margin-top:4px;">Toque para virar ↺</span>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="card-type">RESPOSTA / FATO</span>
+                            <p>Mito! A tinta gera tom acinzentado. O branco puro só ocorre com superposição de luzes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <span class="card-type">FLASHCARD 2</span>
+                            <p>A cor de um objeto existe por si só sem depender da luz?</p>
+                            <span style="font-size:0.65rem; color:var(--text-muted); margin-top:4px;">Toque para virar ↺</span>
+                        </div>
+                        <div class="flashcard-back">
+                            <span class="card-type">RESPOSTA / FATO</span>
+                            <p>Mito! A cor depende da luz que incide e de quais comprimentos de onda são refletidos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer>
-        <p>&copy; 2026 Oásis da Luz. Todos os direitos reservados.</p>
+        <p>&copy; 2026 - Oásis da Luz</p>
     </footer>
 
+    <!-- Script de Funcionamento Total com Botão de Parar -->
+    <script src="script.js"></script>
 </body>
 </html>
